@@ -38,4 +38,4 @@ Equipe Desenvolvimento
 	Como a equipe trabalha
 
 
-Teste de mudança Git
+Teste de mudança GitHub
