@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%@page import="com.javatpoint.dao.UserDao"%>
 <jsp:useBean id="u" class="com.javatpoint.bean.User"></jsp:useBean>
 <jsp:setProperty property="*" name="u"/>
@@ -9,4 +10,17 @@ response.sendRedirect("adduser-success.jsp");
 }else{
 response.sendRedirect("adduser-error.jsp");
 }
+=======
+<%@page import="com.javatpoint.dao.UserDao"%>
+<jsp:useBean id="u" class="com.javatpoint.bean.User"></jsp:useBean>
+<jsp:setProperty property="*" name="u"/>
+
+<%
+int i=UserDao.save(u);
+if(i>0){
+response.sendRedirect("adduser-success.jsp");
+}else{
+response.sendRedirect("adduser-error.jsp");
+}
+>>>>>>> 179b455b4b532bc79eff2c4effbc59566f5d874c
 %>
