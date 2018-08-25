@@ -20,3 +20,4 @@ INSERT INTO TRATAMENTOS (descricao, amb, preco) VALUES ('Atendimento fisiátrico
 INSERT INTO TRATAMENTOS (descricao, amb, preco) VALUES ('Sessão nutricionista','10910',69.90);
 
 SELECT * FROM TRATAMENTOS
+desc tratamentos
