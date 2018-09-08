@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>CESUP Compras e Contratações SP</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <!--<link href="css/fontmin.css" rel="stylesheet">-->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Cesup Styles -->
+    <link href="css/styles.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css" />
+
+
+
+    <style>
+        /* navbar */
+
+        .navbar-personalizado {
+            background-color: #012b5b;
+            color: #FFFFFF;
+            font-style: #FFFFFF;
+            border-radius: 5px 5px 5px 5px;
+            padding: 50px;
+            active-background: #025c9f;
+            active-color: #025c9f;
+        }
+
+        .navbar-personalizado .brand,
+        .navbar-personalizado .nav>li>a {
+            color: #025c9f;
+        }
+
+        .navbar-personalizado .brand,
+        .navbar-personalizado .nav>li>a:hover {
+            color: #025c9f;            
+        }
+
+     
+
+        .panel-azul {
+            border-color: #013774;
+        }
+
+        .panel-azul>.panel-heading {
+            border-color: #013774;
+            color: white;
+            background-color: #013774;
+        }
+
+        .panel-azul>a {
+            color: #337ab7;
+        }
+
+        .panel-azul>a:hover {
+            color: #337ab7;
+            border-color: #013774;
+        }
+
+
+        .btn-primary {
+            background-color: #013774
+        }
+
+
+
+        .menu li a:hover {
+            color: rgb(255, 255, 255);
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+
+        .checar {
+            display: block;
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        /* Hide the browser's default checkbox */
+
+        .checar input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+        /* Create a custom checkbox */
+
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 20px;
+            width: 20px;
+            background-color: #e0e0e0;
+        }
+        /* On mouse-over, add a grey background color */
+
+        .checar:hover input~.checkmark {
+            background-color: #ccc;
+        }
+        /* When the checkbox is checked, add a blue background */
+
+        .checar input:checked~.checkmark {
+            background-color: white;
+        }
+        /* Create the checkmark/indicator (hidden when not checked) */
+
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+        /* Show the checkmark when checked */
+
+        .checar input:checked~.checkmark:after {
+            display: block;
+        }
+        /* Style the checkmark/indicator */
+
+        .checar .checkmark:after {
+            left: 9px;
+            top: 5px;
+            width: 7px;
+            height: 11px;
+            border: solid #013774;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+
+        .nav-side-menu {
+            overflow: auto;
+            font-family: verdana;
+            font-size: 12px;
+            font-weight: 200;
+            background-color: #02203a;
+            position: fixed;
+            top: 0px;
+            width: 250px;
+            height: 100%;
+            color: #e1ffff;
+        }
+
+        .nav-side-menu .brand {
+            background-color: #02203a;
+            line-height: 50px;
+            display: block;
+            text-align: center;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .nav-side-menu .toggle-btn {
+            display: none;
+        }
+
+        .nav-side-menu ul,
+        .nav-side-menu li {
+            list-style: none;
+            padding: 0px;
+            margin: 0px;
+            line-height: 35px;
+            cursor: pointer;
+        }
+
+        .nav-side-menu ul :not(collapsed) .arrow:before,
+        .nav-side-menu li :not(collapsed) .arrow:before {
+            font-family: FontAwesome;
+            content: "\f078";
+            display: inline-block;
+            padding-left: 10px;
+            padding-right: 10px;
+            vertical-align: middle;
+            float: right;
+        }
+
+        .nav-side-menu ul .active,
+        .nav-side-menu li .active {
+            border-left: 3px solid #d19b3d;
+            background-color: #4f5b69;
+        }
+
+        .nav-side-menu ul .sub-menu li.active,
+        .nav-side-menu li .sub-menu li.active {
+            color: #d19b3d;
+        }
+
+        .nav-side-menu ul .sub-menu li.active a,
+        .nav-side-menu li .sub-menu li.active a {
+            color: #d19b3d;
+        }
+
+        .nav-side-menu ul .sub-menu li,
+        .nav-side-menu li .sub-menu li {
+            background-color: #181c20;
+            border: none;
+            line-height: 28px;
+            border-bottom: 1px solid #23282e;
+            margin-left: 0px;
+        }
+
+        .nav-side-menu ul .sub-menu li:hover,
+        .nav-side-menu li .sub-menu li:hover {
+            background-color: #020203;
+        }
+
+        .nav-side-menu ul .sub-menu li:before,
+        .nav-side-menu li .sub-menu li:before {
+            font-family: FontAwesome;
+            content: "\f105";
+            display: inline-block;
+            padding-left: 10px;
+            padding-right: 10px;
+            vertical-align: middle;
+        }
+
+        .nav-side-menu li {
+            padding-left: 0px;
+            border-left: 3px solid #2e353d;
+            border-bottom: 1px solid #23282e;
+        }
+
+        .nav-side-menu li a {
+            text-decoration: none;
+            color: #e1ffff;
+        }
+
+        .nav-side-menu li a i {
+            padding-left: 18px;
+            width: 20px;
+            padding-right: 18px;
+        }
+
+        .nav-side-menu li:hover {
+            border-left: 3px solid #d19b3d;
+            background-color: #4f5b69;
+            -webkit-transition: all 1s ease;
+            -moz-transition: all 1s ease;
+            -o-transition: all 1s ease;
+            -ms-transition: all 1s ease;
+            transition: all 1s ease;
+        }
+
+        @media (max-width: 767px) {
+            .nav-side-menu {
+                position: relative;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            .nav-side-menu .toggle-btn {
+                display: block;
+                cursor: pointer;
+                position: absolute;
+                right: 10px;
+                top: 10px;
+                z-index: 10 !important;
+                padding: 3px;
+                background-color: #ffffff;
+                color: #000;
+                width: 40px;
+                text-align: center;
+            }
+            .brand {
+                text-align: left !important;
+                font-size: 22px;
+                padding-left: 20px;
+                line-height: 50px !important;
+            }
+        }
+
+        @media (min-width: 767px) {
+            .nav-side-menu .menu-list .menu-content {
+                display: block;
+            }
+        }
+
+        .select-form {
+            height: 33px;
+            overflow: hidden;
+            width: 100%;
+            font-size: 12px;
+            border: 1px solid;
+            border-radius: 5px;
+            border-color: lightgrey;
+        }
+
+        .popover {
+            z-index: 3;
+        }
+
+        .popover-title {
+            font-weight: bold;
+            background-color: khaki
+        }
+
+        .input-texto {
+            border-radius: 5px;
+            border: 1px solid;
+            border-color: lightgrey;
+            width: 100%;
+        }
+
+        .input-texto-contrat {
+            border-radius: 5px;
+            border: 1px solid;
+            border-color: lightgrey;
+            width: 50%;
+        }
+
+        .input-texto-info {
+            border-radius: 5px;
+            border: 1px solid;
+            border-color: lightgrey;
+            width: 84%;
+        }
+
+
+
+            
+    </style>
+
+
+</head>
+
+<body>
+
+
+    <div class="row responsive">
+        <!-- Cabeça -->
+
+        <!-- @@@@@ começa menu lateral @@@@@ -->
+
+
+        <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Menu Lateral @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+        <div class="col-md-2 col-lg-2" id="menulateral">
+
+
+            <div class="nav-side-menu">
+                <div class="brand">
+                    <h4>Cesup Compras e Contratações</h4>
+                </div>
+
+                <div class="brand">
+                    <img src="img/img.jpg" width="60px">
+                </div>
+
+                <div class="brand">
+                    <h5>Equipamentos</h5>
+                </div>
+                <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+
+                <div class="menu-list">
+
+                    <ul id="menu-content" class="menu-content collapse out">
+                        <li>
+                            <a href="#">
+                                <i><span class="glyphicon glyphicon-home" aria-hidden="true"></span></i>
+                                Ínicio </a>
+                        </li>
+
+                        <li data-toggle="collapse" data-target="#products" class="collapsed">
+                            <a href="licit_cad.html">
+                                <i><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></i>
+                                Cadastrar</a>
+                        </li>
+
+
+
+                        <li data-toggle="collapse" data-target="#service" class="collapsed">
+                            <a href="#"><i><span class="glyphicon glyphicon-search" aria-hidden="true"></span></i>
+                                Consultar </a>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <!-- @@@@@ Termina menu lateral @@@@@ -->
+
+
+
+
+
+
+        <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Painel Sistema NES @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+        <div class="col-sm-12 col-md-9" id="corpo">
+
+
+            <h2 class="page-header">Formulário :
+                <small>Cadastro de equipamentos [versão: 0.0.1]</small>
+            </h2>
+
+            <div class="row" id="aviso" style="display:none">
+                <div class="alert alert-dismissible" id="aviso_classificacao" role="alert">
+                    <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span> &nbsp
+                    <span id="aviso_texto"></span>
+                </div>
+            </div>
+
+            <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Seção Consulta @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+            <section id="secao-localidade">
+                <div class="col-md-10">
+                    <div id="localidade">
+                        <br>
+                        <h4>Consulta de contrato</h4>
+                        <div class="panel panel-default ">
+                            <div class="panel-body">
+
+                                <div class="row">
+                                    <br>
+                                    <form class="form-vertical">
+                                        <div class="col-md-3 col-sm-12">
+                                            <div class="form-group">
+                                                <label>Código:</label>
+                                                <div class="input-group">
+                                                    <input id="num-contrato" type="text" class="form-control" style="z-index: 0">
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                    </form>
+                                </div>
+
+                                <!--  Row da tabela dos prefixos incluidos ao projeto -->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <br><br>
+                                        <table class="table table-hover table-bordered text-center" id="consulta-nes">
+                                            <thead style="font-size:11px">
+                                                <tr style="background-color: whitesmoke">
+                                                    <th width="50px">Código</th>
+                                                    <th class="text-center">Equipamento</th>
+                                                    <th class="text-center">Categoria</th>
+                                                    <th class="text-center">Modalidade</th>
+                                    
+                                                    <th width="30px">Alterar</th>
+                                                    <th width="30px">Excluir</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tabela-local">
+                                                <td>RD002</td>
+                                                <td>Extensora Carga Lateral</td>
+                                                <td>Braço</td>
+                                                <td>New Exata</td>
+                                             
+                                                <td><button class='btn btn-default btn-xs btn-remove-prefixo'><span class='glyphicon glyphicon-pencil' aria-hidden='true' style='color:#025c9f'></span></button></td>
+                                                <td><button class='btn btn-default btn-xs btn-remove-prefixo' onclick='removeLocal(this,event)'><span class='glyphicon glyphicon-remove' aria-hidden='true' style='color:#d9534f'></span></button></td>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+
+
+
+
+
+
+        </div>
+        <!-- Fecha div do row responsive -->
+
+
+
+
+        <div class="col-md-2 div-cad-contrato" style="display: none">
+            <br>
+            <div class="panel panel-azul">
+
+                <div class="panel-heading">
+                    <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> &nbsp
+                    Cadastrar Número de Contrato
+                </div>
+
+                <div class="panel-body">
+
+                    <form class="vertical">
+                        <label> Número do Contrato: </label>
+                        <input type="text" class="form-control">
+                        <br>
+                        <label>MCI: </label>
+                        <input type="text" class="form-control">
+                        <br>
+                        <label>Nome da Empresa: </label>
+                        <input type="text" class="form-control">
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <button class="btn btn-primary">
+                                    <span class="glyphicon glyphicon-ok" aria-hidden="true" style="color:#5cb85c"></span>
+                                    &nbsp Salvar
+                                </button>
+                            </div>
+                            <div class="col-md-6">
+                                <button class="btn btn-default pull-right">
+                                    <span class="glyphicon glyphicon-share-alt" aria-hidden="true" style="color:#d9534f"></span>
+                                    &nbsp Sair
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+        <br><br>
+        <hr>
+    </div>
+    <!-- Fecha div do row responsive -->
+
+
+
+
+
+
+</body>
+<!-- Fecha div principal -->
+
+
+
+
+
+<footer class="container-fluid rodapé">
+    <p class="text-center" style="color:white">Responsável: Cezar T. Nakase</p>
+</footer>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+    $(function() {
+        $('[data-toggle="popover"]').popover()
+    })
+
+    $(function() {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+
+
+    $(document).ready(function() {
+        var menu = $("#corpo");
+        var origOffsetY = menu.offset().top - 10;
+
+        function scroll() {
+            if ($(window).scrollTop() >= origOffsetY) {
+                $('.menu').addClass('sticky');
+            } else {
+                $('.menu').removeClass('sticky');
+            }
+        }
+        document.onscroll = scroll;
+
+    });
+
+
+    $(document).ready(function() {
+        $(window).resize(function() {
+            tamanhoTela();
+        });
+    });
+
+    function tamanhoTela() {
+
+        var w = window,
+            d = document,
+            e = d.documentElement,
+            g = d.getElementsByTagName('body')[0],
+            x = w.innerWidth || e.clientWidth || g.clientWidth,
+            y = w.innerHeight || e.clientHeight || g.clientHeight;
+
+        if (x <= 1450) {
+            $("#menulateral").fadeOut("fast", function() {
+                $("#menulateral").hide();
+                $("#corpo").removeClass("col-md-9");
+                $("#corpo").addClass("col-md-12");
+            });
+        } else {
+            $("#menulateral").fadeIn("fast", function() {
+                $("#menulateral").show();
+                $("#corpo").removeClass("col-md-12");
+                $("#corpo").addClass("col-md-9");
+            });
+        }
+        console.log(x + " px");
+        console.log(y + " px");
+
+    }
+
+
+
+   function removeLocal(elemento,event){
+        event.preventDefault();
+        removeLinhaTabela(elemento,'local')
+    }
+
+    
+    function removeLinhaTabela(elemento,tabela){
+        var tr = $(elemento).closest('tr');
+        tr.fadeOut(400, function () {
+            tr.remove();
+            if(tabela == "local"){
+                validaSecaoLocalidade();
+            }
+        });
+    }
+
+
+
+
+
+    function mensagemAlerta(mensagem, classificacao) {
+
+        $('html, body').animate({
+            scrollTop: 0
+        }, 'fast');
+        $("#aviso_classificacao").removeClass('alert-danger');
+        $("#aviso_classificacao").removeClass('alert-warning');
+        $("#aviso_classificacao").removeClass('alert-info');
+        $("#aviso_classificacao").removeClass('alert-success');
+        $("#aviso_classificacao").addClass(classificacao);
+        $("#aviso_texto").text(mensagem);
+        $("#aviso").slideDown(500).delay(2000).fadeOut(500);
+
+    }
+
+
+    /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Funções de validações @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+
+</script>
+
+
+
+
+
+</body>
+
+</html>

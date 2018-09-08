@@ -1,0 +1,117 @@
+{{ define "New" }}
+{{ template "Header" }}
+
+<div class="col-md-9 ">
+    <h2>Cadastrar Equipamento</h2>
+
+
+    <div class="panel panel-default ">
+        <div class="panel-body">
+           
+
+                <div class="row">
+                    <br>
+
+
+                    <form class="form-vertical">
+                        <div class="col-md-3 col-sm-12">
+
+                            <div class="form-group">
+                                <label>Código:</label>
+                                <input id="codigo" type="text" class="form-control" style="z-index: 0">
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label>Nome do equipamento:</label>
+                                <input id="nome"  class="form-control" type="text" id="tag-empresa">
+                            </div>
+                        </div>
+
+
+
+                    </form>
+                </div>
+
+                <div class="row">
+                    <br>
+                    <div class="col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <label>Categoria:</label>
+                            <select class="select-form form-control" id="categoria_id" >
+                                <option disabled="true" selected value="-1">Selecione</option>
+                                <option value="1">Braços</option>
+                                <option value="2">Pernas</option>
+                                <option value="3">Peito</option>
+                                <option value="4">Costas</option>
+                                <option value="5">Ombros</option>
+                                <option value="7">Acessório</option>
+                                <option value="8">Residencial</option>
+                                <option value="9">Bancos Livres</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <label>Modalidade:</label>
+                            <select class="select-form form-control" id="linha_id" >
+                                <option disabled="true" selected value="-1">Selecione</option>
+                                <option value="2">Acessorios</option>
+                                <option value="3">Cardiovascular</option>
+                                <option value="4">Multi estações / Condominios</option>
+                                <option value="5">Cross Training / Funcional</option>
+                                <option value="6">Free Weigth</option>
+                                <option value="7">Stratos</option>
+                                <option value="8">New Exata</option>
+                                <option value="9">Fusion</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+            <button type="button" class="btn btn-primary" onclick="cadastrarEquipamento()">Cadastrar</button>
+      
+
+        </div><!-- Fecha painel body -->
+    </div><!-- Fecha painel -->
+
+</div>
+
+  <form method="POST" action="insert" name="formularioCadastrar">
+    <input type="hidden" name="codigo" id="codigo-post">
+    <input type="hidden" name="nome" id="nome-post">
+    <input type="hidden" name="categoria_id" id="categoria-post">
+    <input type="hidden" name="linha_id" id="linha-post">  
+  </form>
+
+<script>
+    console.log("Teste de cadastro");
+
+    function cadastrarEquipamento() {
+
+        var codigo = document.getElementById("codigo").value;
+        var nome = document.getElementById("nome").value;
+
+        var e = document.getElementById("categoria_id");
+        var categoria = e.options[e.selectedIndex].value;
+        
+        var f = document.getElementById("linha_id");
+        var linha = e.options[e.selectedIndex].value;
+        
+        document.getElementById("codigo-post").value = codigo;
+        document.getElementById("nome-post").value = nome;
+        document.getElementById("categoria-post").value = categoria;
+        document.getElementById("linha-post").value = linha;
+        
+        console.log(codigo +" "+nome+" "+categoria+" "+linha); 
+        document.formularioCadastrar.submit();
+    }
+
+</script>
+
+{{ template "Footer" }}
+{{ end }}
