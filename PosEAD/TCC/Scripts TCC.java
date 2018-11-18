@@ -228,3 +228,104 @@ if(result.hasErrors()) {
     </form>
 </body>
 </html>
+
+
+
+/** VRaptor Controller - C1 */
+@Controller
+public class UsuarioController {
+ 	public void lista() {
+... 
+}
+}
+
+/** VRaptor Controller - C2 */
+@Get("alguma/outra/url")
+public void lista(){ ... }
+
+
+/** VRaptor Views - V1 */
+@Controller
+class ClientController {
+
+    @Inject
+    private Result result;
+
+    public void busca(int id) {
+        result.include("mensagem", "Alguma mensagem");
+        result.include("cliente", new Cliente(id));
+    }
+}
+
+/** VRaptor Views - V2 */
+@Controller
+class ClientController {
+
+    @Inject
+    private Result result;
+
+    public void busca(int id) {
+        result.include("Alguma mensagem").include(new Cliente(id));
+    }
+}
+
+/** VRaptor Views - V3 */
+public class ClientsController {
+    public void list() { 
+        //... 
+    }
+}
+
+
+/** VRaptor Views - V4 */
+@Specializes
+public class FreemarkerPathResolver extends DefaultPathResolver {
+    protected String getPrefix() {
+        return "/WEB-INF/freemarker/";
+    }
+
+    protected String getExtension() {
+        return "ftl";
+    }
+}
+
+
+/** VRaptor Views - V5 */
+@Controller
+public class ClientsController {
+
+    @Inject
+    private Result result;
+
+    public void list() { ... }
+
+    public void save(Client client) {
+        //...
+        result.use(Results.logic()).redirectTo(ClientsController.class).list();
+    }
+}
+
+
+/** VRaptor DI - D1 */
+@Controller
+public class ClienteController {
+
+    private final ClienteDao dao;
+
+    /**
+     * @deprecated CDI eyes only
+     */
+    protected ClienteController() {
+        this(null);
+    }
+
+    @Inject
+    public ClienteController(ClienteDao dao) {
+        this.dao = dao;
+    }
+
+    @Post
+    public void adiciona(Cliente cliente) {
+        this.dao.adiciona(cliente);
+    }
+}
