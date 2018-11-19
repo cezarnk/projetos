@@ -329,3 +329,45 @@ public class ClienteController {
         this.dao.adiciona(cliente);
     }
 }
+
+/** VRaptor DI - D2 */
+@Named
+public class ClienteService {
+ 
+    @Inject
+    ClienteDao clienteDAO;
+    @Inject
+    Cliente cliente;
+  
+    public void grava() {
+        ...
+    }
+
+    /** Inserir código VRaptor Validator – V1 */ 
+    //Validador Clássico
+    if(cliente.getNome() == null){
+        //Mensagem simples
+        validator.add(new SimpleMessage("nome","O nome deve ser preenchid"));
+
+        //Mensagem internacionalizada
+        validator.add(new I18Message("nome","O nome deve ser preenchid"));
+    }
+
+    //Validador atraves do Bean Validation
+    @Post
+    public void adiciona(@NotNull @Valid Cliente cliente){
+        validator.onErrorForwardTo(this).form();
+        dao.inserir(cliente);
+        result.redirectTo(this).listar();
+    }
+
+    //Validador Fluente
+    validator.addIf(cliente.getNome() == null, new SimpleMessage("nome","O nome deve ser preenchid"));
+
+    validator.ensure(cliente.getNome() != null, new SimpleMessage("nome","O nome deve ser preenchid"));
+
+    
+
+
+
+    
