@@ -330,7 +330,7 @@ public class ClienteController {
     }
 }
 
-/** VRaptor DI - D2 */
+/** VRaptor DI - D1 */
 @Named
 public class ClienteService {
  
@@ -343,30 +343,45 @@ public class ClienteService {
         ...
     }
 
-    /** Inserir código VRaptor Validator – V1 */ 
-    //Validador Clássico
-    if(cliente.getNome() == null){
-        //Mensagem simples
-        validator.add(new SimpleMessage("nome","O nome deve ser preenchid"));
+// D2
+@ApplicationScoped
+public class HibernateControl {
 
-        //Mensagem internacionalizada
-        validator.add(new I18Message("nome","O nome deve ser preenchid"));
+    private final SessionFactory factory;
+
+    public HibernateControl() {
+        this.factory = new AnnotationConfiguration().configure().buildSessionFactory();
     }
 
-    //Validador atraves do Bean Validation
-    @Post
-    public void adiciona(@NotNull @Valid Cliente cliente){
-        validator.onErrorForwardTo(this).form();
-        dao.inserir(cliente);
-        result.redirectTo(this).listar();
+    public Session getSession() {
+        return factory.openSession();
     }
+}
 
-    //Validador Fluente
-    validator.addIf(cliente.getNome() == null, new SimpleMessage("nome","O nome deve ser preenchid"));
+/** Inserir código VRaptor Validator – V1 */ 
+//Validador Clássico
+if(cliente.getNome() == null){
+    //Mensagem simples
+    validator.add(new SimpleMessage("nome","O nome deve ser preenchid"));
 
-    validator.ensure(cliente.getNome() != null, new SimpleMessage("nome","O nome deve ser preenchid"));
+    //Mensagem internacionalizada
+    validator.add(new I18Message("nome","O nome deve ser preenchid"));
+}
 
-    
+//Validador atraves do Bean Validation
+@Post
+public void adiciona(@NotNull @Valid Cliente cliente){
+    validator.onErrorForwardTo(this).form();
+    dao.inserir(cliente);
+    result.redirectTo(this).listar();
+}
+
+//Validador Fluente
+validator.addIf(cliente.getNome() == null, new SimpleMessage("nome","O nome deve ser preenchid"));
+
+validator.ensure(cliente.getNome() != null, new SimpleMessage("nome","O nome deve ser preenchid"));
+
+
 
 
 
