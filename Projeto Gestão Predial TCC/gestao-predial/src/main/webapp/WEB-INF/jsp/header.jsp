@@ -1,25 +1,175 @@
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Sistema de horas</title>
-	<link href="<c:url value='/css/bootstrap.css'/>" rel="stylesheet"/>
-	<link href="<c:url value='/css/site.css'/>" rel="stylesheet"/>
+<title>Gestão Predial</title>
+<link href="<c:url value='/css/bootstrap.css'/>" rel="stylesheet" />
+<link href="<c:url value='/css/site.css'/>" rel="stylesheet" />
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+<script src="<c:url value='/js/jquery.min.js'/>"></script>
+<script src="<c:url value='/js/bootstrap.min.js'/>"></script>
+<script src="<c:url value='/js/base.js'/>"></script>
+
+
 </head>
 <body>
-<nav>
-	<ul class="nav nav-tabs">
-		<li><a href="${linkTo[IndexController].index()}">Home</a></li>
-		<li><a href="${linkTo[UsuarioController].lista()}">Usuarios</a></li>
-		<c:if test="${usuarioLogado.logado}">
-			<li><a href="${linkTo[LoginController].desloga()}">Deslogar</a></li>
-		</c:if>
-		<c:if test="${!usuarioLogado.logado}">
-			<li><a href="${linkTo[LoginController].form()}">Autenticar</a></li>
-		</c:if>
-	</ul>
-</nav>
-<div class="container">
-	<main class="col-sm-8">
-	</main>
-</div>
+
+	<nav class="navbar menu" id="cabeçalhoII">
+		<div class="container-fluid"
+			style="padding-top: 10px; padding-bottom: 10px">
+			<div class="collapse navbar-collapse navbar-right" id="espremível">
+
+
+				<ul class="nav navbar-nav" id="lista-navegação2">
+					<li>
+						<div class="navbar-header" style="width: 100px; margin-top: 6px;margin-right: -20px">
+							<button class="btn btn-default btn-xs pull-right"
+								style="margin-top: -4px">
+								<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+								Usuario logado
+							</button>
+						</div>
+					</li>
+					<li>
+						<div class="navbar-header" style="width: 40px; margin-top: 6px">
+
+
+							<c:if test="${usuarioLogado.logado}">
+								<li>
+									<button class="btn btn-danger btn-xs pull-right"
+										style="margin-top: 2px" onclick="location.href='${linkTo[LoginController].desloga()}'">
+										<span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+									</button>
+								</li>
+							</c:if>
+							<c:if test="${!usuarioLogado.logado}">
+								<li>
+									<button class="btn btn-danger btn-xs pull-right"
+										style="margin-top: 2px">
+										<span class="glyphicon glyphicon-off" aria-hidden="true" onclick="location.href='${linkTo[LoginController].form()}'"></span>
+									</button>
+								</li>
+							</c:if>
+
+
+
+						</div>
+					</li>
+				</ul>
+
+			</div>
+
+		</div>
+	</nav>
+
+	<!-- Modal confirmação -->
+	<div class="modal fade" id="modalCadContrato" role="dialog">
+		<div class="modal-dialog modal-sm">
+
+			<!-- Modal content-->
+			<div class="modal-content ">
+				<div class="modal-header"
+					style="background-color: #025da1; color: white;">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h5 class="modal-title">Confirmar</h5>
+				</div>
+
+				<div class="modal-body"></div>
+			</div>
+		</div>
+	</div>
+	<!--  Fim molde modal -->
+
+
+
+
+	<div class="container-fluid">
+		<div class="row responsive">
+			<!-- Cabeça -->
+
+			<!-- @@@@@ começa menu lateral @@@@@ -->
+
+
+			<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Menu Lateral @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+			<div class="col-sm-2" id="menulateral">
+
+
+				<div class="nav-side-menu">
+					<div class="brand">
+						<img src="<c:url value='/img/logo-predio-branco.png'/>" width="120px " />
+						<h3>Gestão Predial</h3>
+					</div>
+					<i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse"
+						data-target="#menu-content"></i>
+
+					<div class="menu-list">
+
+						<ul id="menu-content" class="menu-content collapse in">
+							<li><a href="${linkTo[IndexController].index()}"> <i><span
+										class="glyphicon glyphicon-home" aria-hidden="true"></span></i>
+									Ínicio
+							</a></li>
+
+							<li data-toggle="collapse" data-target="#products"
+								class="collapsed"><a href="#"> <i><span
+										class="glyphicon glyphicon-pencil" aria-hidden="true"></span></i>
+									Cadastrar <span class="arrow"></span></a></li>
+							<ul class="sub-menu collapse" id="products">
+								<li class="active"><a href="#">Notícia ou Comunicado</a></li>
+								<li class="active"><a href="#">Pagamento de Mensalidade</a></li>
+								<li class="active"><a href="#">Solicitação de
+										Atendimento</a></li>
+								<li class="active"><a href="#">Usuário</a></li>
+							</ul>
+
+
+							<li data-toggle="collapse" data-target="#service"
+								class="collapsed"><a href="#"><i><span
+										class="glyphicon glyphicon-search" aria-hidden="true"></span></i>
+									Consultar <span class="arrow"></span></a></li>
+							<ul class="sub-menu collapse" id="service">
+								<li class="active">Controle de Pagamento</li>
+								<li class="active">Painel de Solicitações</li>
+								<li class="active">Publicações de Notícias</li>
+								<li class="active">Ocupantes do Prédio</li>
+
+							</ul>
+
+
+							<li data-toggle="collapse" data-target="#new" class="collapsed">
+								<a href="#"><i><span class="glyphicon glyphicon-file"
+										aria-hidden="true"></span></i> Gestão <span class="arrow"></span></a>
+							</li>
+							<ul class="sub-menu collapse" id="new">
+								<li class="active"><a href="${linkTo[UsuarioController].lista()}">Controle de acesso</a></li>
+								<li class="active">Fluxo de Caixa</li>		
+								<li class="active">Reuniões de Conselho</li>
+								<li class="active">Relatórios</li>
+							</ul>
+							<li><a href="#"><i><span
+										class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span></i>
+									Fórum </a></li>
+
+
+
+						</ul>
+					</div>
+				</div>
+
+			</div>
+			<!-- @@@@@ Termina menu lateral @@@@@ -->
+
+			<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Corpo da pagina @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+			<div class="col-sm-10 col-lg-10" id="corpo">
+
+
+				<div class="row" id="aviso" style="display: none">
+					<div class="alert alert-dismissible" id="aviso_classificacao"
+						role="alert">
+						<span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
+						&nbsp <span id="aviso_texto"></span>
+					</div>
+				</div>

@@ -37,7 +37,7 @@ public class LoginController {
     	Usuario usuario = usuarioDao.busca(login,senha);
     	if(usuario != null){
     		usuarioLogado.fazLogin(usuario);
-    		result.redirectTo(UsuarioController.class).lista();
+    		result.redirectTo(IndexController.class).index();
     	} else {
     		validator.add(new SimpleMessage("Login_invalido","Login ou senha incorretos"));
     		validator.onErrorRedirectTo(this).form();
