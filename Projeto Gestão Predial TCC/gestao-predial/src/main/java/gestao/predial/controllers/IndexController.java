@@ -1,4 +1,4 @@
-package br.com.alura.horas.controllers;
+package gestao.predial.controllers;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Path;

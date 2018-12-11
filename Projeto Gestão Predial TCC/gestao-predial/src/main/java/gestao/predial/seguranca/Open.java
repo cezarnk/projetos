@@ -1,4 +1,4 @@
-package br.com.alura.horas.seguranca;
+package gestao.predial.seguranca;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

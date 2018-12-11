@@ -1,4 +1,4 @@
-package br.com.alura.horas.modelos;
+package gestao.predial.modelos;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package br.com.alura.horas.infra;
+package gestao.predial.infra;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;

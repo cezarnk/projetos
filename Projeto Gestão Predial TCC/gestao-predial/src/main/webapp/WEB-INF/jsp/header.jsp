@@ -24,7 +24,8 @@
 
 				<ul class="nav navbar-nav" id="lista-navegação2">
 					<li>
-						<div class="navbar-header" style="width: 100px; margin-top: 6px;margin-right: -20px">
+						<div class="navbar-header"
+							style="width: 100px; margin-top: 6px; margin-right: -20px">
 							<button class="btn btn-default btn-xs pull-right"
 								style="margin-top: -4px">
 								<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
@@ -39,7 +40,8 @@
 							<c:if test="${usuarioLogado.logado}">
 								<li>
 									<button class="btn btn-danger btn-xs pull-right"
-										style="margin-top: 2px" onclick="location.href='${linkTo[LoginController].desloga()}'">
+										style="margin-top: 2px"
+										onclick="location.href='${linkTo[LoginController].desloga()}'">
 										<span class="glyphicon glyphicon-off" aria-hidden="true"></span>
 									</button>
 								</li>
@@ -48,7 +50,8 @@
 								<li>
 									<button class="btn btn-danger btn-xs pull-right"
 										style="margin-top: 2px">
-										<span class="glyphicon glyphicon-off" aria-hidden="true" onclick="location.href='${linkTo[LoginController].form()}'"></span>
+										<span class="glyphicon glyphicon-off" aria-hidden="true"
+											onclick="location.href='${linkTo[LoginController].form()}'"></span>
 									</button>
 								</li>
 							</c:if>
@@ -98,7 +101,8 @@
 
 				<div class="nav-side-menu">
 					<div class="brand">
-						<img src="<c:url value='/img/logo-predio-branco.png'/>" width="120px " />
+						<img src="<c:url value='/img/logo-predio-branco.png'/>"
+							width="120px " />
 						<h3>Gestão Predial</h3>
 					</div>
 					<i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse"
@@ -117,11 +121,12 @@
 										class="glyphicon glyphicon-pencil" aria-hidden="true"></span></i>
 									Cadastrar <span class="arrow"></span></a></li>
 							<ul class="sub-menu collapse" id="products">
+								<li class="active"><a href="#">Dados de Usuário</a></li>
 								<li class="active"><a href="#">Notícia ou Comunicado</a></li>
 								<li class="active"><a href="#">Pagamento de Mensalidade</a></li>
 								<li class="active"><a href="#">Solicitação de
 										Atendimento</a></li>
-								<li class="active"><a href="#">Usuário</a></li>
+
 							</ul>
 
 
@@ -143,8 +148,10 @@
 										aria-hidden="true"></span></i> Gestão <span class="arrow"></span></a>
 							</li>
 							<ul class="sub-menu collapse" id="new">
-								<li class="active"><a href="${linkTo[UsuarioController].lista()}">Controle de acesso</a></li>
-								<li class="active">Fluxo de Caixa</li>		
+								<li class="active"><a
+									href="${linkTo[UsuarioController].lista()}">Controle de
+										acesso</a></li>
+								<li class="active">Fluxo de Caixa</li>
 								<li class="active">Reuniões de Conselho</li>
 								<li class="active">Relatórios</li>
 							</ul>
@@ -167,9 +174,11 @@
 
 
 				<div class="row" id="aviso" style="display: none">
-					<div class="alert alert-dismissible" id="aviso_classificacao"
-						role="alert">
-						<span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
-						&nbsp <span id="aviso_texto"></span>
+					<div class="col-md-10">
+						<div class="alert alert-dismissible" id="aviso_classificacao"
+							role="alert">
+							<span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
+							&nbsp <span id="aviso_texto"></span>
+						</div>
 					</div>
 				</div>

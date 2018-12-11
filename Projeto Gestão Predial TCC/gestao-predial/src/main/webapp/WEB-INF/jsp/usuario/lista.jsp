@@ -35,7 +35,7 @@ Criar Novo Usuário
                 <td>${usuario.email}</td>
                 <td>${usuario.login}</td>
                 <td>
-                	<button type="button" class="btn btn-default btn-xs" data-dismiss="modal">
+                	<button type="button" class="btn btn-default btn-xs" onclick=location.href="<c:url value='/usuario/remove?usuario.id=${usuario.id}'/>">
             		<span class="glyphicon glyphicon-remove" aria-hidden="true" style="color:#d9534f"></span> &nbsp
             		</button>
             	</td>
@@ -45,5 +45,13 @@ Criar Novo Usuário
 </table>
 </div>
 </div>
+
+<c:if test="${not empty mensagem }">
+<script>
+
+mensagemAlerta("${mensagem}","alert-success");
+
+</script>
+</c:if>
 
 <c:import url="/WEB-INF/jsp/footer.jsp"/>

@@ -1,15 +1,15 @@
-package br.com.alura.horas.controllers;
+package gestao.predial.controllers;
 
 import javax.inject.Inject;
 
-import br.com.alura.horas.dao.UsuarioDao;
-import br.com.alura.horas.modelos.Usuario;
-import br.com.alura.horas.seguranca.Open;
-import br.com.alura.horas.seguranca.UsuarioLogado;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.validator.SimpleMessage;
 import br.com.caelum.vraptor.validator.Validator;
+import gestao.predial.dao.UsuarioDao;
+import gestao.predial.modelos.Usuario;
+import gestao.predial.seguranca.Open;
+import gestao.predial.seguranca.UsuarioLogado;
 
 @Controller
 public class LoginController {

@@ -1,4 +1,4 @@
-package br.com.alura.horas.dao;
+package gestao.predial.dao;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
-import br.com.alura.horas.modelos.Usuario;
+import gestao.predial.modelos.Usuario;
 
 @RequestScoped
 public class UsuarioDao {
@@ -24,6 +24,16 @@ public class UsuarioDao {
 		manager.getTransaction().begin();
 		manager.persist(usuario);
 		manager.getTransaction().commit();
+	}
+	
+	public void remove(Usuario usuario) {
+		manager.getTransaction().begin();
+		manager.remove(busca(usuario));
+		manager.getTransaction().commit();
+	}
+	
+	public Usuario busca(Usuario usuario) {
+		return manager.find(Usuario.class, usuario.getId());
 	}
 		
 	public List<Usuario> lista(){

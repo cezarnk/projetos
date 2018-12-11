@@ -8,7 +8,7 @@
 <body style="background-color:#02203a">
 <div class="container login-container">
 	<div class="row">
-		<div class="col-md-6 col-md-offset-3 login-form-1" style="background-color:#FFF">
+		<div class="col-md-6 col-md-offset-3 login-form-1" style="background-color:#FFF;border-radius:10px">
 			
 			<div class="row">
 			<div class="col-md-1 col-md-offset-1">

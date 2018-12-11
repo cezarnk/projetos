@@ -1,11 +1,11 @@
-package br.com.alura.horas.seguranca;
+package gestao.predial.seguranca;
 
 import java.io.Serializable;
 
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
-import br.com.alura.horas.modelos.Usuario;
+import gestao.predial.modelos.Usuario;
 
 @Named
 @SessionScoped
