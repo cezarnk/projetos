@@ -537,7 +537,7 @@ footer.rodapé {
 }
 
 #cabeçalhoII {
-	background-color: #02203a;
+	background-color: #012b5b;
 	min-height: 35px;
 	-webkit-transition: all 0.4s ease-out;
 	-moz-transition: all 0.4s ease-out;
@@ -589,4 +589,30 @@ footer.rodapé {
     color: #0062cc;
     font-weight: 600;
     text-decoration: none;
+}
+
+.link {
+	color: white;
+	font-size: 18px;
+	margin-left:20px
+}
+
+.link a{
+	color: inherit;
+	text-decoration: inherit;
+}
+
+.menu-superior{
+	width: 600px;
+	margin-top: 6px;
+	margin-left:190px;
+}
+
+.containerfoto>li {
+	position: fixed;
+	width: 46%;
+	height: 20px;
+	text-align: right;
+	margin-right: -10px;
+	float: right;
 }

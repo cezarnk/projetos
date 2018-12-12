@@ -19,46 +19,48 @@
 	<nav class="navbar menu" id="cabeçalhoII">
 		<div class="container-fluid"
 			style="padding-top: 10px; padding-bottom: 10px">
-			<div class="collapse navbar-collapse navbar-right" id="espremível">
+			<div class="collapse navbar-collapse navbar-left" id="espremível">
+
+				<div class="navbar-header menu-superior">
+					<span class="link">CESUP</span> <span class="link"
+						style="margin-left: 40px">Quem Somos</span> <span class="link"
+						style="margin-left: 40px">Portfólio</span>
+				</div>
 
 
-				<ul class="nav navbar-nav" id="lista-navegação2">
+				<ul class="nav navbar-nav containerfoto">
 					<li>
-						<div class="navbar-header"
-							style="width: 100px; margin-top: 6px; margin-right: -20px">
-							<button class="btn btn-default btn-xs pull-right"
-								style="margin-top: -4px">
-								<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-								Usuario logado
-							</button>
-						</div>
-					</li>
-					<li>
-						<div class="navbar-header" style="width: 40px; margin-top: 6px">
-
+						<div class="row" style="position:fixed;top:12px;right:0;">
+							<div class="col-md-6 col-md-offset-4"
+								style="margin-right: 0px; margin-top: 8px;">
+								<button class="btn btn-default btn-xs pull-right"
+									style="margin-top: -4px;margin-right:6px">
+									<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+									Usuario logado
+								</button>
+							</div>
 
 							<c:if test="${usuarioLogado.logado}">
-								<li>
+								<div class="col-md-1">
 									<button class="btn btn-danger btn-xs pull-right"
-										style="margin-top: 2px"
+										style="margin-top: 4px;margin-right:4px"
 										onclick="location.href='${linkTo[LoginController].desloga()}'">
 										<span class="glyphicon glyphicon-off" aria-hidden="true"></span>
 									</button>
-								</li>
+								</div>
 							</c:if>
 							<c:if test="${!usuarioLogado.logado}">
-								<li>
+								<div class="col-md-1">
 									<button class="btn btn-danger btn-xs pull-right"
 										style="margin-top: 2px">
 										<span class="glyphicon glyphicon-off" aria-hidden="true"
 											onclick="location.href='${linkTo[LoginController].form()}'"></span>
 									</button>
-								</li>
+								</div>
 							</c:if>
 
-
-
 						</div>
+
 					</li>
 				</ul>
 
