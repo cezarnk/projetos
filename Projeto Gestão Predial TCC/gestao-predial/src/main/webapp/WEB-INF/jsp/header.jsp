@@ -123,7 +123,7 @@
 										class="glyphicon glyphicon-pencil" aria-hidden="true"></span></i>
 									Cadastrar <span class="arrow"></span></a></li>
 							<ul class="sub-menu collapse" id="products">
-								<li class="active"><a href="#">Dados de Usuário</a></li>
+								<li class="active"><a href="${linkTo[PerfilController].form()}">Dados de Usuário</a></li>
 								<li class="active"><a href="#">Notícia ou Comunicado</a></li>
 								<li class="active"><a href="#">Pagamento de Mensalidade</a></li>
 								<li class="active"><a href="#">Solicitação de

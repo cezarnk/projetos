@@ -18,6 +18,7 @@ public class UsuarioController {
 	private UsuarioDao usuarioDao;
 	private Result result;
 	private Validator validator;
+	
 	@Inject
 	public UsuarioController(UsuarioDao usuarioDao,Result result,Validator validator){
     	this.usuarioDao = usuarioDao;
@@ -32,8 +33,8 @@ public class UsuarioController {
     public void adiciona(@Valid Usuario usuario){
     	validator.onErrorForwardTo(this).form();
     	usuarioDao.adiciona(usuario);    	
-    	result.redirectTo(this).lista();
     	result.include("mensagem","Usuario cadastrado com sucesso!");
+    	result.redirectTo(this).lista();
     }
     
     @Path("/usuario/remove")
