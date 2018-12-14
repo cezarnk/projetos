@@ -3,7 +3,7 @@
 
 <c:import url="/WEB-INF/jsp/header.jsp"></c:import>
 
-<h2>Cadastrar Usuário e Senha
+<h2>Cadastro de Acesso
 <small>Criação de login e senha para usuáios acessarem o sistema</small>
 </h2>
 <hr>
