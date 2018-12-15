@@ -61,13 +61,14 @@
 </div>
 
 <script src="<c:url value='/js/jquery.dataTables.min.js'/>"></script>
+<script src="<c:url value='/js/dataTables.min.js'/>"></script>
 
 <script>
 
 
 $(document).ready(function() {
     $('#tabela-usuario').DataTable({
-
+       "paging":   false,
 	   "language":{
               search: "Pesquisar",
               "info": "Visualizar _START_ até _END_ total de _TOTAL_ demandas",

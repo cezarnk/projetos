@@ -1,7 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
-
 <link href="<c:url value='/css/dataTables.bootstrap.min.css'/>" rel="stylesheet" />
 <link href="<c:url value='/css/datatables.min.css'/>" rel="stylesheet" />
 <link href="<c:url value='/css/site.css'/>" rel="stylesheet" />
@@ -15,7 +14,7 @@
 
 
 <button class="btn btn-primary btn-sm"
-	onclick="location.href='${linkTo[UsuarioController].form()}'">
+	onclick="location.href='${linkTo[UsuarioController].form()}'" style="margin-bottom: -80px;">
 	<span class="glyphicon glyphicon-plus" aria-hidden="true"
 		style="color: #5cb85c"></span> &nbsp Criar Novo Usuário
 </button>
@@ -67,6 +66,7 @@
 
 
 <script src="<c:url value='/js/jquery.dataTables.min.js'/>"></script>
+<script src="<c:url value='/js/dataTables.min.js'/>"></script>
 <script>
 
 

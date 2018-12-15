@@ -20,17 +20,8 @@
 		<form action="${linkTo[PerfilController].adiciona(null) }"
 			method="POST">
 
-			<div class="row">
-				<div class="col-md-7">
-					<span>Escolha o perfil do usuário:</span> <label class="tgl"
-						style="font-size: 14px; margin-left: 10px;"> <input
-						type="checkbox" checked id="check-administrador" /> <span
-						data-on="Síndico" data-off="Morador"></span>
-					</label> <input type="hidden" id="administrador"
-						name="perfil.administrador" />
-				</div>
-			</div>
-			<br>
+
+			
 			<div class="row">
 				<div class="col-md-7">
 					<div class="form-group">
@@ -136,8 +127,26 @@
 					</div>
 				</div>
 			</div>
+			<br>
+			
+			<div class="row">
+				<div class="col-md-3">
+					<span>Escolha o perfil do usuário:</span> 
+				</div>	
+				<div class="col-md-3">	
+					<label class="tgl"
+						style="font-size: 14px;"> <input
+						type="checkbox" checked id="check-administrador" /> <span
+						data-on="Síndico" data-off="Morador"></span>
+					</label> <input type="hidden" id="administrador"
+						name="perfil.administrador" value="true"/>
+				</div>
+			</div>
+			
 
 			<br>
+			<div class="row">
+			<div class="col-md-12">
 			<button type="submit" class="btn btn-primary btn-sm">
 				<span class="glyphicon glyphicon-ok" aria-hidden="true"
 					style="color: #5cb85c"></span> &nbsp Cadastrar
@@ -148,6 +157,8 @@
 				<span class="glyphicon glyphicon-share-alt" aria-hidden="true"
 					style="color: #d9534f"></span> &nbspVoltar
 			</button>
+			</div>
+			</div>
 
 		</form>
 
