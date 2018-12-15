@@ -33,7 +33,7 @@ public class Perfil implements Serializable{
 	private int qnt_moradores;
 	private int andar_ocupado;
 	@NotEmpty
-	private boolean administrador;
+	private String administrador;
 	
 	
 	public int getId() {
@@ -90,10 +90,10 @@ public class Perfil implements Serializable{
 	public void setAndar_ocupado(int andar_ocupado) {
 		this.andar_ocupado = andar_ocupado;
 	}
-	public boolean isAdministrador() {
+	public String isAdministrador() {
 		return administrador;
 	}
-	public void setAdministrador(boolean administrador) {
+	public void setAdministrador(String administrador) {
 		this.administrador = administrador;
 	}
 	

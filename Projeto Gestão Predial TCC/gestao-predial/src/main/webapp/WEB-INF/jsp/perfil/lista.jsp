@@ -1,50 +1,54 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<c:import url="/WEB-INF/jsp/header.jsp" />
+<%@ taglib tagdir="/WEB-INF/tags" prefix="aviso"%>
 
+<c:import url="/WEB-INF/jsp/header.jsp"></c:import>
+<link href="<c:url value='/css/site.css'/>" rel="stylesheet" />
 
 <link href="<c:url value='/css/dataTables.bootstrap.min.css'/>" rel="stylesheet" />
 <link href="<c:url value='/css/datatables.min.css'/>" rel="stylesheet" />
-<link href="<c:url value='/css/site.css'/>" rel="stylesheet" />
+
 
 <h2>
-	Controle de Acesso <small>Gerenciamento de login e senha dos
-		usuários do sistema</small>
+	Lista de Usuários<small> Perfil dos ocupantes do prédio</small>
 </h2>
 <hr>
 <br>
 
 
-<button class="btn btn-primary btn-sm"
-	onclick="location.href='${linkTo[UsuarioController].form()}'">
-	<span class="glyphicon glyphicon-plus" aria-hidden="true"
-		style="color: #5cb85c"></span> &nbsp Criar Novo Usuário
-</button>
-<br>
-<br>
-
-
 <div class="row">
 	<div class="col-md-10">
-		<table class="table table-hover table-striped table-bordered" id="tabela-login">
+		<table class="table table-hover table-striped table-bordered" id="tabela-usuario">
 			<thead>
 				<tr>
 					<th>Id</th>
 					<th>Nome</th>
-					<th>E-mail</th>
-					<th>Login</th>
+					<th>CPF</th>
+					<th>Data Nascimento</th>
+					<th>Estado Civil</th>
+					<th>Andar Ocupado</th>
+					<th width="30px"></th>
 					<th width="30px"></th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${usuarios}" var="usuario">
+				<c:forEach items="${perfil}" var="perfil">
 					<tr>
-						<td>${usuario.id}</td>
-						<td>${usuario.nome}</td>
-						<td>${usuario.email}</td>
-						<td>${usuario.login}</td>
+						<td>${perfil.id}</td>
+						<td>${perfil.nome}</td>
+						<td>${perfil.cpf}</td>
+						<td>${perfil.qnt_filhos}</td>
+						<td>${perfil.estado_civil}</td>
+						<td>${perfil.andar_ocupado}</td>
 						<td>
 							<button type="button" class="btn btn-default btn-xs"
-								onclick=location.href="<c:url value='/usuario/remove?usuario.id=${usuario.id}'/>">
+								onclick=location.href="<c:url value='/perfil/remove?perfil.id=${perfil.id}'/>">
+								<span class="glyphicon glyphicon-pencil" aria-hidden="true"
+									style="color: gray"></span> &nbsp
+							</button>
+						</td>
+						<td>
+							<button type="button" class="btn btn-default btn-xs"
+								onclick=location.href="<c:url value='/perfil/remove?perfil.id=${perfil.id}'/>">
 								<span class="glyphicon glyphicon-remove" aria-hidden="true"
 									style="color: #d9534f"></span> &nbsp
 							</button>
@@ -56,26 +60,14 @@
 	</div>
 </div>
 
-<c:if test="${not empty mensagem }">
-<script>
-	mensagemAlerta("${mensagem}","alert-success")
-</script>
-</c:if>
-
-<c:import url="/WEB-INF/jsp/footer.jsp" />
-
-
-
 <script src="<c:url value='/js/jquery.dataTables.min.js'/>"></script>
+
 <script>
 
 
 $(document).ready(function() {
-    $('#tabela-login').DataTable({
-    	"paging":   false,
-        "ordering": true,
-        "info":     true,
-    	
+    $('#tabela-usuario').DataTable({
+
 	   "language":{
               search: "Pesquisar",
               "info": "Visualizar _START_ até _END_ total de _TOTAL_ demandas",
@@ -98,3 +90,14 @@ $(document).ready(function() {
 } );
 
 </script>
+
+
+<c:if test="${not empty mensagem }">
+<script>
+	mensagemAlerta("${mensagem}","alert-success");
+</script>
+</c:if>
+
+
+
+<c:import url="/WEB-INF/jsp/footer.jsp"></c:import>

@@ -12,7 +12,6 @@
 <script src="<c:url value='/js/bootstrap.min.js'/>"></script>
 <script src="<c:url value='/js/base.js'/>"></script>
 
-
 </head>
 <body>
 
@@ -30,7 +29,7 @@
 
 				<ul class="nav navbar-nav containerfoto">
 					<li>
-						<div class="row" style="position:fixed;top:12px;right:0;">
+						<div class="row" style="position:fixed;top:12px;right:0;z-index: 4">
 							<div class="col-md-6 col-md-offset-4"
 								style="margin-right: 0px; margin-top: 8px;">
 								<button class="btn btn-default btn-xs pull-right"
@@ -138,9 +137,10 @@
 									Consultar <span class="arrow"></span></a></li>
 							<ul class="sub-menu collapse" id="service">
 								<li class="active">Controle de Pagamento</li>
+								<li class="active"><a href="${linkTo[PerfilController].lista()}">Lista de Usuários</a></li>
 								<li class="active">Painel de Solicitações</li>
 								<li class="active">Publicações de Notícias</li>
-								<li class="active">Ocupantes do Prédio</li>
+								
 
 							</ul>
 
