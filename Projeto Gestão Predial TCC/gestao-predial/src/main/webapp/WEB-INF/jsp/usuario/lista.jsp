@@ -13,8 +13,9 @@
 <br>
 
 
+
 <button class="btn btn-primary btn-sm"
-	onclick="location.href='${linkTo[UsuarioController].form()}'" style="margin-bottom: -80px;">
+	onclick="location.href='${linkTo[UsuarioController].form()}'" >
 	<span class="glyphicon glyphicon-plus" aria-hidden="true"
 		style="color: #5cb85c"></span> &nbsp Criar Novo Usuário
 </button>
@@ -95,6 +96,12 @@ $(document).ready(function() {
 
     
     });
+    
+    $("#tabela-login_wrapper").css("margin-bottom","-50px")
+		
+	
+
+    
 } );
 
 </script>

@@ -123,7 +123,7 @@
 									Cadastrar <span class="arrow"></span></a></li>
 							<ul class="sub-menu collapse" id="products">
 								<li class="active"><a href="${linkTo[PerfilController].form()}">Dados de Usuário</a></li>
-								<li class="active"><a href="#">Notícia ou Comunicado</a></li>
+								
 								<li class="active"><a href="#">Pagamento de Mensalidade</a></li>
 								<li class="active"><a href="#">Solicitação de
 										Atendimento</a></li>
@@ -139,7 +139,7 @@
 								<li class="active">Controle de Pagamento</li>
 								<li class="active"><a href="${linkTo[PerfilController].lista()}">Lista de Usuários</a></li>
 								<li class="active">Painel de Solicitações</li>
-								<li class="active">Publicações de Notícias</li>
+								
 								
 
 							</ul>
@@ -154,7 +154,7 @@
 									href="${linkTo[UsuarioController].lista()}">Controle de
 										acesso</a></li>
 								<li class="active">Fluxo de Caixa</li>
-								<li class="active">Reuniões de Conselho</li>
+								
 								<li class="active">Relatórios</li>
 							</ul>
 							<li><a href="#"><i><span
