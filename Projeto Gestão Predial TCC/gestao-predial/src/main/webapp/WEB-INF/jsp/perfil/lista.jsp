@@ -36,12 +36,12 @@
 						<td>${perfil.id}</td>
 						<td>${perfil.nome}</td>
 						<td>${perfil.cpf}</td>
-						<td>${perfil.qnt_filhos}</td>
+						<td>${perfil.data_nascimento}</td>
 						<td>${perfil.estado_civil}</td>
 						<td>${perfil.andar_ocupado}</td>
 						<td>
 							<button type="button" class="btn btn-default btn-xs"
-								onclick=location.href="<c:url value='/perfil/remove?perfil.id=${perfil.id}'/>">
+								onclick=location.href="<c:url value='/perfil/edita?perfil.id=${perfil.id}'/>">
 								<span class="glyphicon glyphicon-pencil" aria-hidden="true"
 									style="color: gray"></span> &nbsp
 							</button>
@@ -61,7 +61,6 @@
 </div>
 
 <script src="<c:url value='/js/jquery.dataTables.min.js'/>"></script>
-<script src="<c:url value='/js/dataTables.min.js'/>"></script>
 
 <script>
 

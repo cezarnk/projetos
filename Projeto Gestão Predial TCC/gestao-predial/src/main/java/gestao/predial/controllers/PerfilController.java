@@ -49,6 +49,12 @@ public class PerfilController {
 		result.redirectTo(this).lista();
 	}
 	
+	@Path("/perfil/edita")
+	public void edita(Perfil perfil){
+        result.include(perfilDao.busca(perfil));
+        result.redirectTo(this).form();
+    }
+	
 	@Get("perfil/lista")
 	public void lista() {
 		result.include("perfil",perfilDao.lista());

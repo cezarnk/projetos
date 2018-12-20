@@ -24,7 +24,13 @@ public class PerfilDao {
 	
 	public void adiciona(Perfil perfil) {
 		manager.getTransaction().begin();
-		manager.persist(perfil);
+		int idPerfil = perfil.getId();
+        if(idPerfil == 0) {
+            manager.persist(perfil);
+        } else {
+            manager.merge(perfil);
+        }
+        
 		manager.getTransaction().commit();
 	}
 	
@@ -44,4 +50,5 @@ public class PerfilDao {
 		
 		return query.getResultList();
 	}
+
 }

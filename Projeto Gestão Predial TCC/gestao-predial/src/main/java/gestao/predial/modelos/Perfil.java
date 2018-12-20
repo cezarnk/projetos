@@ -1,14 +1,24 @@
 package gestao.predial.modelos;
 
 import java.io.Serializable;
+import java.sql.Date;
+import java.sql.Timestamp;
+import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.rmi.CORBA.UtilDelegate;
 
+import org.hibernate.annotations.Type;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+
+import com.mysql.jdbc.Util;
+
 
 @Entity
 public class Perfil implements Serializable{
@@ -35,6 +45,15 @@ public class Perfil implements Serializable{
 	@NotEmpty
 	private String administrador;
 	
+	@Column
+	private String data_nascimento;
+	
+	@Column
+	@Type(type="timestamp")
+	private Timestamp cadastrado_em = new Timestamp(System.currentTimeMillis());
+	
+	@OneToMany(mappedBy="perfil")
+	private List<Pagamento> pagamentos;
 	
 	public int getId() {
 		return id;
@@ -95,6 +114,25 @@ public class Perfil implements Serializable{
 	}
 	public void setAdministrador(String administrador) {
 		this.administrador = administrador;
+	}
+	public String getData_nascimento() {
+		return data_nascimento;
+	}
+	public void setData_nascimento(String data_nascimento) {
+		this.data_nascimento = data_nascimento;
+	}
+	public Timestamp getCadastrado_em() {
+		return cadastrado_em;
+	}
+	public void setCadastrado_em(Timestamp cadastrado_em) {
+		this.cadastrado_em = cadastrado_em;
+	}
+	public String getAdministrador() {
+		return administrador;
+	}
+	
+	public List<Pagamento> getPagamentos(){
+		return pagamentos;
 	}
 	
 }

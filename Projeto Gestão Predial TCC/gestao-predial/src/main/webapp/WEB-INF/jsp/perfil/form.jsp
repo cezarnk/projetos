@@ -17,11 +17,16 @@
 	<div class="col-md-8">
 
 
+
+
 		<form action="${linkTo[PerfilController].adiciona(null) }"
 			method="POST">
 
+		<c:if test="${not empty perfil.cadastrado_em}">
+			<span>Atualizado em:&nbsp <span data-mask="0000/00/00 00:00:00">${perfil.cadastrado_em} </span></span><br><br>
+		</c:if>
 
-			
+			<input type="hidden" name="perfil.id" value="${perfil.id}" />
 			<div class="row">
 				<div class="col-md-7">
 					<div class="form-group">
@@ -40,28 +45,19 @@
 					</div>
 				</div>
 			</div>
-
+			
 			<div class="row">
-				<div class="col-md-7">
+			
+				<div class="col-md-4">
 					<div class="form-group">
-						<label for="email">Email:</label> <input type="email"
-							placeholder="Digite o email para contato *" name="perfil.email"
-							id="email" class="form-control" value="${perfil.email}" />
-						<aviso:validationMessage name="perfil.email"></aviso:validationMessage>
+						<label for="cpf">Data de Nascimento:</label> <input type="text"
+							placeholder="Digite a data de nascimento *" name="perfil.data_nascimento"
+							id="data_nascimento" class="form-control" value="${perfil.data_nascimento}" />
+						<aviso:validationMessage name="perfil.data_nascimento"></aviso:validationMessage>
 					</div>
 				</div>
-				<div class="col-md-5">
-					<div class="form-group">
-						<label for="telefone">Telefone:</label> <input type="text"
-							placeholder="Digite o nome do telefone *" name="perfil.telefone"
-							id="telefone" class="form-control" value="${perfil.telefone}" />
-						<aviso:validationMessage name="perfil.telefone"></aviso:validationMessage>
-					</div>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="col-md-3">
+			
+			<div class="col-md-3">
 					<div class="form-group">
 						<label>Estado Civil:</label> <select class="form-control"
 							id="estado_civil" value="${perfil.estado_civil}"
@@ -91,6 +87,32 @@
 						<aviso:validationMessage name="perfil.qnt_filhos"></aviso:validationMessage>
 					</div>
 				</div>
+			
+			</div>
+			
+			
+
+			<div class="row">
+				<div class="col-md-7">
+					<div class="form-group">
+						<label for="email">Email:</label> <input type="email"
+							placeholder="Digite o email para contato *" name="perfil.email"
+							id="email" class="form-control" value="${perfil.email}" />
+						<aviso:validationMessage name="perfil.email"></aviso:validationMessage>
+					</div>
+				</div>
+				<div class="col-md-5">
+					<div class="form-group">
+						<label for="telefone">Telefone:</label> <input type="text"
+							placeholder="Digite o nome do telefone *" name="perfil.telefone"
+							id="telefone" class="form-control" value="${perfil.telefone}" />
+						<aviso:validationMessage name="perfil.telefone"></aviso:validationMessage>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				
 
 				<div class="col-md-3">
 					<div class="form-group">
@@ -126,14 +148,9 @@
 						<aviso:validationMessage name="perfil.andar_ocupado"></aviso:validationMessage>
 					</div>
 				</div>
-			</div>
-			<br>
-			
-			<div class="row">
-				<div class="col-md-3">
-					<span>Escolha o perfil do usuário:</span> 
-				</div>	
-				<div class="col-md-3">	
+				
+				<div class="col-md-5 col-md-offset-1	">	
+				<label>Escolha o perfil do usuário:</label><br>
 					<label class="tgl"
 						style="font-size: 14px;"> <input
 						type="checkbox" checked id="check-administrador" /> <span
@@ -141,7 +158,9 @@
 					</label> <input type="hidden" id="administrador"
 						name="perfil.administrador" value="true"/>
 				</div>
+				
 			</div>
+
 			
 
 			<br>
@@ -170,8 +189,15 @@
 
 <c:import url="/WEB-INF/jsp/footer.jsp"></c:import>
 
-
+<script src="<c:url value='/js/jquery.mask.min.js'/>"></script>
 <script>
+
+	$(document).ready(function(){
+	  $('#data_nascimento').mask('00/00/0000');
+	  $('#telefone').mask('(00) 0000-0000');
+	  $('#cpf').mask('000.000.000-00', {reverse: true});
+	});
+
 	$("#check-administrador").on('change', function(e) {
 		if ($("#check-administrador").is(":checked") == true) {
 			$('#administrador').val("true");
@@ -179,4 +205,9 @@
 			$('#administrador').val("false");
 		}
 	});
+	
+	$("#estado_civil").val("${perfil.estado_civil}")
+	$("#qnt_filhos").val("${perfil.qnt_filhos}");
+	$("#qnt_moradores").val("${perfil.qnt_moradores}")
+	$("#andar_ocupado").val("${perfil.andar_ocupado}")
 </script>
