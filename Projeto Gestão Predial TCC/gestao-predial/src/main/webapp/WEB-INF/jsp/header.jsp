@@ -124,7 +124,7 @@
 							<ul class="sub-menu collapse" id="products">
 								<li class="active"><a href="${linkTo[PerfilController].form()}">Dados de Usuário</a></li>
 								
-								<li class="active"><a href="#">Pagamento de Mensalidade</a></li>
+								<li class="active"><a href="${linkTo[PagamentoController].form()}">Pagamento de Mensalidade</a></li>
 								<li class="active"><a href="#">Solicitação de
 										Atendimento</a></li>
 

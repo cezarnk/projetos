@@ -5,7 +5,7 @@
 
 
 <h2>
-	Cadastro de Dados de Usuário <small>Criação do perfil de
+	Cadastro de Usuário <small>Criação do perfil de
 		usuário</small>
 </h2>
 <hr>

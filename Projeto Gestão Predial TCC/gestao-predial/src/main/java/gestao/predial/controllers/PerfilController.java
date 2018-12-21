@@ -1,5 +1,7 @@
 package gestao.predial.controllers;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.validation.Valid;
 
@@ -10,6 +12,7 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.interceptor.IncludeParameters;
 import br.com.caelum.vraptor.validator.Validator;
+import br.com.caelum.vraptor.view.Results;
 import gestao.predial.dao.PerfilDao;
 import gestao.predial.modelos.Perfil;
 
@@ -58,5 +61,11 @@ public class PerfilController {
 	@Get("perfil/lista")
 	public void lista() {
 		result.include("perfil",perfilDao.lista());
+	}
+	
+	@Get("perfil/listaJson")
+	public void listaJson() {
+		List<Perfil> lista = perfilDao.lista();
+	    result.use(Results.json()).from(lista).serialize();
 	}
 }
