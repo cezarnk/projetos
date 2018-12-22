@@ -1,5 +1,7 @@
 package gestao.predial.controllers;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.validation.Valid;
 
@@ -10,8 +12,10 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.interceptor.IncludeParameters;
 import br.com.caelum.vraptor.validator.Validator;
+import br.com.caelum.vraptor.view.Results;
 import gestao.predial.dao.PagamentoDao;
 import gestao.predial.modelos.Pagamento;
+import gestao.predial.modelos.Perfil;
 
 @Controller
 public class PagamentoController {
@@ -58,6 +62,12 @@ public class PagamentoController {
 	@Get("pagamento/lista")
 	public void lista() {
 		result.include("pagamento", pagamentoDao.lista());
+	}
+	
+	@Get("pagamento/listaJsonPagamento")
+	public void listaJsonPagamento() {
+		List<Pagamento> lista = pagamentoDao.lista();
+	    result.use(Results.json()).from(lista).serialize();
 	}
 
 }

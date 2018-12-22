@@ -5,14 +5,17 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Calendar;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.Type;
 
@@ -25,11 +28,11 @@ public class Pagamento implements Serializable{
 	private int id;
 	
 	private BigDecimal valor;
-	private BigDecimal despesa_adicional;
 	private BigDecimal multa;
 	private BigDecimal desconto;
 	private BigDecimal valor_total;
 	private BigDecimal condominio;
+	private int chave_estrangeira;
 	
 	@Temporal(TemporalType.DATE)
 	private Calendar data_pagamento;
@@ -42,8 +45,10 @@ public class Pagamento implements Serializable{
 	private Timestamp cadastrado_em = new Timestamp(System.currentTimeMillis());
 	
 	@ManyToOne
+	@JoinColumn(name="perfil_id")
 	private Perfil perfil;
 
+	
 	public int getId() {
 		return id;
 	}
@@ -58,14 +63,6 @@ public class Pagamento implements Serializable{
 
 	public void setValor(BigDecimal valor) {
 		this.valor = valor;
-	}
-
-	public BigDecimal getDespesa_adicional() {
-		return despesa_adicional;
-	}
-
-	public void setDespesa_adicional(BigDecimal despesa_adicional) {
-		this.despesa_adicional = despesa_adicional;
 	}
 
 	public Calendar getData_pagamento() {
@@ -130,6 +127,14 @@ public class Pagamento implements Serializable{
 
 	public void setCondominio(BigDecimal condominio) {
 		this.condominio = condominio;
+	}
+
+	public int getChave_estrangeira() {
+		return chave_estrangeira;
+	}
+
+	public void setChave_estrangeira(int chave_estrangeira) {
+		this.chave_estrangeira = chave_estrangeira;
 	}
 	
 }

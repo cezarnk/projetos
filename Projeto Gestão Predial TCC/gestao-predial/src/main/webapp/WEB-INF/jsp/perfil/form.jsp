@@ -33,7 +33,7 @@
 						<label for="nome">Nome:</label> <input type="text"
 							placeholder="Digite o nome do usuario *" name="perfil.nome"
 							id="nome" class="form-control" value="${perfil.nome}" />
-						<aviso:validationMessage name="usuario.nome"></aviso:validationMessage>
+						<aviso:validationMessage name="perfil.nome"></aviso:validationMessage>
 					</div>
 				</div>
 				<div class="col-md-5">

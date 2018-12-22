@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -52,7 +53,7 @@ public class Perfil implements Serializable{
 	@Type(type="timestamp")
 	private Timestamp cadastrado_em = new Timestamp(System.currentTimeMillis());
 	
-	@OneToMany(mappedBy="perfil")
+	@OneToMany(mappedBy="perfil",targetEntity = Pagamento.class, cascade = CascadeType.ALL)
 	private List<Pagamento> pagamentos;
 	
 	public int getId() {

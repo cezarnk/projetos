@@ -136,7 +136,7 @@
 										class="glyphicon glyphicon-search" aria-hidden="true"></span></i>
 									Consultar <span class="arrow"></span></a></li>
 							<ul class="sub-menu collapse" id="service">
-								<li class="active">Controle de Pagamento</li>
+								<li class="active"><a href="${linkTo[PagamentoController].lista()}">Controle de Pagamento</a></li>
 								<li class="active"><a href="${linkTo[PerfilController].lista()}">Lista de Usuários</a></li>
 								<li class="active">Painel de Solicitações</li>
 								
