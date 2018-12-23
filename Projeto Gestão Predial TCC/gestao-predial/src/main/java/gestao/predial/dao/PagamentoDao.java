@@ -38,7 +38,8 @@ public class PagamentoDao {
 	
 	public void remove(Pagamento pagamento) {
 		manager.getTransaction().begin();
-		manager.remove(pagamento);
+		Object pag = manager.merge(pagamento);
+		manager.remove(pag);
 		manager.getTransaction().commit();
 	}
 	
@@ -49,8 +50,19 @@ public class PagamentoDao {
 	public List<Pagamento> lista() {
 		String jpql = "select p from Pagamento p";
 		TypedQuery<Pagamento> query = manager.createQuery(jpql,Pagamento.class);
-		
 		return query.getResultList();
+	}
+	
+	public List<Object[]> listaJson() {
+		
+		String queryStr =  "select NEW package.juntaPacote("+
+		     "per.nome,per.cpf,pag.valor) from Pagamento pag join pag.perfil per";
+		
+		String jpql = "SELECT per.id,per.nome,per.cpf ,pag FROM Pagamento as pag JOIN pag.perfil as per";
+		TypedQuery<Object[]> query = manager.createQuery(jpql,Object[].class);
+		
+		List<Object[]> results;
+		return results = query.getResultList();
 	}
 
 }

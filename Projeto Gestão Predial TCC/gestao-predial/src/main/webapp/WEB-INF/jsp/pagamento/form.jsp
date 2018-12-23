@@ -194,7 +194,6 @@ background-color: #f2f2f2;
 
 <c:import url="/WEB-INF/jsp/footer.jsp"></c:import>
 
-<script src="<c:url value='/js/jquery.mask.min.js'/>"></script>
 <script src="<c:url value='/js/bootstrap-datepicker.js'/>"></script>
 <script src="<c:url value='/js/bootstrap-datepicker.pt-BR.min.js'/>"></script>
 <script src="<c:url value='/js/jquery.mask.min.js'/>"></script>
@@ -217,32 +216,39 @@ $('#data-pagamento').datepicker({
 $("#coluna-soma").on("change",function(){
 	
 	if($('#valor-mensalidade').val() == ""){
-		var mensalidade = 0
+		var mensalidade = 0.0
 	}else{
 		var mensalidade = parseFloat($('#valor-mensalidade').val().replace(".","").replace(",", "."));	
 	}
 	if($('#condominio').val() == ""){
-		var condominio = 0
+		var condominio = 0.0
 	}else{
 		var condominio = parseFloat($('#condominio').val().replace(".","").replace(",", "."));	
 	}
 	if($('#multa').val() == ""){
-		var multa = 0
+		var multa = 0.0
 	}else{
 		var multa = parseFloat($('#multa').val().replace(".","").replace(",", "."));	
 	}
 	if($('#desconto').val() == ""){
-		var desconto = 0
+		var desconto = 0.0
 	}else{
 		var desconto = parseFloat($('#desconto').val().replace(".","").replace(",", "."));	
 	}	
-	$('#valor-total').val(mensalidade+condominio+multa-desconto);
+	
+	var valorTotal = mensalidade+condominio+multa-desconto;
+	
+	var valorString = String(valorTotal)
+	if(valorString.indexOf(".") != -1 ){
+		var valorTotal = valorString.replace(".",",");
+	}
+	
+	$('#valor-total').val(valorTotal);
 })
 
 var Objeto;	
 
 $(document).ready(function(){
-
 $('#valor-mensalidade').mask('000.000.000.000.000,00', {reverse: true});
 $('#condominio').mask('000.000.000.000.000,00', {reverse: true});
 $('#multa').mask('000.000.000.000.000,00', {reverse: true});

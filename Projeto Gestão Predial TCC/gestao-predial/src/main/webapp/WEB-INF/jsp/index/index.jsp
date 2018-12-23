@@ -6,6 +6,6 @@
 <hr>
 <br>
 
-Bem vindo ao sistema de controle de horas!
+Bem vindo ${usuario} ao sistema de Gestão Predial!
 
 <c:import url="/WEB-INF/jsp/footer.jsp"></c:import>

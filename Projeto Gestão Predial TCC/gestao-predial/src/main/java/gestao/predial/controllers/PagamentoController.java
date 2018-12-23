@@ -61,12 +61,12 @@ public class PagamentoController {
 	
 	@Get("pagamento/lista")
 	public void lista() {
-		result.include("pagamento", pagamentoDao.lista());
+		result.include("pagamento",pagamentoDao.lista());
 	}
 	
-	@Get("pagamento/listaJsonPagamento")
-	public void listaJsonPagamento() {
-		List<Pagamento> lista = pagamentoDao.lista();
+	@Get("pagamento/listaPagamento")
+	public void listaPagamento() {
+		List<Object[]> lista = pagamentoDao.listaJson();
 	    result.use(Results.json()).from(lista).serialize();
 	}
 

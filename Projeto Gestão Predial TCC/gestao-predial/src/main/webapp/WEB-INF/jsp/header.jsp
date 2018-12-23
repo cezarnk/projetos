@@ -21,8 +21,8 @@
 			<div class="collapse navbar-collapse navbar-left" id="espremível">
 
 				<div class="navbar-header menu-superior">
-					<span class="link">CESUP</span> <span class="link"
-						style="margin-left: 40px">Quem Somos</span> <span class="link"
+					<span class="link">SISTEMA GP</span> <span class="link"
+						style="margin-left: 40px">Telefone Úteis</span> <span class="link"
 						style="margin-left: 40px">Portfólio</span>
 				</div>
 
@@ -153,7 +153,6 @@
 								<li class="active"><a
 									href="${linkTo[UsuarioController].lista()}">Controle de
 										acesso</a></li>
-								<li class="active">Fluxo de Caixa</li>
 								
 								<li class="active">Relatórios</li>
 							</ul>

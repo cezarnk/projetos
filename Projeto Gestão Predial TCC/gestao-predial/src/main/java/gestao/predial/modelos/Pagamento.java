@@ -3,6 +3,7 @@ package gestao.predial.modelos;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import javax.persistence.CascadeType;
@@ -65,6 +66,12 @@ public class Pagamento implements Serializable{
 		this.valor = valor;
 	}
 
+	public String getDataPagamentoFormatado()
+	{
+		SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+		return formato.format(getData_pagamento());
+	}
+	
 	public Calendar getData_pagamento() {
 		return data_pagamento;
 	}

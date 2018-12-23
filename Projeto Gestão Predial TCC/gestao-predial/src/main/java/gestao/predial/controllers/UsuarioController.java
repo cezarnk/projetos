@@ -44,7 +44,9 @@ public class UsuarioController {
     	result.redirectTo(this).lista();
     }
 
+    @Path("/usuario/form")
     public void form(){}
+    
 
     @Get("/usuario/lista")
     public void lista(){
