@@ -594,13 +594,14 @@ footer.rodapé {
 .link {
 	color: white;
 	font-size: 18px;
-	margin-left:20px
+	margin-left:20px;
 }
 
 .link a{
 	color: inherit;
 	text-decoration: inherit;
 }
+
 
 .menu-superior{
 	width: 600px;
@@ -609,12 +610,11 @@ footer.rodapé {
 }
 
 .containerfoto>li {
-	position: fixed;
-	width: 46%;
+	
+	width: 100%;
 	height: 20px;
-	text-align: right;
-	margin-right: -10px;
-	float: right;
+	text-align: right;	
+	
 }
 
 

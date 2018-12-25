@@ -61,6 +61,7 @@
 </div>
 
 <script src="<c:url value='/js/jquery.dataTables.min.js'/>"></script>
+<script src="<c:url value='/js/dataTables.bootstrap.min.js'/>"></script>
 
 <script>
 

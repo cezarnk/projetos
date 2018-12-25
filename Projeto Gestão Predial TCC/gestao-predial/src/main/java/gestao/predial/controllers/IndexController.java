@@ -8,6 +8,7 @@ import br.com.caelum.vraptor.Result;
 
 import gestao.predial.dao.UsuarioDao;
 import gestao.predial.modelos.Usuario;
+import gestao.predial.seguranca.UsuarioLogado;
 
 @Controller
 public class IndexController {
@@ -24,6 +25,12 @@ public class IndexController {
 	
     @Path("/")
     public void index(){
-    	result.include("usuario","Admin");
+    	
     }
+    
+    @Path("telefone-uteis")
+    public void telefoneuteis() {}
+    
+    @Path("portfolio")
+    public void portfolio() {}
 }

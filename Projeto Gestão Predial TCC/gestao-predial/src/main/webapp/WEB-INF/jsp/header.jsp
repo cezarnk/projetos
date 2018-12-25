@@ -21,49 +21,48 @@
 			<div class="collapse navbar-collapse navbar-left" id="espremível">
 
 				<div class="navbar-header menu-superior">
-					<span class="link">SISTEMA GP</span> <span class="link"
-						style="margin-left: 40px">Telefone Úteis</span> <span class="link"
-						style="margin-left: 40px">Portfólio</span>
+					<a href="${linkTo[IndexController].index()}"><span class="link">SISTEMA GP</span></a> 
+				<!-- 	<a href="${linkTo[IndexController].telefoneuteis()}"><span class="link" style="margin-left: 40px">Telefone Úteis</span></a> -->
+				  	    <a href="${linkTo[IndexController].portfolio()}"><span class="link" style="margin-left: 40px">Portfólio</span></a> 				     							
+				</div>
+				
 				</div>
 
+				<div class="nav navbar-nav containerfoto pull-right">
+					
+					<div class="row">
+							
+						<div class="col-md-4">
+						<button class="btn btn-default btn-xs" style="margin-top: 6px;">
+							<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+							Usuario logado
+						</button>
+						</div>
+				
 
-				<ul class="nav navbar-nav containerfoto">
-					<li>
-						<div class="row" style="position:fixed;top:12px;right:0;z-index: 4">
-							<div class="col-md-6 col-md-offset-4"
-								style="margin-right: 0px; margin-top: 8px;">
-								<button class="btn btn-default btn-xs pull-right"
-									style="margin-top: -4px;margin-right:6px">
-									<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-									Usuario logado
+						<c:if test="${usuarioLogado.logado}">
+							<div class="col-md-1">
+								<button class="btn btn-danger btn-xs"
+									style="margin-top: 6px;margin-left: 40px;"
+									onclick="location.href='${linkTo[LoginController].desloga()}'">
+									<span class="glyphicon glyphicon-off" aria-hidden="true"></span>
 								</button>
 							</div>
+						</c:if>
+						<c:if test="${!usuarioLogado.logado}">
+							<div class="col-md-1">
+								<button class="btn btn-danger btn-xs"
+									style="margin-top: 2px">
+									<span class="glyphicon glyphicon-off" aria-hidden="true"
+										onclick="location.href='${linkTo[LoginController].form()}'"></span>
+								</button>
+							</div>
+						</c:if>
 
-							<c:if test="${usuarioLogado.logado}">
-								<div class="col-md-1">
-									<button class="btn btn-danger btn-xs pull-right"
-										style="margin-top: 4px;margin-right:4px"
-										onclick="location.href='${linkTo[LoginController].desloga()}'">
-										<span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-									</button>
-								</div>
-							</c:if>
-							<c:if test="${!usuarioLogado.logado}">
-								<div class="col-md-1">
-									<button class="btn btn-danger btn-xs pull-right"
-										style="margin-top: 2px">
-										<span class="glyphicon glyphicon-off" aria-hidden="true"
-											onclick="location.href='${linkTo[LoginController].form()}'"></span>
-									</button>
-								</div>
-							</c:if>
+					</div>			
+				</div>
 
-						</div>
-
-					</li>
-				</ul>
-
-			</div>
+			
 
 		</div>
 	</nav>
@@ -156,12 +155,9 @@
 								
 								<li class="active">Relatórios</li>
 							</ul>
-							<li><a href="#"><i><span
-										class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span></i>
-									Fórum </a></li>
-
-
-
+							<li><a href="${linkTo[IndexController].telefoneuteis()}"><i><span
+										class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span></i>
+									Telefones Úteis </a></li>
 						</ul>
 					</div>
 				</div>

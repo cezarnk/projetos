@@ -170,12 +170,13 @@
 				<span class="glyphicon glyphicon-ok" aria-hidden="true"
 					style="color: #5cb85c"></span> &nbsp Cadastrar
 			</button>
-
+<!-- 
 			<button onclick="location.href='${linkTo[PerfilController].lista()}'"
 				type="button" class="btn btn-default btn-sm pull-right">
 				<span class="glyphicon glyphicon-share-alt" aria-hidden="true"
 					style="color: #d9534f"></span> &nbspVoltar
 			</button>
+ -->		
 			</div>
 			</div>
 
@@ -209,5 +210,10 @@
 	$("#estado_civil").val("${perfil.estado_civil}")
 	$("#qnt_filhos").val("${perfil.qnt_filhos}");
 	$("#qnt_moradores").val("${perfil.qnt_moradores}")
-	$("#andar_ocupado").val("${perfil.andar_ocupado}")
+	$("#andar_ocupado").val("${perfil.andar_ocupado}")	
+	if("${perfil.administrador}" == "false"){
+		$("#check-administrador").prop("checked",false)
+	}else{
+		$("#check-administrador").prop("checked",true)
+	}
 </script>
