@@ -23,7 +23,7 @@
 				<div class="navbar-header menu-superior">
 					<a href="${linkTo[IndexController].index()}"><span class="link">SISTEMA GP</span></a> 
 				<!-- 	<a href="${linkTo[IndexController].telefoneuteis()}"><span class="link" style="margin-left: 40px">Telefone Úteis</span></a> -->
-				  	    <a href="${linkTo[IndexController].portfolio()}"><span class="link" style="margin-left: 40px">Portfólio</span></a> 				     							
+				  	    <a href="${linkTo[IndexController].portfolio()}"><span class="link" style="margin-left: 40px">Especificação do Sistema</span></a> 				     							
 				</div>
 				
 				</div>

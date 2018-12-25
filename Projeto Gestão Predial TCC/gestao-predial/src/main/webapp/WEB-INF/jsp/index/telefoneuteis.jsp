@@ -2,7 +2,7 @@
 <c:import url="/WEB-INF/jsp/header.jsp"></c:import>
 
 
-<h2>Telefone Úteis
+<h2>Telefones Úteis
 <small>Lista com os telefones para emergências</small></h2>
 <hr>
 <br>

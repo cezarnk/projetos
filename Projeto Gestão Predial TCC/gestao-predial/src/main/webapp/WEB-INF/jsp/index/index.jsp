@@ -28,7 +28,10 @@
       <img src="<c:url value='/img/noticia1.png'/>" width="100%" alt="Aluguel">
       <div class="caption">
         <h3>Seu Dinheiro!</h3>
-        <p>Preço do aluguel tem queda real de 0,68% no 1º semestre</p>
+        <p>Preço do aluguel tem queda real de 0,68% no 2º semestre</p>
+        <small style="color:gray">
+        <span class="glyphicon glyphicon-time" aria-hidden="true"></span> &nbsp
+        17 nov 2018</small>
       </div>
     </div>
 </div>
