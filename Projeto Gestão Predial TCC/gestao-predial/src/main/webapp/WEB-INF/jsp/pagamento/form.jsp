@@ -1,7 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="aviso"%>
 
-<c:import url="/WEB-INF/jsp/header.jsp"></c:import>
+<c:import url="/WEB-INF/jsp/index/header.jsp"></c:import>
 <link href="<c:url value='/css/bootstrap-datepicker3.min.css'/>" rel="stylesheet" />
 
 <style>

@@ -1,5 +1,5 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<c:import url="/WEB-INF/jsp/header.jsp"></c:import>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:import url="/WEB-INF/jsp/index/header.jsp"></c:import>
 
 <style>
 .titulo-noticia {
@@ -8,14 +8,14 @@
 
 </style>
 
-<h2>Sistema de Gerenciamento Predial [versão: 0.0.1]</h2>
+<h2>Sistema de Gerenciamento Predial [versão: 0.0.1] </h2>
 <hr>
 <br>
 
 
 <div class="row">
 <div class="col-md-10">
-<p>É com muita satisfação que o recebemos em nosso condomínio. Seja bem-vindo!</p>
+<p>É com muita satisfação que o recebemos em nosso condomínio. Seja bem-vindo ${usuarioLogado.usuario.nome}!</p>
 <p>A solução de Automação e Gestão Predial oferece a flexibilidade e conectividade que você precisa para planejar e manter sua infraestrutura.</p>
 </div>
 </div>
@@ -64,7 +64,7 @@
 <p>Para registro de ocorrência de manutenção e/ou reclamações, utilize este canal de atendimento.</p>
 <img src="<c:url value='/img/manutencao1.png'/>" width="100%" alt="Aluguel">
 <br><br>
-<button type="button" class="btn btn-primary btn-sm">
+<button type="button" class="btn btn-primary btn-sm" onclick="location.href='<c:url value='/demanda/tela_cadastro'/>'">
 <span class="glyphicon glyphicon-share-alt" style="color: #5cb85c" aria-hidden="true"></span> &nbsp
 Acessar tela de cadastro
 </button>

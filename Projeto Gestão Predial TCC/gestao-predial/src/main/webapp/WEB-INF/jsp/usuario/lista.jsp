@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<c:import url="/WEB-INF/jsp/header.jsp" />
+<c:import url="/WEB-INF/jsp/index/header.jsp" />
 
 <link href="<c:url value='/css/dataTables.bootstrap.min.css'/>" rel="stylesheet" />
 <link href="<c:url value='/css/datatables.min.css'/>" rel="stylesheet" />
@@ -24,13 +24,13 @@
 
 
 <div class="row">
-	<div class="col-md-10">
+	<div class="col-md-9">
 		<table class="table table-hover table-striped table-bordered" id="tabela-login">
 			<thead>
 				<tr>
 					<th>Id</th>
 					<th>Nome</th>
-					<th>E-mail</th>
+					<th width="150px">Nome de Exibição</th>
 					<th>Login</th>
 					<th width="30px"></th>
 				</tr>
@@ -40,7 +40,7 @@
 					<tr>
 						<td>${usuario.id}</td>
 						<td>${usuario.nome}</td>
-						<td>${usuario.email}</td>
+						<td>${usuario.nome_guerra}</td>
 						<td>${usuario.login}</td>
 						<td>
 							<button type="button" class="btn btn-default btn-xs"

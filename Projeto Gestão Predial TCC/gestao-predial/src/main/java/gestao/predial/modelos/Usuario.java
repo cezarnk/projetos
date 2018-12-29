@@ -2,10 +2,14 @@ package gestao.predial.modelos;
 
 import java.io.Serializable;
 
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -26,8 +30,13 @@ public class Usuario implements Serializable{
     private String senha;
 
     @NotEmpty
-    @Email
-    private String email;
+    private String nome_guerra;
+    
+    private int chave_estrangeira;
+    
+	@ManyToOne
+	@JoinColumn(name="perfil_id")
+	private Perfil perfil;
 
 	public int getId() {
 		return id;
@@ -61,11 +70,27 @@ public class Usuario implements Serializable{
 		this.senha = senha;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getNome_guerra() {
+		return nome_guerra;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setNome_guerra(String nome_guerra) {
+		this.nome_guerra = nome_guerra;
+	}
+	
+	public int getChave_estrangeira() {
+		return chave_estrangeira;
+	}
+
+	public void setChave_estrangeira(int chave_estrangeira) {
+		this.chave_estrangeira = chave_estrangeira;
+	}
+	
+	public Perfil getPerfil() {
+		return perfil;
+	}
+
+	public void setPerfil(Perfil perfil) {
+		this.perfil = perfil;
 	}
 }

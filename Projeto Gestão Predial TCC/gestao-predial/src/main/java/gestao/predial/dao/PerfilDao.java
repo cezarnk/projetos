@@ -4,15 +4,19 @@ import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 import gestao.predial.modelos.Perfil;
+import gestao.predial.modelos.Usuario;
 
+@Named
 @RequestScoped
 public class PerfilDao {
 
 	private EntityManager manager;
+	private Perfil perfil;
 	
 	@Inject
 	public PerfilDao(EntityManager manager) {
@@ -51,4 +55,7 @@ public class PerfilDao {
 		return query.getResultList();
 	}
 
+	public Perfil getPerfil() {
+		return this.perfil;
+	}
 }

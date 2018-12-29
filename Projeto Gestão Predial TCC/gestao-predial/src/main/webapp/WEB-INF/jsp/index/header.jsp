@@ -35,7 +35,7 @@
 						<div class="col-md-4">
 						<button class="btn btn-default btn-xs" style="margin-top: 6px;">
 							<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-							Usuario logado
+							${usuarioLogado.usuario.nome_guerra}
 						</button>
 						</div>
 				
@@ -124,7 +124,7 @@
 								<li class="active"><a href="${linkTo[PerfilController].form()}">Dados de Usuário</a></li>
 								
 								<li class="active"><a href="${linkTo[PagamentoController].form()}">Pagamento de Mensalidade</a></li>
-								<li class="active"><a href="#">Solicitação de
+								<li class="active"><a href="${linkTo[DemandaController].tela_cadastro()}">Solicitação de
 										Atendimento</a></li>
 
 							</ul>
@@ -137,7 +137,7 @@
 							<ul class="sub-menu collapse" id="service">
 								<li class="active"><a href="${linkTo[PagamentoController].lista()}">Controle de Pagamento</a></li>
 								<li class="active"><a href="${linkTo[PerfilController].lista()}">Lista de Usuários</a></li>
-								<li class="active">Painel de Solicitações</li>
+								<li class="active"><a href="${linkTo[DemandaController].lista()}">Painel de Solicitações</a></li>
 								
 								
 
@@ -153,11 +153,11 @@
 									href="${linkTo[UsuarioController].lista()}">Controle de
 										acesso</a></li>
 								
-								<li class="active">Relatórios</li>
+								<!-- <li class="active">Relatórios</li> -->
 							</ul>
-							<li><a href="${linkTo[IndexController].telefoneuteis()}"><i><span
+							<!-- <li><a href="${linkTo[IndexController].telefoneuteis()}"><i><span
 										class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span></i>
-									Telefones Úteis </a></li>
+									Telefones Úteis </a></li>-->
 						</ul>
 					</div>
 				</div>

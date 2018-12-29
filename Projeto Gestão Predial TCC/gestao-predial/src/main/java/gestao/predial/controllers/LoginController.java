@@ -6,6 +6,7 @@ import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.validator.SimpleMessage;
 import br.com.caelum.vraptor.validator.Validator;
+import br.com.caelum.vraptor.view.Results;
 import gestao.predial.dao.UsuarioDao;
 import gestao.predial.modelos.Usuario;
 import gestao.predial.seguranca.Open;
@@ -32,11 +33,12 @@ public class LoginController {
     	
     }
     
-	@Open
+	@Open	
     public void autentica(String login, String senha){
     	Usuario usuario = usuarioDao.busca(login,senha);
     	if(usuario != null){
     		usuarioLogado.fazLogin(usuario);    	
+    		System.out.println(usuario.getNome());
     		result.redirectTo(IndexController.class).index();
     	} else {
     		validator.add(new SimpleMessage("Login_invalido","Login ou senha incorretos"));

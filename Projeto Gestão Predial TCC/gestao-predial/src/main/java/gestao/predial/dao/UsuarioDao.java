@@ -7,6 +7,8 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
+import gestao.predial.modelos.Pagamento;
+import gestao.predial.modelos.Perfil;
 import gestao.predial.modelos.Usuario;
 
 @RequestScoped
@@ -22,7 +24,15 @@ public class UsuarioDao {
 	
 	public void adiciona(Usuario usuario){
 		manager.getTransaction().begin();
-		manager.persist(usuario);
+		
+		System.out.println(usuario.getChave_estrangeira());
+		
+		Perfil perfil = manager.find(Perfil.class, usuario.getChave_estrangeira());
+		Usuario usr = new Usuario();
+		usr = usuario;
+		usr.setPerfil(perfil);
+		
+		manager.persist(usr);
 		manager.getTransaction().commit();
 	}
 	

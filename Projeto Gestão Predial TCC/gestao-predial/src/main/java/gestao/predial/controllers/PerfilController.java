@@ -63,6 +63,11 @@ public class PerfilController {
 		result.include("perfil",perfilDao.lista());
 	}
 	
+	@Get("perfil/consulta/{perfil.id}")
+	public void consulta(Perfil perfil) {
+		result.use(Results.json()).from(perfilDao.busca(perfil)).serialize();
+	}
+	
 	@Get("perfil/listaJson")
 	public void listaJson() {
 		List<Perfil> lista = perfilDao.lista();

@@ -13,6 +13,7 @@ import gestao.predial.seguranca.UsuarioLogado;
 @Controller
 public class IndexController {
 	
+
 	private Result result;
 	
 	@Inject
@@ -24,9 +25,9 @@ public class IndexController {
 	public IndexController() {}
 	
     @Path("/")
-    public void index(){
-    	
-    }
+    public void index(){}
+    
+    public void header(){}
     
     @Path("telefone-uteis")
     public void telefoneuteis() {}

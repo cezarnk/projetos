@@ -1,16 +1,34 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-
 <%@ taglib tagdir="/WEB-INF/tags" prefix="aviso"%>
 
 <c:import url="/WEB-INF/jsp/index/header.jsp"></c:import>
-<link href="<c:url value='/css/site.css'/>" rel="stylesheet" />
-
 <link href="<c:url value='/css/dataTblsboot.min.css'/>" rel="stylesheet" />
 
+<style>
+
+.caixa{
+box-shadow: none;
+border-style: none none solid none;
+background-color: transparent; 
+border-color: #b2b2b2; 
+width: 100%
+}
+
+.caixa:focus{
+border: 2px;
+border-style: none none solid none; 
+border-color: #013774; 
+box-shadow: none;
+background-color: transparent; 
+}
+
+.caixa:disabled{
+background-color: #f2f2f2;    
+}
+</style>
 
 <h2>
-	Lista de Pagamentos <small>Registro de todos pagamentos dos condominos </small>
+	Lista de Solicitações <small>Registro de ocorrência de manutenção e/ou reclamação</small>
 </h2>
 <hr>
 <br>
@@ -18,16 +36,18 @@
 
 <div class="row">
 	<div class="col-md-10">
-	<img src="<c:url value='/img/espera.gif'/>" width="80px" style="display:none" id="aguarde" class="text-center"/>
+		
+		<img src="<c:url value='/img/espera.gif'/>" width="80px" style="display:none" id="aguarde" class="text-center"/>
+		
 		<table class="table table-hover table-striped table-bordered" id="tabela-pagamento">
 			<thead>
 				<tr>
 					<th>Id</th>
 					<th>Nome</th>
-					<th>CPF</th>
-					<th>Data Vencimento</th>
-					<th>Data Pagamento</th>
-					<th>Valor Total</th>
+					<th>Local</th>
+					<th>Assunto</th>
+					<th>Cadastrado em</th>
+					<th>Telefone</th>
 					<th width="30px"></th>
 				</tr>
 			</thead>
@@ -51,11 +71,10 @@
 var t;
 
 $(document).ready(function() {
-	
 
-     t = $('#tabela-pagamento').DataTable({
-       destroy : true,
-	   "language":{
+	t = $('#tabela-pagamento').DataTable({
+		destroy : true,
+	   	"language":{
               search: "Pesquisar",
               "info": "Visualizar _START_ até _END_ total de _TOTAL_ demandas",
               "lengthMenu": "Visualizar: _MENU_ ",
@@ -72,20 +91,20 @@ $(document).ready(function() {
               "infoFiltered":   "(filtro aplicado no universo de _MAX_ demanda(s))",
   	   }
     });
-	
+    
     carregarTabela();
-});
+})
 
 var Objeto;
 
-function linhaTabela(id,nome,cpf,data_vencimento,data_pagamento,valor_total) {
+function linhaTabela(id_demanda,nome,local,assunto,cadastrado_em,telefone) {
 	
 	var botao = "<button type='button' class='btn btn-default btn-xs'"
-	botao += " onclick=location.href='<c:url value='/pagamento/remove?pagamento.id="+id+"'/>'>"	
+	botao += " onclick=location.href='<c:url value='/demanda/remove?demanda.id="+id_demanda+"'/>'>"	
 	botao += "<span class='glyphicon glyphicon-remove' aria-hidden='true' style='color: #d9534f'></span> &nbsp"		
 	botao += "</button>"
 	
-	t.row.add([id,nome,cpf,data_vencimento,data_pagamento,valor_total,botao]).draw(false);
+	t.row.add([id_demanda,nome,local,assunto,cadastrado_em,telefone,botao]).draw(false);
 	
 }
 
@@ -100,7 +119,7 @@ function converteData(data){
 }
 
 function carregarTabela(){
-var urlListaJson = "${linkTo[PagamentoController].listaPagamento()}"
+var urlListaJson = "${linkTo[DemandaController].listaDemandaJson()}"
 	$("#aguarde").show();
 	$.ajax({
 	    type: "GET",
@@ -110,15 +129,15 @@ var urlListaJson = "${linkTo[PagamentoController].listaPagamento()}"
 	    success: function(dados){
 	        console.log(dados);
 	        Objeto = dados;
-	        
+	        	        
 	        for (var i=0;i<dados.list.length;i++){
-	        	var id_pagamento = dados.list[i][3].id
+	        	var id_demanda = dados.list[i][3].id
 	        	var nome = dados.list[i][1];
-	        	var cpf = dados.list[i][2];
-	        	var data_vencimento = dados.list[i][3].data_vencimento;
-	        	var data_pagamento = dados.list[i][3].data_pagamento;
-	        	var valor_total = dados.list[i][3].valor_total;
-	        	linhaTabela(id_pagamento,nome,cpf,converteData(data_vencimento),converteData(data_pagamento),valor_total);
+	        	var telefone = dados.list[i][2];
+	        	var local = dados.list[i][3].local;
+	        	var cadastrado_em = dados.list[i][3].cadastrado_em;
+	        	var assunto = dados.list[i][3].assunto;
+	        	linhaTabela(id_demanda,nome,local,assunto,converteData(cadastrado_em),telefone);
 	        }
 	    },
 	    error: function(erro){
@@ -131,11 +150,5 @@ var urlListaJson = "${linkTo[PagamentoController].listaPagamento()}"
 }
 
 </script>
-
-<c:if test="${not empty mensagem }">
-<script>
-	mensagemAlerta("${mensagem}","alert-success");
-</script>
-</c:if>
 
 <c:import url="/WEB-INF/jsp/footer.jsp"></c:import>

@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.rmi.CORBA.UtilDelegate;
 
 import org.hibernate.annotations.Type;
@@ -55,6 +56,12 @@ public class Perfil implements Serializable{
 	
 	@OneToMany(mappedBy="perfil",targetEntity = Pagamento.class, cascade = CascadeType.ALL)
 	private List<Pagamento> pagamentos;
+	
+	@OneToMany(mappedBy="perfil",targetEntity = Pagamento.class, cascade = CascadeType.ALL)
+	private List<Usuario> usuario;
+	
+	@OneToMany(mappedBy="perfil",targetEntity = Pagamento.class, cascade = CascadeType.ALL)
+	private List<Demanda> demanda;
 	
 	public int getId() {
 		return id;
@@ -136,4 +143,11 @@ public class Perfil implements Serializable{
 		return pagamentos;
 	}
 	
+	public List<Usuario> getUsuario() {
+		return usuario;
+	}
+	
+	public List<Demanda> getDemanda() {
+		return demanda;
+	}
 }

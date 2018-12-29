@@ -12,7 +12,7 @@
 
 
 <footer class="container-fluid"
-	style="left: 0; bottom: 0; position: fixed; background-color: #02203a; width: 100%">
+	style="left: 0; bottom: 0; position: fixed; background-color: #02203a; width: 100%;z-index: 4;">
 	<div class="col-md-4">
 		<span class="pull-left" style="color: white">Framework: Java
 			JEE VRaptor 4</span>
