@@ -36,6 +36,7 @@ public class LoginController {
 	@Open	
     public void autentica(String login, String senha){
     	Usuario usuario = usuarioDao.busca(login,senha);
+    	System.out.println(usuario);
     	if(usuario != null){
     		usuarioLogado.fazLogin(usuario);    	
     		System.out.println(usuario.getNome());
@@ -43,6 +44,7 @@ public class LoginController {
     	} else {
     		validator.add(new SimpleMessage("Login_invalido","Login ou senha incorretos"));
     		validator.onErrorRedirectTo(this).form();
+    		System.out.println("não encontrado");
     	}
     }
     

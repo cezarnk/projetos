@@ -22,7 +22,7 @@
 
 			<form action="${linkTo[LoginController].autentica(null,null)}"
 				method="POST">
-				<valida:validationMessage name="Login_invalido"></valida:validationMessage>
+				
 				<div class="form-group">
 					<label for="login">Login:</label> <input type="text" name="login"
 						id="login" class="form-control" placeholder="Digite seu login *" />
@@ -34,6 +34,10 @@
 						name="senha" id="senha" class="form-control"
 						placeholder="Digite sua senha *" />
 				</div>
+
+				<c:forEach var="error" items="${errors}">
+    				<span style="color:red">${error.category} - ${error.message}</span><br/><br>
+				</c:forEach>
 
 				<div class="form-group">
 					<input type="submit" class="btnSubmit" value="Autenticar" />

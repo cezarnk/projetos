@@ -26,15 +26,15 @@ public class Demanda implements Serializable {
 	private Integer usuario_chave;
 	
 	@Column
-	@NotEmpty
+	@NotEmpty(message="Local não pode ser vazio.")
 	private String local;
 	
 	@Column
-	@NotEmpty
+	@NotEmpty(message="Assunto não pode ser vazio.")
 	private String assunto;
 	
 	@Column
-	@NotEmpty
+	@NotEmpty(message="Descrição não pode ser vazio.")
 	private String descricao;
 	
 	@Column

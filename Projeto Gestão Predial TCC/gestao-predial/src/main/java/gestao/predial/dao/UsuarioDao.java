@@ -5,6 +5,7 @@ import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 
 import gestao.predial.modelos.Pagamento;
@@ -54,10 +55,15 @@ public class UsuarioDao {
     }
 
 	public Usuario busca(String login, String senha) {
-		TypedQuery<Usuario> query = manager.createQuery("select u from Usuario u where u.login = :login AND u.senha = :senha ",Usuario.class);
-		query.setParameter("login",login);
-		query.setParameter("senha",senha);
+		try {
+			TypedQuery<Usuario> query = manager.createQuery("select u from Usuario u where u.login = :login AND u.senha = :senha ",Usuario.class);
+			query.setParameter("login",login);
+			query.setParameter("senha",senha);
+			
+			return query.getSingleResult();
+		}catch (NoResultException e) {
+			return null;
+		}
 		
-		return query.getSingleResult();
 	}
 }

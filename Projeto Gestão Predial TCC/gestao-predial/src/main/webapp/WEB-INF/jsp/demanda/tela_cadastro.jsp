@@ -42,7 +42,7 @@ background-color: #f2f2f2;
 
 	 	<input type="hidden" id="id-perfil" name="demanda.usuario_chave" value="${usuarioLogado.usuario.chave_estrangeira}"/> 
 			<div class="row">
-				<div class="col-md-6">
+				<div class="col-md-7">
 					<div class="form-group">
 						<label for="nome">Nome:</label> <input type="text" name="demanda.nome"
 							id="nome" class="form-control caixa" readonly="readonly" value="${usuarioLogado.usuario.nome}" />						

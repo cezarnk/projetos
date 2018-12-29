@@ -34,13 +34,13 @@
 	<div class="form-group">
 	<label for="nome">Nome:</label>
 	<input type="text" readonly="readonly" placeholder="Digite o nome do usuario *" name="usuario.nome" id="nome" class="form-control" value="${usuario.nome}"/>
-	<aviso:validationMessage name="usuario.nome"></aviso:validationMessage>
+	<span style="color:red" class="error">${errors.from('usuario.nome')}</span>
 	</div>
 	
 	<div class="form-group">
 	<label for="nome_guerra">Nome de Exibição <small>(máximo de 16 caracteres)</small>:</label>
 	<input type="text" maxlength="16" placeholder="Digite o nome de exibição para contato *" name="usuario.nome_guerra" id="nome_guerra" class="form-control" value="${usuario.nome_guerra}"/>
-	<aviso:validationMessage name="usuario.nome_guerra"></aviso:validationMessage>
+	<span style="color:red" class="error">${errors.from('usuario.nome_guerra')}</span>
 	</div>
 	
 	<div class="row">
@@ -48,7 +48,7 @@
 	<div class="form-group">
 	<label for="login">Login:</label>
 	<input type="text" placeholder="Digite o login para o acesso *" name="usuario.login" id="login" class="form-control" value="${usuario.login}"/>
-	<aviso:validationMessage name="usuario.login"></aviso:validationMessage>
+	<span style="color:red" class="error">${errors.from('usuario.login')}</span>
 	</div>
 	</div>
 
@@ -56,7 +56,7 @@
 	<div class="form-group">
 	<label for="senha">Senha:</label>
 	<input type="password" placeholder="Digite a senha de acesso *" name="usuario.senha" id="senha" class="form-control"/>
-	<aviso:validationMessage name="usuario.senha"></aviso:validationMessage>
+	<span style="color:red" class="error">${errors.from('usuario.senha')}</span>
 	</div>
 	</div>
 	</div>

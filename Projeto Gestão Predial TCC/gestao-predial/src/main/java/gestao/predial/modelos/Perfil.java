@@ -29,22 +29,26 @@ public class Perfil implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
-	@NotEmpty
+	@NotEmpty(message="Nome não pode ser vazio.")
 	private String nome;
 	
-	@NotEmpty
+	@NotEmpty(message="CPF não pode ser vazio.")
 	private String cpf;
 	
-	@NotEmpty
+	@NotEmpty(message="Telefone não pode ser vazio.")
 	private String telefone;
 	
 	@Email
 	private String email;	
+	
+	@NotEmpty(message="Estado civil não pode ser vazio.")
 	private String estado_civil;
+	
 	private int qnt_filhos;
 	private int qnt_moradores;
 	private int andar_ocupado;
-	@NotEmpty
+	
+	@NotEmpty(message="Campo não pode ser vazio.")
 	private String administrador;
 	
 	@Column

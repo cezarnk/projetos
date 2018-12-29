@@ -19,6 +19,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.Type;
+import org.hibernate.validator.constraints.NotEmpty;
 
 
 @Entity
@@ -32,6 +33,7 @@ public class Pagamento implements Serializable{
 	private BigDecimal multa;
 	private BigDecimal desconto;
 	private BigDecimal valor_total;
+	
 	private BigDecimal condominio;
 	private int chave_estrangeira;
 	

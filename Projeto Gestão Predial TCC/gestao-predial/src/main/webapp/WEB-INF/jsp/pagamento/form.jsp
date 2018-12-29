@@ -71,7 +71,8 @@ background-color: #f2f2f2;
 									<div class="input-group">
 									<input type='text' class="caixa form-control" name="pagamento.data_vencimento" style="height: 30px" id="data-vencimento" aria-describedby="basic-addon2"/>
 									<span class="glyphicon glyphicon-calendar input-group-addon" id="basic-addon2"></span>
-									</div>							
+									</div>	
+									<span style="color:red" class="error">${errors.from('pagamento.data_vencimento')}</span>						
 									</div>
 								</div><br>
 								<div class="row">
@@ -99,6 +100,7 @@ background-color: #f2f2f2;
 									<input type='text' class="caixa form-control" name="pagamento.data_pagamento" style="height: 30px" id="data-pagamento" aria-describedby="basic-addon3"/>
 									<span class="glyphicon glyphicon-calendar input-group-addon" id="basic-addon3"></span>
 								</div>
+								<span style="color:red" class="error">${errors.from('pagamento.data_pagamento')}</span>
 								</div>
 								</div>
 							</div>
@@ -114,6 +116,7 @@ background-color: #f2f2f2;
 								</div>
 								<div class="col-md-5">
 								<input type='text' class="caixa" name="pagamento.valor" style="height: 30px" id="valor-mensalidade"/>
+								<span style="color:red" class="error">${errors.from('pagamento.valor')}</span>
 								</div>
 								</div><br>
 								
@@ -179,6 +182,7 @@ background-color: #f2f2f2;
 							</div>
 							<div class="col-md-5">
 							<input type='text' class="caixa" name="pagamento.valor_total" style="height: 30px" id="valor-total"/>
+							<span style="color:red" class="error">${errors.from('pagamento.valor_total')}</span>
 							</div>
 							</div>
 						</div>

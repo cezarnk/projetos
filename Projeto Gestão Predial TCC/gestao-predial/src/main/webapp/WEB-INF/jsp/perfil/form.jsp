@@ -33,7 +33,7 @@
 						<label for="nome">Nome:</label> <input type="text"
 							placeholder="Digite o nome do usuario *" name="perfil.nome"
 							id="nome" class="form-control" value="${perfil.nome}" />
-						<aviso:validationMessage name="perfil.nome"></aviso:validationMessage>
+						<span style="color:red" class="error">${errors.from('perfil.nome')}</span>
 					</div>
 				</div>
 				<div class="col-md-5">
@@ -41,7 +41,7 @@
 						<label for="cpf">CPF:</label> <input type="text"
 							placeholder="Digite o CPF do usuario *" name="perfil.cpf"
 							id="cpf" class="form-control" value="${perfil.cpf}" />
-						<aviso:validationMessage name="perfil.cpf"></aviso:validationMessage>
+						<span style="color:red" class="error">${errors.from('perfil.cpf')}</span>
 					</div>
 				</div>
 			</div>
@@ -53,7 +53,6 @@
 						<label for="cpf">Data de Nascimento:</label> <input type="text"
 							placeholder="Digite a data de nascimento *" name="perfil.data_nascimento"
 							id="data_nascimento" class="form-control" value="${perfil.data_nascimento}" />
-						<aviso:validationMessage name="perfil.data_nascimento"></aviso:validationMessage>
 					</div>
 				</div>
 			
@@ -69,7 +68,7 @@
 							<option>União Estável</option>
 							<option>Viúvo</option>
 						</select>
-						<aviso:validationMessage name="perfil.estado_civil"></aviso:validationMessage>
+						<span style="color:red" class="error">${errors.from('perfil.estado_civil')}</span>
 					</div>
 				</div>
 				<div class="col-md-3">
@@ -84,7 +83,7 @@
 							<option value="3">3</option>
 							<option value="4">Mais de 3</option>
 						</select>
-						<aviso:validationMessage name="perfil.qnt_filhos"></aviso:validationMessage>
+						<span style="color:red" class="error">${errors.from('perfil.qnt_filhos')}</span>
 					</div>
 				</div>
 			
@@ -98,7 +97,6 @@
 						<label for="email">Email:</label> <input type="email"
 							placeholder="Digite o email para contato *" name="perfil.email"
 							id="email" class="form-control" value="${perfil.email}" />
-						<aviso:validationMessage name="perfil.email"></aviso:validationMessage>
 					</div>
 				</div>
 				<div class="col-md-5">
@@ -106,7 +104,7 @@
 						<label for="telefone">Telefone:</label> <input type="text"
 							placeholder="Digite o nome do telefone *" name="perfil.telefone"
 							id="telefone" class="form-control" value="${perfil.telefone}" />
-						<aviso:validationMessage name="perfil.telefone"></aviso:validationMessage>
+						<span style="color:red" class="error">${errors.from('perfil.telefone')}</span>
 					</div>
 				</div>
 			</div>
@@ -125,7 +123,7 @@
 							<option value="3">3</option>
 							<option value="4">Mais de 3</option>
 						</select>
-						<aviso:validationMessage name="perfil.qnt_moradores"></aviso:validationMessage>
+						<span style="color:red" class="error">${errors.from('perfil.qnt_moradores')}</span>
 					</div>
 				</div>
 
@@ -145,7 +143,7 @@
 							<option value="8">8º andar</option>
 							<option value="9">9º andar</option>
 						</select>
-						<aviso:validationMessage name="perfil.andar_ocupado"></aviso:validationMessage>
+						<span style="color:red" class="error">${errors.from('perfil.andar_ocupado')}</span>
 					</div>
 				</div>
 				
