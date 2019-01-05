@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" output="target/classes" path="src/main/java">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry excluding="**" kind="src" output="target/test-classes" path="src/test/resources">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry exported="true" kind="con" path="org.maven.ide.eclipse.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/home/cezar/Área de trabalho/Biblioteca Java/spring-framework-3.0.5.RELEASE/src/org.springframework.web-sources-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/cezar/Área de trabalho/Biblioteca Java/spring-framework-3.0.5.RELEASE/src/org.springframework.web.struts-sources-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/cezar/Área de trabalho/Biblioteca Java/spring-framework-3.0.5.RELEASE/src/org.springframework.web.servlet-sources-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/cezar/Área de trabalho/Biblioteca Java/spring-framework-3.0.5.RELEASE/src/org.springframework.web.portlet-sources-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/cezar/Área de trabalho/Biblioteca Java/spring-framework-3.0.5.RELEASE/src/org.springframework.transaction-sources-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/cezar/Área de trabalho/Biblioteca Java/spring-framework-3.0.5.RELEASE/src/org.springframework.test-sources-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/cezar/Área de trabalho/Biblioteca Java/spring-framework-3.0.5.RELEASE/src/org.springframework.oxm-sources-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/cezar/Área de trabalho/Biblioteca Java/spring-framework-3.0.5.RELEASE/src/org.springframework.orm-sources-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/cezar/Área de trabalho/Biblioteca Java/spring-framework-3.0.5.RELEASE/src/org.springframework.jms-sources-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/cezar/Área de trabalho/Biblioteca Java/spring-framework-3.0.5.RELEASE/src/org.springframework.jdbc-sources-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/cezar/Área de trabalho/Biblioteca Java/spring-framework-3.0.5.RELEASE/src/org.springframework.instrument-sources-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/cezar/Área de trabalho/Biblioteca Java/spring-framework-3.0.5.RELEASE/src/org.springframework.instrument.tomcat-sources-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/cezar/Área de trabalho/Biblioteca Java/spring-framework-3.0.5.RELEASE/src/org.springframework.expression-sources-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/cezar/Área de trabalho/Biblioteca Java/spring-framework-3.0.5.RELEASE/src/org.springframework.core-sources-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/cezar/Área de trabalho/Biblioteca Java/spring-framework-3.0.5.RELEASE/src/org.springframework.context-sources-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/cezar/Área de trabalho/Biblioteca Java/spring-framework-3.0.5.RELEASE/src/org.springframework.context.support-sources-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/cezar/Área de trabalho/Biblioteca Java/spring-framework-3.0.5.RELEASE/src/org.springframework.beans-sources-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/cezar/Área de trabalho/Biblioteca Java/spring-framework-3.0.5.RELEASE/src/org.springframework.aspects-sources-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/cezar/Área de trabalho/Biblioteca Java/spring-framework-3.0.5.RELEASE/src/org.springframework.asm-sources-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/cezar/Área de trabalho/Biblioteca Java/spring-framework-3.0.5.RELEASE/src/org.springframework.aop-sources-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>
