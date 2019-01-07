@@ -121,7 +121,7 @@
 										class="glyphicon glyphicon-pencil" aria-hidden="true"></span></i>
 									Cadastrar <span class="arrow"></span></a></li>
 							<ul class="sub-menu collapse" id="products">
-								<li class="active"><a href="${linkTo[PerfilController].form()}">Dados de Usuário</a></li>
+								<li class="active"><a href="<c:url value="/perfil/form"/>">Dados de Usuário</a></li>
 								
 								<li class="active"><a href="${linkTo[PagamentoController].form()}">Pagamento de Mensalidade</a></li>
 								<li class="active"><a href="${linkTo[DemandaController].tela_cadastro()}">Solicitação de
@@ -136,7 +136,7 @@
 									Consultar <span class="arrow"></span></a></li>
 							<ul class="sub-menu collapse" id="service">
 								<li class="active"><a href="${linkTo[PagamentoController].lista()}">Controle de Pagamento</a></li>
-								<li class="active"><a href="${linkTo[PerfilController].lista()}">Lista de Usuários</a></li>
+								<li class="active"><a href="<c:url value="/perfil/"/>">Lista de Usuários</a></li>
 								<li class="active"><a href="${linkTo[DemandaController].lista()}">Painel de Solicitações</a></li>
 								
 								

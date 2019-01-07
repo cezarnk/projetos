@@ -13,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import javax.rmi.CORBA.UtilDelegate;
 
 import org.hibernate.annotations.Type;
@@ -23,6 +24,7 @@ import com.mysql.jdbc.Util;
 
 
 @Entity
+@Table(name = "Perfil")
 public class Perfil implements Serializable{
 	
 	@Id

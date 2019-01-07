@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import gestao.predial.spring.model.Perfil;
 
-@Repository("contatoDao")
+@Repository("perfilDao")
 public class PerfilDAO {
 
 	protected EntityManager entityManager;
@@ -20,7 +20,7 @@ public class PerfilDAO {
 		this.entityManager = entityManager;
 	}
 	
-	public Perfil find(Long id) {
+	public Perfil find(int id) {
 		return entityManager.find(Perfil.class, id);
 	}
 	

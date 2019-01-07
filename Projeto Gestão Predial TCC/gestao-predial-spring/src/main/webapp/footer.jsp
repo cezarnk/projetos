@@ -15,7 +15,7 @@
 	style="left: 0; bottom: 0; position: fixed; background-color: #051606; width: 100%;z-index: 4;">
 	<div class="col-md-4">
 		<span class="pull-left" style="color: white">Framework: Java
-			JEE VRaptor 4</span>
+			Spring MVC 3.5</span>
 	</div>
 	<div class="col-md-3 col-md-offset-1">
 		<span class="text-center" style="color: white;">Responsável:
