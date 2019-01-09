@@ -95,7 +95,7 @@
 				alt="Aluguel"> <br>
 			<br>
 			<button type="button" class="btn btn-primary btn-sm"
-				onclick="location.href='<c:url value='/demanda/tela_cadastro'/>'">
+				onclick="location.href='<c:url value='/demanda/form'/>'">
 				<span class="glyphicon glyphicon-share-alt" style="color: #5cb85c"
 					aria-hidden="true"></span> &nbsp Acessar tela de cadastro
 			</button>

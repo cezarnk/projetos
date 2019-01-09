@@ -11,11 +11,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.rmi.CORBA.UtilDelegate;
 
+import org.hibernate.annotations.IndexColumn;
 import org.hibernate.annotations.Type;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -29,6 +31,7 @@ public class Perfil implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "perfil_id")
 	private int id;
 	
 	@NotEmpty(message="Nome não pode ser vazio.")
@@ -60,13 +63,16 @@ public class Perfil implements Serializable{
 	@Type(type="timestamp")
 	private Timestamp cadastrado_em = new Timestamp(System.currentTimeMillis());
 	
-	@OneToMany(mappedBy="perfil",targetEntity = Pagamento.class, cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "perfil_id", referencedColumnName = "perfil_id")
 	private List<Pagamento> pagamentos;
 	
-	@OneToMany(mappedBy="perfil",targetEntity = Pagamento.class, cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "perfil_id", referencedColumnName = "perfil_id")
 	private List<Usuario> usuario;
 	
-	@OneToMany(mappedBy="perfil",targetEntity = Pagamento.class, cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "perfil_id", referencedColumnName = "perfil_id")
 	private List<Demanda> demanda;
 	
 	public int getId() {

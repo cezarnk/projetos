@@ -2,6 +2,7 @@ package gestao.predial.spring.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,11 +31,8 @@ public class Usuario implements Serializable{
     @NotEmpty(message="Campo não pode ser vazio.")
     private String nome_guerra;
     
-    private int chave_estrangeira;
-    
-	@ManyToOne
-	@JoinColumn(name="perfil_id")
-	private Perfil perfil;
+    @Column(name = "perfil_id")
+    private int perfilId;    
 
 	public int getId() {
 		return id;
@@ -76,19 +74,14 @@ public class Usuario implements Serializable{
 		this.nome_guerra = nome_guerra;
 	}
 	
-	public int getChave_estrangeira() {
-		return chave_estrangeira;
+
+	public void setPerfilId(int perfilId) {
+		this.perfilId = perfilId;
 	}
 
-	public void setChave_estrangeira(int chave_estrangeira) {
-		this.chave_estrangeira = chave_estrangeira;
+	public int getPerfilId() {
+		return perfilId;
 	}
 	
-	public Perfil getPerfil() {
-		return perfil;
-	}
 
-	public void setPerfil(Perfil perfil) {
-		this.perfil = perfil;
-	}
 }

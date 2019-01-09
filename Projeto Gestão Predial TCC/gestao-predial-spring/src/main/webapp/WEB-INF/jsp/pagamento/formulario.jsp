@@ -1,8 +1,13 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib tagdir="/WEB-INF/tags" prefix="aviso"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-<c:import url="/WEB-INF/jsp/index/header.jsp"></c:import>
-<link href="<c:url value='/css/bootstrap-datepicker3.min.css'/>" rel="stylesheet" />
+
+<%@ include file="/header.jsp"%>
+
+<link href="<c:url value='/resources/css/bootstrap-datepicker3.min.css'/>" rel="stylesheet" />
 
 <style>
 
@@ -194,13 +199,12 @@ background-color: #f2f2f2;
 		</form>
 	</div>
 </div>
-												
 
-<c:import url="/WEB-INF/jsp/footer.jsp"></c:import>
+<%@ include file="/footer.jsp"%>
 
-<script src="<c:url value='/js/bootstrap-datepicker.js'/>"></script>
-<script src="<c:url value='/js/bootstrap-datepicker.pt-BR.min.js'/>"></script>
-<script src="<c:url value='/js/jquery.mask.min.js'/>"></script>
+<script src="<c:url value='/resources/js/bootstrap-datepicker.js'/>"></script>
+<script src="<c:url value='/resources/js/bootstrap-datepicker.pt-BR.min.js'/>"></script>
+<script src="<c:url value='/resources/js/jquery.mask.min.js'/>"></script>
 
 <script>
 $('#data-vencimento').datepicker({

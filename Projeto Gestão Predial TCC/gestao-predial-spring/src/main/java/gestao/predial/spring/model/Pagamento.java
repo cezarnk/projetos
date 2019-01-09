@@ -35,7 +35,6 @@ public class Pagamento implements Serializable{
 	private BigDecimal valor_total;
 	
 	private BigDecimal condominio;
-	private int chave_estrangeira;
 	
 	@Temporal(TemporalType.DATE)
 	private Calendar data_pagamento;
@@ -47,10 +46,8 @@ public class Pagamento implements Serializable{
 	@Type(type="timestamp")
 	private Timestamp cadastrado_em = new Timestamp(System.currentTimeMillis());
 	
-	@ManyToOne
-	@JoinColumn(name="perfil_id")
-	private Perfil perfil;
-
+    @Column(name = "perfil_id")
+    private int perfilId;    
 	
 	public int getId() {
 		return id;
@@ -98,14 +95,6 @@ public class Pagamento implements Serializable{
 		this.cadastrado_em = cadastrado_em;
 	}
 
-	public Perfil getPerfil() {
-		return perfil;
-	}
-
-	public void setPerfil(Perfil perfil) {
-		this.perfil = perfil;
-	}
-
 	public BigDecimal getMulta() {
 		return multa;
 	}
@@ -137,13 +126,12 @@ public class Pagamento implements Serializable{
 	public void setCondominio(BigDecimal condominio) {
 		this.condominio = condominio;
 	}
-
-	public int getChave_estrangeira() {
-		return chave_estrangeira;
-	}
-
-	public void setChave_estrangeira(int chave_estrangeira) {
-		this.chave_estrangeira = chave_estrangeira;
-	}
 	
+	public void setPerfilId(int perfilId) {
+		this.perfilId = perfilId;
+	}
+
+	public int getPerfilId() {
+		return perfilId;
+	}
 }

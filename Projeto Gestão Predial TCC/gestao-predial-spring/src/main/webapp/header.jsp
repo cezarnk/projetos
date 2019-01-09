@@ -123,8 +123,8 @@
 							<ul class="sub-menu collapse" id="products">
 								<li class="active"><a href="<c:url value="/perfil/form"/>">Dados de Usuário</a></li>
 								
-								<li class="active"><a href="${linkTo[PagamentoController].form()}">Pagamento de Mensalidade</a></li>
-								<li class="active"><a href="${linkTo[DemandaController].tela_cadastro()}">Solicitação de
+								<li class="active"><a href="<c:url value="/pagamento/form"/>">Pagamento de Mensalidade</a></li>
+								<li class="active"><a href="<c:url value="/demanda/form"/>">Solicitação de
 										Atendimento</a></li>
 
 							</ul>
@@ -135,9 +135,9 @@
 										class="glyphicon glyphicon-search" aria-hidden="true"></span></i>
 									Consultar <span class="arrow"></span></a></li>
 							<ul class="sub-menu collapse" id="service">
-								<li class="active"><a href="${linkTo[PagamentoController].lista()}">Controle de Pagamento</a></li>
+								<li class="active"><a href="<c:url value="/pagamento/"/>">Controle de Pagamento</a></li>
 								<li class="active"><a href="<c:url value="/perfil/"/>">Lista de Usuários</a></li>
-								<li class="active"><a href="${linkTo[DemandaController].lista()}">Painel de Solicitações</a></li>
+								<li class="active"><a href="<c:url value="/demanda/"/>">Painel de Solicitações</a></li>
 								
 								
 
@@ -150,7 +150,7 @@
 							</li>
 							<ul class="sub-menu collapse" id="new">
 								<li class="active"><a
-									href="${linkTo[UsuarioController].lista()}">Controle de
+									href="<c:url value="/usuario/"/>">Controle de
 										acesso</a></li>
 								
 								<!-- <li class="active">Relatórios</li> -->

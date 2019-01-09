@@ -23,9 +23,6 @@ public class Demanda implements Serializable {
 	private int id;
 	
 	@Column
-	private Integer usuario_chave;
-	
-	@Column
 	@NotEmpty(message="Local não pode ser vazio.")
 	private String local;
 	
@@ -41,9 +38,8 @@ public class Demanda implements Serializable {
 	@Type(type="timestamp")
 	private Timestamp cadastrado_em = new Timestamp(System.currentTimeMillis());
 
-	@ManyToOne
-	@JoinColumn(name="perfil_id")
-	private Perfil perfil;
+    @Column(name = "perfil_id")
+    private int perfilId;    
 	
 	public int getId() {
 		return id;
@@ -51,14 +47,6 @@ public class Demanda implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public Integer getUsuario_chave() {
-		return usuario_chave;
-	}
-
-	public void setUsuario_chave(Integer usuario_chave) {
-		this.usuario_chave = usuario_chave;
 	}
 
 	public String getLocal() {
@@ -93,12 +81,13 @@ public class Demanda implements Serializable {
 		this.cadastrado_em = cadastrado_em;
 	}
 	
-	public Perfil getPerfil() {
-		return perfil;
+	
+	public void setPerfilId(int perfilId) {
+		this.perfilId = perfilId;
 	}
 
-	public void setPerfil(Perfil perfil) {
-		this.perfil = perfil;
+	public int getPerfilId() {
+		return perfilId;
 	}
 
 }

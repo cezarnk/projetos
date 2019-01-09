@@ -8,7 +8,7 @@
 <%@ include file="/header.jsp"%>
 
 <h2>
-	Cadastro de Usuário <small>Criação do perfil de usuário</small>
+	Cadastro de Usuário <small>Atualização do perfil de usuário</small>
 </h2>
 <hr>
 <br>
@@ -18,14 +18,13 @@
 <div class="row">
 	<div class="col-md-8">
 
+ <c:url var="url" value="/perfil/${perfil.id}" />
+    <form:form action="${url}" method="PUT" modelAttribute="Perfil">
+		
 
-
-		<c:url var="url" value="/perfil" />
-		<form:form action="${url}" method="POST" modelAttribute="Perfil">
-
-			<c:if test="${not empty perfil.cadastrado_em}">
+			<c:if test="${not empty Perfil.cadastrado_em}">
 				<span>Atualizado em:&nbsp <span
-					data-mask="0000/00/00 00:00:00">${perfil.cadastrado_em} </span></span>
+					data-mask="0000/00/00 00:00:00">${Perfil.cadastrado_em} </span></span>
 				<br>
 				<br>
 			</c:if>
@@ -36,15 +35,15 @@
 					<div class="form-group">
 						<label for="nome">Nome:</label> <input type="text"
 							placeholder="Digite o nome do usuario *" name="nome"
-							id="nome" class="form-control" value="${perfil.nome}" /> <span
-							style="color: red" class="error">${errors.from('perfil.nome')}</span>
+							id="nome" class="form-control" value="${Perfil.nome}" /> 
+							<span style="color: red" class="error">${errors.from('perfil.nome')}</span>							
 					</div>
 				</div>
 				<div class="col-md-5">
 					<div class="form-group">
 						<label for="cpf">CPF:</label> <input type="text"
 							placeholder="Digite o CPF do usuario *" name="cpf"
-							id="cpf" class="form-control" value="${perfil.cpf}" /> <span
+							id="cpf" class="form-control" value="${Perfil.cpf}" /> <span
 							style="color: red" class="error">${errors.from('perfil.cpf')}</span>
 					</div>
 				</div>
@@ -57,14 +56,14 @@
 						<label for="cpf">Data de Nascimento:</label> <input type="text"
 							placeholder="Digite a data de nascimento *"
 							name="data_nascimento" id="data_nascimento"
-							class="form-control" value="${perfil.data_nascimento}" />
+							class="form-control" value="${Perfil.data_nascimento}" />
 					</div>
 				</div>
 
 				<div class="col-md-3">
 					<div class="form-group">
 						<label>Estado Civil:</label> <select class="form-control"
-							id="estado_civil" value="${perfil.estado_civil}"
+							id="estado_civil" value="${Perfil.estado_civil}"
 							name="estado_civil">
 							<option disabled="true" selected>Selecione</option>
 							<option>Casado</option>
@@ -78,7 +77,7 @@
 				<div class="col-md-3">
 					<div class="form-group">
 						<label>Quant. de Filhos:</label> <select class="form-control"
-							id="qnt_filhos" value="${perfil.qnt_filhos}"
+							id="qnt_filhos" value="${Perfil.qnt_filhos}"
 							name="qnt_filhos">
 							<option disabled="true" selected>Selecione</option>
 							<option value="0">Não possui</option>
@@ -99,14 +98,14 @@
 					<div class="form-group">
 						<label for="email">Email:</label> <input type="email"
 							placeholder="Digite o email para contato *" name="email"
-							id="email" class="form-control" value="${perfil.email}" />
+							id="email" class="form-control" value="${Perfil.email}" />
 					</div>
 				</div>
 				<div class="col-md-5">
 					<div class="form-group">
 						<label for="telefone">Telefone:</label> <input type="text"
 							placeholder="Digite o nome do telefone *" name="telefone"
-							id="telefone" class="form-control" value="${perfil.telefone}" />
+							id="telefone" class="form-control" value="${Perfil.telefone}" />
 						<span style="color: red" class="error">${errors.from('perfil.telefone')}</span>
 					</div>
 				</div>
@@ -118,7 +117,7 @@
 				<div class="col-md-3">
 					<div class="form-group">
 						<label>Qnt. de Moradores:</label> <select class="form-control"
-							id="qnt_moradores" value="${perfil.qnt_moradores}"
+							id="qnt_moradores" value="${Perfil.qnt_moradores}"
 							name="qnt_moradores">
 							<option disabled="true" selected>Selecione</option>
 							<option value="1">1</option>
@@ -132,7 +131,7 @@
 				<div class="col-md-3">
 					<div class="form-group">
 						<label>Andar Ocupado:</label> <select class="form-control"
-							id="andar_ocupado" value="${perfil.andar_ocupado}"
+							id="andar_ocupado" value="${Perfil.andar_ocupado}"
 							name="andar_ocupado">
 							<option disabled="true" selected>Selecione</option>
 							<option value="1">1º andar</option>
@@ -166,19 +165,18 @@
 				<div class="col-md-12">
 					<button type="submit" class="btn btn-primary btn-sm">
 						<span class="glyphicon glyphicon-ok" aria-hidden="true"
-							style="color: #5cb85c"></span> &nbsp Cadastrar
+							style="color: #5cb85c"></span> &nbsp Atualizar
 					</button>
 
 					<button
-						type="button" class="btn btn-default btn-sm pull-right" 
-					onclick=location.href="<c:url value="/perfil/"/>">
+						type="submit" class="btn btn-default btn-sm pull-right">
 						<span class="glyphicon glyphicon-share-alt" aria-hidden="true"
 							style="color: #d9534f"></span> &nbspVoltar
 					</button>
 
 				</div>
 			</div>
-
+			<form:hidden path="id"/>
 		</form:form>
 
 
@@ -208,11 +206,11 @@
 		}
 	});
 
-	$("#estado_civil").val("${perfil.estado_civil}")
-	$("#qnt_filhos").val("${perfil.qnt_filhos}");
-	$("#qnt_moradores").val("${perfil.qnt_moradores}")
-	$("#andar_ocupado").val("${perfil.andar_ocupado}")
-	if ("${perfil.administrador}" == "false") {
+	$("#estado_civil").val("${Perfil.estado_civil}")
+	$("#qnt_filhos").val("${Perfil.qnt_filhos}");
+	$("#qnt_moradores").val("${Perfil.qnt_moradores}")
+	$("#andar_ocupado").val("${Perfil.andar_ocupado}")
+	if ("${Perfil.administrador}" == "false") {
 		$("#check-administrador").prop("checked", false)
 	} else {
 		$("#check-administrador").prop("checked", true)

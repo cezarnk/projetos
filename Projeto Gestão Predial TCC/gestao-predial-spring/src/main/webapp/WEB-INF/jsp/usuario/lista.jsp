@@ -5,57 +5,51 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <%@ include file="/header.jsp"%>
-<link href="<c:url value='/resources/css/site.css'/>" rel="stylesheet" />
 
 <link
 	href="<c:url value='/resources/css/dataTables.bootstrap.min.css'/>"
 	rel="stylesheet" />
 <link href="<c:url value='/resources/css/datatables.min.css'/>"
 	rel="stylesheet" />
-
+<link href="<c:url value='/resources/css/site.css'/>" rel="stylesheet" />
 
 <h2>
-	Lista de Usuários<small> Perfil dos ocupantes do prédio</small>
+	Controle de Acesso <small>Gerenciamento de login e senha dos
+		usuários do sistema</small>
 </h2>
 <hr>
 <br>
 
+<button class="btn btn-primary btn-sm"
+	onclick="location.href='<c:url value="/usuario/form"/>'" >
+	<span class="glyphicon glyphicon-plus" aria-hidden="true"
+		style="color:#5cb85c"></span> &nbsp Criar Novo Usuário
+</button>
+<br>
+<br>
+
 
 <div class="row">
-	<div class="col-md-10">
-		<table class="table table-hover table-striped table-bordered"
-			id="tabela-usuario">
+	<div class="col-md-9">
+	<c:if test="${not empty Usuario}">
+		<table class="table table-hover table-striped table-bordered" id="tabela-login">
 			<thead>
 				<tr>
 					<th>Id</th>
 					<th>Nome</th>
-					<th>CPF</th>
-					<th>Data Nascimento</th>
-					<th>Estado Civil</th>
-					<th>Andar Ocupado</th>
-					<th width="30px"></th>
+					<th width="150px">Nome de Exibição</th>
+					<th>Login</th>
 					<th width="30px"></th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${Perfil}" var="perfil">
-					<c:url var="url" value="/perfil/${perfil.id}" />
+				<c:forEach items="${Usuario}" var="usuario">
+				<c:url var="url" value="/usuario/${usuario.id}" />
 					<tr>
-						<td>${perfil.id}</td>
-						<td>${perfil.nome}</td>
-						<td>${perfil.cpf}</td>
-						<td>${perfil.data_nascimento}</td>
-						<td>${perfil.estado_civil}</td>
-						<td>${perfil.andar_ocupado}</td>
-						<td>
-							<form:form action="${url}/form" method="GET">
-								<button type="submit" class="btn btn-default btn-xs"
-									onclick=location.href="<c:url value="/resources/img/delete.png"/>" >
-									<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> &nbsp
-										
-								</button>
-							</form:form>
-						</td>
+						<td>${usuario.id}</td>
+						<td>${usuario.nome}</td>
+						<td>${usuario.nome_guerra}</td>
+						<td>${usuario.login}</td>
 						<td>
 							<form:form action="${url}" method="DELETE">
 								<button type="submit" class="btn btn-default btn-xs"
@@ -69,8 +63,18 @@
 				</c:forEach>
 			</tbody>
 		</table>
+		</c:if>
+		<c:if test="${empty Usuario}">Não há usuários cadastrados.</c:if>
 	</div>
 </div>
+
+<c:if test="${not empty mensagem }">
+<script>
+	mensagemAlerta("${mensagem}","alert-success")
+</script>
+</c:if>
+
+
 
 <script src="<c:url value='/resources/js/jquery.dataTables.min.js'/>"></script>
 <script src="<c:url value='/resources/js/dataTables.bootstrap.min.js'/>"></script>
@@ -103,14 +107,6 @@ $(document).ready(function() {
 } );
 
 </script>
-
-
-<c:if test="${not empty mensagem }">
-	<script>
-	mensagemAlerta("${mensagem}","alert-success");
-</script>
-</c:if>
-
 
 
 <%@ include file="/footer.jsp"%>
