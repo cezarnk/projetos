@@ -16,39 +16,52 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.Type;
 import org.hibernate.validator.constraints.NotEmpty;
-
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
+import org.springframework.format.annotation.NumberFormat.Style;
 
 @Entity
-public class Pagamento implements Serializable{
-	
+public class Pagamento implements Serializable {
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
+	@NumberFormat(pattern = "#,###.00")
 	private BigDecimal valor;
+
+	@NumberFormat(pattern = "#,###.00")
 	private BigDecimal multa;
+
+	@NumberFormat(pattern = "#,###.00")
 	private BigDecimal desconto;
+
+	@NumberFormat(pattern = "#,###.00")
 	private BigDecimal valor_total;
-	
+
+	@NumberFormat(pattern = "#,###.00")
 	private BigDecimal condominio;
-	
+
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Calendar data_pagamento;
-	
+
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Calendar data_vencimento;
 
 	@Column
-	@Type(type="timestamp")
+	@Type(type = "timestamp")
 	private Timestamp cadastrado_em = new Timestamp(System.currentTimeMillis());
-	
-    @Column(name = "perfil_id")
-    private int perfilId;    
-	
+
+	@Column(name = "perfil_id")
+	private int perfilId;
+
 	public int getId() {
 		return id;
 	}
@@ -65,12 +78,11 @@ public class Pagamento implements Serializable{
 		this.valor = valor;
 	}
 
-	public String getDataPagamentoFormatado()
-	{
+	public String getDataPagamentoFormatado() {
 		SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 		return formato.format(getData_pagamento());
 	}
-	
+
 	public Calendar getData_pagamento() {
 		return data_pagamento;
 	}
@@ -126,7 +138,7 @@ public class Pagamento implements Serializable{
 	public void setCondominio(BigDecimal condominio) {
 		this.condominio = condominio;
 	}
-	
+
 	public void setPerfilId(int perfilId) {
 		this.perfilId = perfilId;
 	}

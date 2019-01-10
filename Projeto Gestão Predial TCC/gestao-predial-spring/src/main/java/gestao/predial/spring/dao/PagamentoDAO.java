@@ -6,10 +6,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
+import org.hibernate.annotations.common.reflection.java.generics.TypeEnvironmentFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import gestao.predial.spring.model.Pagamento;
+import java.math.BigDecimal;
 
 @Repository("pagamentoDao")
 public class PagamentoDAO {
@@ -28,14 +30,23 @@ public class PagamentoDAO {
 	@Transactional
 	public void persist(Pagamento pagamento) {		
 		Pagamento pag = new Pagamento();
+		pag = pagamento;
+		BigDecimal valor = pagamento.getValor();
+		pag.setValor(valor);
 		/*
-		us.setLogin(usuario.getLogin());
-		us.setNome(usuario.getNome());
-		us.setNome_guerra(usuario.getNome_guerra());
-		us.setPerfilId(usuario.getPerfilId());
-		us.setSenha(usuario.getSenha());
+			
+		
+		
+		pag.setCondominio(pagamento.getCondominio());
+		pag.setData_pagamento(pagamento.getData_pagamento());
+		pag.setData_vencimento(pagamento.getData_vencimento());
+		pag.setDesconto(pagamento.getDesconto());
+		pag.setMulta(pagamento.getMulta());
+		pag.setPerfilId(pagamento.getPerfilId());
+		pag.setValor(pagamento.getValor());
+		pag.setValor_total(pagamento.getValor_total());
 		*/
-		manager.persist(pag);
+		manager.persist(pagamento);
 	}
 	
 	@Transactional

@@ -40,15 +40,18 @@ background-color: #f2f2f2;
 <div class="row">
 	<div class="col-md-8">
 
-<form action="${linkTo[DemandaController].adiciona(demanda) }"
-			method="POST">
+
+<c:url var="url" value="/demanda" />
+		<form:form action="${url}" method="POST" modelAttribute="Demanda">
+
+		
 
 
-	 	<input type="hidden" id="id-perfil" name="demanda.usuario_chave" value="${usuarioLogado.usuario.chave_estrangeira}"/> 
+	 	<input type="hidden" id="id-perfil" name="perfilId" value="${usuarioLogado.usuario.chave_estrangeira}"/> 
 			<div class="row">
 				<div class="col-md-7">
 					<div class="form-group">
-						<label for="nome">Nome:</label> <input type="text" name="demanda.nome"
+						<label for="nome">Nome:</label> <input type="text" name="nome"
 							id="nome" class="form-control caixa" readonly="readonly" value="${usuarioLogado.usuario.nome}" />						
 					</div>
 				</div>
@@ -62,7 +65,7 @@ background-color: #f2f2f2;
 					<div class="form-group">
 						<label>Assunto:</label> <select class="form-control"
 							id="demanda-assunto" value="${demanda.assunto}"
-							name="demanda.assunto">
+							name="assunto">
 							<option disabled="true" selected>Selecione</option>
 							<option>Manutenção Civil</option>
 							<option>Manutenção Hidráulica</option>
@@ -77,7 +80,7 @@ background-color: #f2f2f2;
 					<div class="form-group">
 						<label>Local/Andar:</label> <select class="form-control"
 							id="demanda-local" value="${demanda.local}"
-							name="demanda.local">
+							name="local">
 							<option disabled="true" selected>Selecione</option>
 							<option value="0">Térreo</option>
 							<option value="1">1º andar</option>
@@ -100,7 +103,7 @@ background-color: #f2f2f2;
 			<div class="col-md-9">
 	    		 <div class="form-group">
 				  <label for="comment">Descrição:</label>
-				  <textarea name="demanda.descricao" placeholder="Descreva sua solicitação *" id="demanda-descricao" value="${demanda.descricao}" class="form-control" style="resize: vertical" rows="5" id="comment"></textarea>
+				  <textarea name="descricao" placeholder="Descreva sua solicitação *" id="demanda-descricao" value="${demanda.descricao}" class="form-control" style="resize: vertical" rows="5" id="comment"></textarea>
 				  <span style="color:red" class="error">${errors.from('demanda.descricao')}</span>
 				</div> 
 			</div>
@@ -116,7 +119,7 @@ background-color: #f2f2f2;
 			</div>
 			</div>
 
-		</form>
+		</form:form>
 		
 	</div>
 </div>
@@ -128,6 +131,7 @@ background-color: #f2f2f2;
 <script>
 
 $(document).ready(function(){
+	$("#id-perfil").val(2)
 	var id = $("#id-perfil").val()
 	var urlConsultaJson = "<c:url value='/perfil/consulta/"+id+"'/>"
 	console.log(urlConsultaJson);

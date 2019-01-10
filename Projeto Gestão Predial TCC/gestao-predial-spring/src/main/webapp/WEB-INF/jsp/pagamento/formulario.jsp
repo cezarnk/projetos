@@ -59,10 +59,10 @@ background-color: #f2f2f2;
 			</div>
 		</div>
 
-		<form action="${linkTo[PagamentoController].adiciona(pagamento) }"
-			method="POST">
+		<c:url var="url" value="/pagamento" />
+		<form:form action="${url}" method="POST" modelAttribute="Pagamento">
 
-		<input type="hidden" name="pagamento.chave_estrangeira" id="perfil-id" />
+		<input type="hidden" name="perfilId" id="perfil-id" />
 			<div class="row">
 				<div class="col-md-12">
 					<div class="panel panel-default">
@@ -74,7 +74,7 @@ background-color: #f2f2f2;
 									</div>
 									<div class="col-md-6">
 									<div class="input-group">
-									<input type='text' class="caixa form-control" name="pagamento.data_vencimento" style="height: 30px" id="data-vencimento" aria-describedby="basic-addon2"/>
+									<input type='text' class="caixa form-control" name="data_vencimento" style="height: 30px" id="data-vencimento" aria-describedby="basic-addon2"/>
 									<span class="glyphicon glyphicon-calendar input-group-addon" id="basic-addon2"></span>
 									</div>	
 									<span style="color:red" class="error">${errors.from('pagamento.data_vencimento')}</span>						
@@ -102,7 +102,7 @@ background-color: #f2f2f2;
 								</div>
 								<div class="col-md-6">
 								<div class="input-group">
-									<input type='text' class="caixa form-control" name="pagamento.data_pagamento" style="height: 30px" id="data-pagamento" aria-describedby="basic-addon3"/>
+									<input type='text' class="caixa form-control" name="data_pagamento" style="height: 30px" id="data-pagamento" aria-describedby="basic-addon3"/>
 									<span class="glyphicon glyphicon-calendar input-group-addon" id="basic-addon3"></span>
 								</div>
 								<span style="color:red" class="error">${errors.from('pagamento.data_pagamento')}</span>
@@ -120,7 +120,7 @@ background-color: #f2f2f2;
 								R$
 								</div>
 								<div class="col-md-5">
-								<input type='text' class="caixa" name="pagamento.valor" style="height: 30px" id="valor-mensalidade"/>
+								<input type='text' class="caixa" name="valor" style="height: 30px" id="valor-mensalidade"/>
 								<span style="color:red" class="error">${errors.from('pagamento.valor')}</span>
 								</div>
 								</div><br>
@@ -133,7 +133,7 @@ background-color: #f2f2f2;
 								R$
 								</div>
 								<div class="col-md-5">
-								<input type='text' class="caixa" name="pagamento.condominio" style="height: 30px" id="condominio"/>
+								<input type='text' class="caixa" name="condominio" style="height: 30px" id="condominio"/>
 								</div>
 								</div><br>
 								<div class="row">
@@ -144,7 +144,7 @@ background-color: #f2f2f2;
 								R$
 								</div>
 								<div class="col-md-5">
-								<input type='text' class="caixa" name="pagamento.multa" style="height: 30px" id="multa"/>
+								<input type='text' class="caixa" name="multa" style="height: 30px" id="multa"/>
 								</div>
 								</div><br>
 								<div class="row">
@@ -155,7 +155,7 @@ background-color: #f2f2f2;
 								R$
 								</div>
 								<div class="col-md-5">
-								<input type='text' class="caixa" name="pagamento.desconto" style="height: 30px" id="desconto"/>
+								<input type='text' class="caixa" name="desconto" style="height: 30px" id="desconto"/>
 								</div>
 								</div>
 							</div>
@@ -168,7 +168,7 @@ background-color: #f2f2f2;
 			
 			<div class="row">
 				<div class="col-md-6">
-					<button id="btn-envia" type="submit" class="btn btn-primary btn-sm" style="margin-top: 12px" disabled="true">
+					<button id="btn-envia" type="submit" class="btn btn-primary btn-sm" style="margin-top: 12px" >
 					<span class="glyphicon glyphicon-ok" aria-hidden="true"
 					style="color: #5cb85c"></span> &nbsp Registrar
 					</button>
@@ -186,7 +186,7 @@ background-color: #f2f2f2;
 							R$
 							</div>
 							<div class="col-md-5">
-							<input type='text' class="caixa" name="pagamento.valor_total" style="height: 30px" id="valor-total"/>
+							<input type='text' class="caixa" name="valor_total" style="height: 30px" id="valor-total"/>
 							<span style="color:red" class="error">${errors.from('pagamento.valor_total')}</span>
 							</div>
 							</div>
@@ -196,7 +196,7 @@ background-color: #f2f2f2;
 				</div>
 			</div>
 				
-		</form>
+		</form:form>
 	</div>
 </div>
 
@@ -220,6 +220,8 @@ $('#data-pagamento').datepicker({
     orientation: 'bottom',
     setDate: "getDate()"
 });
+
+
 
 $("#coluna-soma").on("change",function(){
 	
@@ -263,7 +265,8 @@ $('#multa').mask('000.000.000.000.000,00', {reverse: true});
 $('#desconto').mask('000.000.000.000.000,00', {reverse: true});
 $('#valor-total').mask('000.000.000.000.000,00', {reverse: true});
 
-
+//remover - para testes passar valor para o perfilId
+$('#perfil-id').val(2);
 
 $('#data-vencimento').datepicker('update', '10/12/2018');
 $('#data-pagamento').datepicker('update', 'new Date()');

@@ -1,0 +1,2 @@
+Comando - matar servidor apache tomcat
+sudo kill $(ps -aef | grep java | grep apache | awk '{print $2}')

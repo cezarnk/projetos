@@ -26,15 +26,13 @@ public class DemandaDAO {
 	}
 	
 	@Transactional
-	public void persist(Demanda usuario) {		
+	public void persist(Demanda demanda) {		
 		Demanda dem = new Demanda();
-		/*
-		us.setLogin(usuario.getLogin());
-		us.setNome(usuario.getNome());
-		us.setNome_guerra(usuario.getNome_guerra());
-		us.setPerfilId(usuario.getPerfilId());
-		us.setSenha(usuario.getSenha());
-		*/
+		dem.setAssunto(demanda.getAssunto());
+		dem.setDescricao(demanda.getDescricao());
+		dem.setLocal(demanda.getLocal());
+		dem.setPerfilId(demanda.getPerfilId());
+
 		manager.persist(dem);
 	}
 	
