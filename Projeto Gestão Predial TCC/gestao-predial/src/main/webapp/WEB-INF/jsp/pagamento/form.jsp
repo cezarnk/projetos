@@ -50,7 +50,7 @@ background-color: #f2f2f2;
 			</div>
 			<div class="col-md-1">
 			<br>
-			<img src="<c:url value='/resources/img/espera.gif'/>" width="80px" style="display:none" id="aguarde"/>
+			<img src="<c:url value='/img/espera.gif'/>" width="80px" style="display:none" id="aguarde"/>
 			</div>
 		</div>
 
