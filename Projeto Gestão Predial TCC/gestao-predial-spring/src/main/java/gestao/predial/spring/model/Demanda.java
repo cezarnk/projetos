@@ -3,6 +3,7 @@ package gestao.predial.spring.model;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,9 +12,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Type;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import gestao.predial.spring.tool.JsonDateSerializer;
 
 @Entity
 public class Demanda implements Serializable {
@@ -35,8 +41,9 @@ public class Demanda implements Serializable {
 	private String descricao;
 	
 	@Column
-	@Type(type="timestamp")
-	private Timestamp cadastrado_em = new Timestamp(System.currentTimeMillis());
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	private Date cadastrado_em = new Date(System.currentTimeMillis());
 
     @Column(name = "perfil_id")
     private int perfilId;    
@@ -73,11 +80,12 @@ public class Demanda implements Serializable {
 		this.descricao = descricao;
 	}
 
-	public Timestamp getCadastrado_em() {
+	@com.fasterxml.jackson.databind.annotation.JsonDeserialize(using =JsonDateSerializer.class)
+	public Date getCadastrado_em() {
 		return cadastrado_em;
 	}
 
-	public void setCadastrado_em(Timestamp cadastrado_em) {
+	public void setCadastrado_em(Date cadastrado_em) {
 		this.cadastrado_em = cadastrado_em;
 	}
 	

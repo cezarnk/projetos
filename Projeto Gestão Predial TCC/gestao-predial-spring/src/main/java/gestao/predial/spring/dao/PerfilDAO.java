@@ -43,5 +43,10 @@ public class PerfilDAO {
 	public List<Perfil> findAll() {
 		return entityManager.createQuery("SELECT p FROM Perfil p").getResultList();
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Perfil> listaPerfil() {
+		return entityManager.createQuery("SELECT p.id,p.nome,p.cpf FROM Perfil p").getResultList();
+	}
 
 }

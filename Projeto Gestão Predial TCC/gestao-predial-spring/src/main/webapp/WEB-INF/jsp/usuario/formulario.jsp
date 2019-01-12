@@ -23,7 +23,6 @@
 					<label>Escolha o morador que está efetuando o pagamento:</label> <select
 						class="form-control" id="perfil">
 						<option disabled="true" selected>Selecione</option>
-						<option>Teste 1</option>
 					</select>
 				</div>
 			</div>
@@ -83,7 +82,7 @@
 			</button>
 
 			<button
-				onclick="location.href='${linkTo[UsuarioController].lista()}'"
+				onclick="location.href='<c:url value='/usuario/'/>'"
 				type="button" class="btn btn-default btn-sm pull-right">
 				<span class="glyphicon glyphicon-share-alt" aria-hidden="true"
 					style="color: #d9534f"></span> &nbspVoltar
@@ -100,7 +99,7 @@
 <script>
 	$(document).ready(
 			function() {
-				var urlListaJson = "${linkTo[PerfilController].listaJson()}"
+				var urlListaJson = "<c:url value='/perfil/listaPerfil/'/>"
 				$("#aguarde").show();
 				$.ajax({
 					type : "GET",
@@ -110,9 +109,9 @@
 					success : function(dados) {
 						console.log(dados);
 						Objeto = dados;
-						for (var i = 0; i < dados.list.length; i++) {
-							linha = "<option id='"+dados.list[i].id+"'>"
-									+ dados.list[i].nome + "</option>"
+						for (var i = 0; i < dados.length; i++) {
+							linha = "<option id='"+dados[i][0]+"'>"
+									+ dados[i][1] + "</option>"
 							$("#perfil").append(linha);
 						}
 					},
@@ -127,15 +126,13 @@
 
 	$("#perfil").on("change", function() {
 		$("#botao-envia").attr("disabled", false)
-		$("#nome").val("Teste");
-		$("#perfil-id").val(2)
-		/*
+		
 		var idMorador = $("#perfil option:selected")[0].id;
-		for (var i = 0; i < Objeto.list.length; i++) {
-			if (Objeto.list[i].id == idMorador) {
-				$("#nome").val(Objeto.list[i].nome);
-				$("#perfil-id").val(Objeto.list[i].id) 
+		for (var i = 0; i < Objeto.length; i++) {
+			if (Objeto[i][0] == idMorador) {
+				$("#nome").val(Objeto[i][1]);
+				$("#perfil-id").val(Objeto[i][0]) 
 			}
-		}*/
+		}
 	})
 </script>

@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -19,14 +20,21 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
+import org.codehaus.jackson.map.annotate.JsonDeserialize;
 import org.hibernate.annotations.Type;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
 import org.springframework.format.annotation.NumberFormat.Style;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+import gestao.predial.spring.tool.JsonDateSerializer;
+
 @Entity
-public class Pagamento implements Serializable {
+public class Pagamento implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,11 +57,11 @@ public class Pagamento implements Serializable {
 
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
-	private Calendar data_pagamento;
+	private Date data_pagamento;
 
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
-	private Calendar data_vencimento;
+	private Date data_vencimento;
 
 	@Column
 	@Type(type = "timestamp")
@@ -78,24 +86,27 @@ public class Pagamento implements Serializable {
 		this.valor = valor;
 	}
 
+	/*
 	public String getDataPagamentoFormatado() {
 		SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 		return formato.format(getData_pagamento());
-	}
+	}*/
 
-	public Calendar getData_pagamento() {
+	@com.fasterxml.jackson.databind.annotation.JsonDeserialize(using =JsonDateSerializer.class)
+	public Date getData_pagamento() {
 		return data_pagamento;
 	}
 
-	public void setData_pagamento(Calendar data_pagamento) {
+	public void setData_pagamento(Date data_pagamento) {
 		this.data_pagamento = data_pagamento;
 	}
 
-	public Calendar getData_vencimento() {
+	@com.fasterxml.jackson.databind.annotation.JsonDeserialize(using =JsonDateSerializer.class)
+	public Date getData_vencimento() {
 		return data_vencimento;
 	}
 
-	public void setData_vencimento(Calendar data_vencimento) {
+	public void setData_vencimento(Date data_vencimento) {
 		this.data_vencimento = data_vencimento;
 	}
 

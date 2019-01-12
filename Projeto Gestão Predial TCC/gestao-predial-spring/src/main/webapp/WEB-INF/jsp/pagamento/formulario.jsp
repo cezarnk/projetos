@@ -168,7 +168,7 @@ background-color: #f2f2f2;
 			
 			<div class="row">
 				<div class="col-md-6">
-					<button id="btn-envia" type="submit" class="btn btn-primary btn-sm" style="margin-top: 12px" >
+					<button id="btn-envia" disabled="true" type="submit" class="btn btn-primary btn-sm" style="margin-top: 12px" >
 					<span class="glyphicon glyphicon-ok" aria-hidden="true"
 					style="color: #5cb85c"></span> &nbsp Registrar
 					</button>
@@ -265,13 +265,10 @@ $('#multa').mask('000.000.000.000.000,00', {reverse: true});
 $('#desconto').mask('000.000.000.000.000,00', {reverse: true});
 $('#valor-total').mask('000.000.000.000.000,00', {reverse: true});
 
-//remover - para testes passar valor para o perfilId
-$('#perfil-id').val(2);
-
 $('#data-vencimento').datepicker('update', '10/12/2018');
 $('#data-pagamento').datepicker('update', 'new Date()');
 	
-var urlListaJson = "${linkTo[PerfilController].listaJson()}"
+var urlListaJson = "<c:url value='/perfil/listaPerfil/'/>"
 $("#aguarde").show();
 $.ajax({
     type: "GET",
@@ -281,8 +278,8 @@ $.ajax({
     success: function(dados){
         console.log(dados);
         Objeto = dados;
-        for (var i=0;i<dados.list.length;i++){
-        	linha = "<option id='"+dados.list[i].id+"'>"+dados.list[i].nome+"</option>"	
+        for (var i=0;i<dados.length;i++){
+        	linha = "<option id='"+dados[i][0]+"'>"+dados[i][1]+"</option>"	
 			$("#morador").append(linha);
         }
     },
@@ -298,11 +295,11 @@ $.ajax({
 $("#morador").on("change",function(){
 	$("#btn-envia").attr("disabled",false)
 	var idMorador = $("#morador option:selected")[0].id;
-	for (var i=0;i<Objeto.list.length;i++){
-		if(Objeto.list[i].id == idMorador){
-			$("#nome").val(Objeto.list[i].nome);
-			$("#cpf").val(Objeto.list[i].cpf);
-			$("#perfil-id").val(Objeto.list[i].id)
+	for (var i=0;i<Objeto.length;i++){
+		if(Objeto[i][0] == idMorador){
+			$("#nome").val(Objeto[i][1]);
+			$("#cpf").val(Objeto[i][2]);
+			$("#perfil-id").val(Objeto[i][0])
 		}
 	}
 })

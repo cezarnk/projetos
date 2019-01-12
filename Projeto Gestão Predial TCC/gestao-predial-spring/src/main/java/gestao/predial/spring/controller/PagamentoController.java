@@ -1,5 +1,7 @@
 package gestao.predial.spring.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -7,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import gestao.predial.spring.dao.PagamentoDAO;
 import gestao.predial.spring.model.Pagamento;
@@ -28,6 +31,18 @@ public class PagamentoController {
 	public String list(ModelMap modelMap) {
 		modelMap.addAttribute("Pagamento", pagamentoDao.findAll());
 		return "pagamento/lista";
+	}
+	
+	@RequestMapping(value="/pagamento/listajson", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Object[]> listJson(ModelMap modelMap){
+		return pagamentoDao.listaJson();
+	}
+	
+	@RequestMapping(value = "/pagamento/json", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Pagamento> lista(ModelMap modelMap) {
+		return pagamentoDao.findAll();
 	}
 
 	@RequestMapping(value = "/pagamento/{id}", method = RequestMethod.DELETE)

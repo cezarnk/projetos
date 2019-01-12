@@ -8,6 +8,7 @@ import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import gestao.predial.spring.model.Demanda;
 
@@ -51,14 +52,14 @@ public class DemandaDAO {
 		return manager.createQuery("SELECT d FROM Demanda d").getResultList();
 	}
 	
-	@Transactional
-	public List<Object[]> listaJson() {
+	@SuppressWarnings("unchecked")
+	public List<Object[]> listaDemandas() {
 		
-		String jpql = "SELECT per.id,per.nome,per.telefone ,dem FROM Demanda as dem JOIN dem.perfil as per";
-		TypedQuery<Object[]> query = manager.createQuery(jpql,Object[].class);
+		//String jpql = "SELECT per.id,per.nome,per.telefone ,dem FROM Demanda as dem JOIN dem.perfil as per";
 		
-		List<Object[]> results;
-		return results = query.getResultList();
+		String jpql = "SELECT per.id,per.nome,per.telefone ,dem FROM Perfil per inner join per.demanda as dem";	
+		return manager.createQuery(jpql).getResultList();
+		
 	}
 
 }

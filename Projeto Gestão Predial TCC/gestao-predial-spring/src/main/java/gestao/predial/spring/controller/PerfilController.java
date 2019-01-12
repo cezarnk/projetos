@@ -1,5 +1,7 @@
 package gestao.predial.spring.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -7,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import gestao.predial.spring.dao.PerfilDAO;
 import gestao.predial.spring.model.Perfil;
@@ -30,6 +33,12 @@ public class PerfilController {
 		return "perfil/lista";
 	}
 
+	@RequestMapping(value = "/perfil/listaPerfil", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Perfil> listaPerfil(ModelMap modelMap) {
+		return perfilDao.listaPerfil();
+	}
+	
 	@RequestMapping(value = "/perfil/{id}", method = RequestMethod.DELETE)
 	public String delete(@PathVariable("id") int id) {
 		perfilDao.remove(perfilDao.find(id));

@@ -41,7 +41,6 @@
 	</div>
 </div>
 
-
 <script src="<c:url value='/resources/js/jquery.mask.min.js'/>"></script>
 <script src="<c:url value='/resources/js/jquery.dataTables.min.js'/>"></script>
 <script src="<c:url value='/resources/js/dataTables.bootstrap.min.js'/>"></script>
@@ -80,18 +79,21 @@ var Objeto;
 
 function linhaTabela(id,nome,cpf,data_vencimento,data_pagamento,valor_total) {
 	
-	var botao = "<button type='button' class='btn btn-default btn-xs'"
-	botao += " onclick=location.href='<c:url value='/pagamento/remove?pagamento.id="+id+"'/>'>"	
-	botao += "<span class='glyphicon glyphicon-remove' aria-hidden='true' style='color: #d9534f'></span> &nbsp"		
-	botao += "</button>"
+	var id_num = parseInt(id)
 	
+	var botao = "<form action='<c:url value='/pagamento/"+id_num+"'/>' method='DELETE'><button type='submit' class='btn btn-default btn-xs'"
+	botao += "onclick=location.href='<c:url value='/resources/img/delete.png'/>' >"
+	botao += "<span class='glyphicon glyphicon-remove' aria-hidden='true' style='color: #d9534f'></span> &nbsp"	
+	botao += "</button></form>"
+	
+	
+	botao1 = "<button>delete</button>"
 	t.row.add([id,nome,cpf,data_vencimento,data_pagamento,valor_total,botao]).draw(false);
-	
 }
 
-function converteData(data){
-	var dataConverte = data.substring(0,10);
-	var data = dataConverte.split("-");
+function converteData(datas){
+	
+	var data = datas.split("-");
 	var ano = data[0];
 	var mes = data[1];
 	var dia = data[2];
@@ -100,7 +102,7 @@ function converteData(data){
 }
 
 function carregarTabela(){
-var urlListaJson = "${linkTo[PagamentoController].listaPagamento()}"
+var urlListaJson = "<c:url value='/pagamento/listajson'/>"
 	$("#aguarde").show();
 	$.ajax({
 	    type: "GET",
@@ -111,13 +113,13 @@ var urlListaJson = "${linkTo[PagamentoController].listaPagamento()}"
 	        console.log(dados);
 	        Objeto = dados;
 	        
-	        for (var i=0;i<dados.list.length;i++){
-	        	var id_pagamento = dados.list[i][3].id
-	        	var nome = dados.list[i][1];
-	        	var cpf = dados.list[i][2];
-	        	var data_vencimento = dados.list[i][3].data_vencimento;
-	        	var data_pagamento = dados.list[i][3].data_pagamento;
-	        	var valor_total = dados.list[i][3].valor_total;
+	        for (var i=0;i<dados.length;i++){
+	        	var id_pagamento = dados[i][3].id
+	        	var nome = dados[i][1];
+	        	var cpf = dados[i][2];
+	        	var data_vencimento = dados[i][3].data_vencimento;
+	        	var data_pagamento = dados[i][3].data_pagamento;
+	        	var valor_total = dados[i][3].valor_total;
 	        	linhaTabela(id_pagamento,nome,cpf,converteData(data_vencimento),converteData(data_pagamento),valor_total);
 	        }
 	    },

@@ -111,9 +111,9 @@ function linhaTabela(id_demanda,nome,local,assunto,cadastrado_em,telefone) {
 	
 }
 
-function converteData(data){
-	var dataConverte = data.substring(0,10);
-	var data = dataConverte.split("-");
+function converteData(datas){
+	
+	var data = datas.split("-");
 	var ano = data[0];
 	var mes = data[1];
 	var dia = data[2];
@@ -122,7 +122,7 @@ function converteData(data){
 }
 
 function carregarTabela(){
-var urlListaJson = "${linkTo[DemandaController].listaDemandaJson()}"
+var urlListaJson = "<c:url value='/demanda/listaDemandas/'/>"
 	$("#aguarde").show();
 	$.ajax({
 	    type: "GET",
@@ -133,13 +133,13 @@ var urlListaJson = "${linkTo[DemandaController].listaDemandaJson()}"
 	        console.log(dados);
 	        Objeto = dados;
 	        	        
-	        for (var i=0;i<dados.list.length;i++){
-	        	var id_demanda = dados.list[i][3].id
-	        	var nome = dados.list[i][1];
-	        	var telefone = dados.list[i][2];
-	        	var local = dados.list[i][3].local;
-	        	var cadastrado_em = dados.list[i][3].cadastrado_em;
-	        	var assunto = dados.list[i][3].assunto;
+	        for (var i=0;i<dados.length;i++){
+	        	var id_demanda = dados[i][3].id
+	        	var nome = dados[i][1];
+	        	var telefone = dados[i][2];
+	        	var local = dados[i][3].local;
+	        	var cadastrado_em = dados[i][3].cadastrado_em;
+	        	var assunto = dados[i][3].assunto;
 	        	linhaTabela(id_demanda,nome,local,assunto,converteData(cadastrado_em),telefone);
 	        }
 	    },

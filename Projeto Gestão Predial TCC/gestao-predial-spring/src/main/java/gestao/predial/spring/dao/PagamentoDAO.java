@@ -6,6 +6,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
+
+import org.hibernate.SQLQuery;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.annotations.common.reflection.java.generics.TypeEnvironmentFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,23 +33,6 @@ public class PagamentoDAO {
 	
 	@Transactional
 	public void persist(Pagamento pagamento) {		
-		Pagamento pag = new Pagamento();
-		pag = pagamento;
-		BigDecimal valor = pagamento.getValor();
-		pag.setValor(valor);
-		/*
-			
-		
-		
-		pag.setCondominio(pagamento.getCondominio());
-		pag.setData_pagamento(pagamento.getData_pagamento());
-		pag.setData_vencimento(pagamento.getData_vencimento());
-		pag.setDesconto(pagamento.getDesconto());
-		pag.setMulta(pagamento.getMulta());
-		pag.setPerfilId(pagamento.getPerfilId());
-		pag.setValor(pagamento.getValor());
-		pag.setValor_total(pagamento.getValor_total());
-		*/
 		manager.persist(pagamento);
 	}
 	
@@ -61,19 +48,12 @@ public class PagamentoDAO {
 
 	@SuppressWarnings("unchecked")
 	public List<Pagamento> findAll() {
-		return manager.createQuery("SELECT p FROM Pagamento p").getResultList();
+		return manager.createQuery("SELECT p.condominio FROM Pagamento p").getResultList();
 	}
 	
-	@Transactional
-	public List<Object[]> listaJson() {
-		
-		String queryStr =  "select NEW package.juntaPacote("+
-		     "per.nome,per.cpf,pag.valor) from Pagamento pag join pag.perfil per";
-		
-		String jpql = "SELECT per.id,per.nome,per.cpf ,pag FROM Pagamento as pag JOIN pag.perfil as per";
-		TypedQuery<Object[]> query = manager.createQuery(jpql,Object[].class);
-		
-		List<Object[]> results;
-		return results = query.getResultList();
+	@SuppressWarnings("unchecked")
+	public List<Object[]> listaJson() {		
+		String jpql = "SELECT per.id,per.nome,per.cpf ,pag FROM Perfil per inner join per.pagamentos as pag";	
+		return manager.createQuery(jpql).getResultList();
 	}
 }

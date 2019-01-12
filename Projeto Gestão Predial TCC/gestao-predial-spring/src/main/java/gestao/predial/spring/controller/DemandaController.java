@@ -1,5 +1,7 @@
 package gestao.predial.spring.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -7,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import gestao.predial.spring.dao.DemandaDAO;
 import gestao.predial.spring.model.Demanda;
@@ -28,6 +31,12 @@ public class DemandaController {
 	public String list(ModelMap modelMap) {
 		modelMap.addAttribute("Demanda", demandaDao.findAll());
 		return "demanda/lista";
+	}
+	
+	@RequestMapping(value = "/demanda/listaDemandas", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Object[]> listaDemandas(ModelMap modelMap) {
+		return demandaDao.listaDemandas();
 	}
 
 	@RequestMapping(value = "/demanda/{id}", method = RequestMethod.DELETE)
