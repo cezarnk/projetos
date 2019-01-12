@@ -1,8 +1,11 @@
 package gestao.predial.spring.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,7 +47,12 @@ public class UsuarioController {
 	}
 
 	@RequestMapping(value = "/usuario", method = RequestMethod.POST)
-	public String create(@ModelAttribute("Usuario") Usuario usuario) {
+	public String create(@Valid @ModelAttribute("Usuario") Usuario usuario,BindingResult result) {
+	    // se tiver erro, redirecione para o formulário
+	    if(result.hasErrors()) {
+	      return "usuario/formulario";
+	    }
+		
 		usuarioDao.persist(usuario);
 		return "redirect:/usuario";
 	}

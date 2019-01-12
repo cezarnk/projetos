@@ -35,12 +35,12 @@
 						<div class="col-md-4">
 						<button class="btn btn-default btn-xs" style="margin-top: 6px;">
 							<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-							${usuarioLogado.usuario.nome_guerra}
+							${usuarioLogado.nome_guerra}
 						</button>
 						</div>
 				
 
-						<c:if test="${usuarioLogado.logado}">
+						
 							<div class="col-md-1">
 								<button class="btn btn-danger btn-xs"
 									style="margin-top: 6px;margin-left: 40px;"
@@ -48,16 +48,8 @@
 									<span class="glyphicon glyphicon-off" aria-hidden="true"></span>
 								</button>
 							</div>
-						</c:if>
-						<c:if test="${!usuarioLogado.logado}">
-							<div class="col-md-1">
-								<button class="btn btn-danger btn-xs"
-									style="margin-top: 2px">
-									<span class="glyphicon glyphicon-off" aria-hidden="true"
-										onclick="location.href='${linkTo[LoginController].form()}'"></span>
-								</button>
-							</div>
-						</c:if>
+						
+				
 
 					</div>			
 				</div>

@@ -36,16 +36,16 @@
 					<div class="form-group">
 						<label for="nome">Nome:</label> <input type="text"
 							placeholder="Digite o nome do usuario *" name="nome"
-							id="nome" class="form-control" value="${perfil.nome}" /> <span
-							style="color: red" class="error">${errors.from('perfil.nome')}</span>
+							id="nome" class="form-control" value="${perfil.nome}" /> 
+							<span style="color:red"><form:errors path="nome"/></span>
 					</div>
 				</div>
 				<div class="col-md-5">
 					<div class="form-group">
 						<label for="cpf">CPF:</label> <input type="text"
 							placeholder="Digite o CPF do usuario *" name="cpf"
-							id="cpf" class="form-control" value="${perfil.cpf}" /> <span
-							style="color: red" class="error">${errors.from('perfil.cpf')}</span>
+							id="cpf" class="form-control" value="${perfil.cpf}" /> 
+							<span style="color:red"><form:errors path="cpf"/></span>
 					</div>
 				</div>
 			</div>
@@ -58,6 +58,7 @@
 							placeholder="Digite a data de nascimento *"
 							name="data_nascimento" id="data_nascimento"
 							class="form-control" value="${perfil.data_nascimento}" />
+							<span style="color:red"><form:errors path="data_nascimento"/></span>
 					</div>
 				</div>
 
@@ -72,7 +73,8 @@
 							<option>Solteiro</option>
 							<option>União Estável</option>
 							<option>Viúvo</option>
-						</select> <span style="color: red" class="error">${errors.from('perfil.estado_civil')}</span>
+						</select> 
+						<span style="color:red"><form:errors path="estado_civil"/></span>
 					</div>
 				</div>
 				<div class="col-md-3">
@@ -86,7 +88,8 @@
 							<option value="2">2</option>
 							<option value="3">3</option>
 							<option value="4">Mais de 3</option>
-						</select> <span style="color: red" class="error">${errors.from('perfil.qnt_filhos')}</span>
+						</select> 
+						<span style="color:red"><form:errors path="qnt_filhos"/></span>
 					</div>
 				</div>
 
@@ -107,7 +110,7 @@
 						<label for="telefone">Telefone:</label> <input type="text"
 							placeholder="Digite o nome do telefone *" name="telefone"
 							id="telefone" class="form-control" value="${perfil.telefone}" />
-						<span style="color: red" class="error">${errors.from('perfil.telefone')}</span>
+						<span style="color:red"><form:errors path="telefone"/></span>
 					</div>
 				</div>
 			</div>
@@ -125,7 +128,8 @@
 							<option value="2">2</option>
 							<option value="3">3</option>
 							<option value="4">Mais de 3</option>
-						</select> <span style="color: red" class="error">${errors.from('perfil.qnt_moradores')}</span>
+						</select> 
+						<span style="color:red"><form:errors path="qnt_moradores"/></span>
 					</div>
 				</div>
 
@@ -144,7 +148,8 @@
 							<option value="7">7º andar</option>
 							<option value="8">8º andar</option>
 							<option value="9">9º andar</option>
-						</select> <span style="color: red" class="error">${errors.from('perfil.andar_ocupado')}</span>
+						</select> 
+						<span style="color:red"><form:errors path="andar_ocupado"/></span>
 					</div>
 				</div>
 
@@ -155,6 +160,7 @@
 						data-on="Síndico" data-off="Morador"></span>
 					</label> <input type="hidden" id="administrador"
 						name="administrador" value="true" />
+						<span style="color:red"><form:errors path="administrador"/></span>
 				</div>
 
 			</div>

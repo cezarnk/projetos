@@ -41,7 +41,7 @@
 				<label for="nome">Nome:</label> <input type="text"
 					readonly="readonly" placeholder="Digite o nome do usuario *"
 					name="nome" id="nome" class="form-control"
-					value="${usuario.nome}" /> <span style="color: red" class="error">${errors.from('usuario.nome')}</span>
+					value="${usuario.nome}" /> 
 			</div>
 
 			<div class="form-group">
@@ -50,8 +50,9 @@
 				</label> <input type="text" maxlength="16"
 					placeholder="Digite o nome de exibição para contato *"
 					name="nome_guerra" id="nome_guerra" class="form-control"
-					value="${usuario.nome_guerra}" /> <span style="color: red"
-					class="error">${errors.from('usuario.nome_guerra')}</span>
+					value="${usuario.nome_guerra}" /> 
+					
+					<span style="color:red"><form:errors path="nome_guerra"/></span>
 			</div>
 
 			<div class="row">
@@ -59,8 +60,8 @@
 					<div class="form-group">
 						<label for="login">Login:</label> <input type="text"
 							placeholder="Digite o login para o acesso *" name="login"
-							id="login" class="form-control" value="${usuario.login}" /> <span
-							style="color: red" class="error">${errors.from('usuario.login')}</span>
+							id="login" class="form-control" value="${usuario.login}" /> 
+							<span style="color:red"><form:errors path="login"/></span>							
 					</div>
 				</div>
 
@@ -68,8 +69,8 @@
 					<div class="form-group">
 						<label for="senha">Senha:</label> <input type="password"
 							placeholder="Digite a senha de acesso *" name="senha"
-							id="senha" class="form-control" /> <span style="color: red"
-							class="error">${errors.from('usuario.senha')}</span>
+							id="senha" class="form-control" /> 
+							<span style="color:red"><form:errors path="senha"/></span>
 					</div>
 				</div>
 			</div>

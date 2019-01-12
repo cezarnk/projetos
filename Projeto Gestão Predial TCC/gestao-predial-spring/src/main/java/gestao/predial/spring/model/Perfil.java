@@ -34,29 +34,30 @@ public class Perfil implements Serializable{
 	@Column(name = "perfil_id")
 	private int id;
 	
-	@NotEmpty(message="Nome não pode ser vazio.")
+	@NotEmpty(message="{perfil.formulario.nome}")
 	private String nome;
 	
-	@NotEmpty(message="CPF não pode ser vazio.")
+	@NotEmpty(message="{perfil.formulario.cpf}")
 	private String cpf;
 	
-	@NotEmpty(message="Telefone não pode ser vazio.")
+	@NotEmpty(message="{perfil.formulario.telefone}")
 	private String telefone;
 	
 	@Email
 	private String email;	
 	
-	@NotEmpty(message="Estado civil não pode ser vazio.")
+	@NotEmpty(message="{perfil.formulario.estado}")
 	private String estado_civil;
 	
 	private int qnt_filhos;
 	private int qnt_moradores;
 	private int andar_ocupado;
 	
-	@NotEmpty(message="Campo não pode ser vazio.")
+	@NotEmpty(message="{perfil.formulario.administrador}")
 	private String administrador;
 	
 	@Column
+	@NotEmpty(message="{perfil.formulario.nascimento}")
 	private String data_nascimento;
 	
 	@Column

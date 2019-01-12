@@ -22,13 +22,13 @@ public class Usuario implements Serializable{
     @NotEmpty
     private String nome;
 
-    @NotEmpty(message="Login não pode ser vazio.")
+    @NotEmpty(message="{usuario.formulario.login}")
     private String login;
 
-    @NotEmpty(message="Senha não pode ser vazio.")
+    @NotEmpty(message="{usuario.formulario.senha}")
     private String senha;
 
-    @NotEmpty(message="Campo não pode ser vazio.")
+    @NotEmpty(message="{usuario.formulario.nome}")
     private String nome_guerra;
     
     @Column(name = "perfil_id")

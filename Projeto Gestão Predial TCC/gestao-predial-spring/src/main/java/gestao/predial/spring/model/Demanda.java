@@ -29,15 +29,15 @@ public class Demanda implements Serializable {
 	private int id;
 	
 	@Column
-	@NotEmpty(message="Local não pode ser vazio.")
+	@NotEmpty(message="{demanda.formulario.local}")
 	private String local;
 	
 	@Column
-	@NotEmpty(message="Assunto não pode ser vazio.")
+	@NotEmpty(message="{demanda.formulario.assunto}")
 	private String assunto;
 	
 	@Column
-	@NotEmpty(message="Descrição não pode ser vazio.")
+	@NotEmpty(message="{demanda.formulario.descricao}")
 	private String descricao;
 	
 	@Column

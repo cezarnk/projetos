@@ -2,9 +2,12 @@ package gestao.predial.spring.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -53,7 +56,11 @@ public class PerfilController {
 	}
 
 	@RequestMapping(value = "/perfil", method = RequestMethod.POST)
-	public String create(@ModelAttribute("Perfil") Perfil perfil) {
+	public String create(@Valid @ModelAttribute("Perfil") Perfil perfil,BindingResult result) {
+		if(result.hasErrors()) {
+	      return "perfil/formulario";
+	    }
+		
 		perfilDao.persist(perfil);
 		return "redirect:/perfil";
 	}

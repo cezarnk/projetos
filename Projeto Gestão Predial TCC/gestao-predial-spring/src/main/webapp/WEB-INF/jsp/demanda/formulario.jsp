@@ -73,7 +73,7 @@ background-color: #f2f2f2;
 							<option>Reclamação</option>
 							<option>Sugestão</option>
 						</select>
-						<span style="color:red" class="error">${errors.from('demanda.assunto')}</span>
+						<span style="color:red"><form:errors path="assunto"/></span>
 					</div>
 				</div>
 				<div class="col-md-3">
@@ -93,7 +93,7 @@ background-color: #f2f2f2;
 							<option value="8">8º andar</option>
 							<option value="9">9º andar</option>
 						</select>
-						<span style="color:red" class="error">${errors.from('demanda.local')}</span>
+						<span style="color:red"><form:errors path="local"/></span>
 					</div>
 				</div>
 			
@@ -104,7 +104,7 @@ background-color: #f2f2f2;
 	    		 <div class="form-group">
 				  <label for="comment">Descrição:</label>
 				  <textarea name="descricao" placeholder="Descreva sua solicitação *" id="demanda-descricao" value="${demanda.descricao}" class="form-control" style="resize: vertical" rows="5" id="comment"></textarea>
-				  <span style="color:red" class="error">${errors.from('demanda.descricao')}</span>
+				  <span style="color:red"><form:errors path="descricao"/></span>
 				</div> 
 			</div>
 			</div>

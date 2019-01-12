@@ -121,7 +121,7 @@ background-color: #f2f2f2;
 								</div>
 								<div class="col-md-5">
 								<input type='text' class="caixa" name="valor" style="height: 30px" id="valor-mensalidade"/>
-								<span style="color:red" class="error">${errors.from('pagamento.valor')}</span>
+								<span style="color:red"><form:errors path="valor"/></span>
 								</div>
 								</div><br>
 								
@@ -134,6 +134,7 @@ background-color: #f2f2f2;
 								</div>
 								<div class="col-md-5">
 								<input type='text' class="caixa" name="condominio" style="height: 30px" id="condominio"/>
+								<span style="color:red"><form:errors path="condominio"/></span>
 								</div>
 								</div><br>
 								<div class="row">

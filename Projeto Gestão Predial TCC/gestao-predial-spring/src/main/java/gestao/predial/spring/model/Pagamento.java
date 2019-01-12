@@ -17,6 +17,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
@@ -40,9 +41,10 @@ public class Pagamento implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
+	@DecimalMin("0.00") @NotNull(message="{pagamento.formulario.valor}")
 	@NumberFormat(pattern = "#,###.00")
 	private BigDecimal valor;
-
+	
 	@NumberFormat(pattern = "#,###.00")
 	private BigDecimal multa;
 
@@ -52,6 +54,7 @@ public class Pagamento implements Serializable{
 	@NumberFormat(pattern = "#,###.00")
 	private BigDecimal valor_total;
 
+	@DecimalMin("0.00") @NotNull(message="{pagamento.formulario.condominio}")
 	@NumberFormat(pattern = "#,###.00")
 	private BigDecimal condominio;
 

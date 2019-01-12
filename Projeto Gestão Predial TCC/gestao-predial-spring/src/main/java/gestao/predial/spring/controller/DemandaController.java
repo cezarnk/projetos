@@ -2,9 +2,12 @@ package gestao.predial.spring.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -58,7 +61,11 @@ public class DemandaController {
 	}
 
 	@RequestMapping(value = "/demanda", method = RequestMethod.POST)
-	public String create(@ModelAttribute("Demanda") Demanda demanda) {
+	public String create(@Valid @ModelAttribute("Demanda") Demanda demanda, BindingResult result) {
+		if(result.hasErrors()) {
+	      return "demanda/formulario";
+	    }
+		
 		demandaDao.persist(demanda);
 		return "redirect:/demanda";
 	}

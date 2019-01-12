@@ -34,7 +34,7 @@
 		<div class="col-md-10">
 
 			<p>É com muita satisfação que o recebemos em nosso condomínio.
-				Seja bem-vindo ${usuarioLogado.usuario.nome}!</p>
+				Seja bem-vindo ${usuarioLogado.nome}!</p>
 			<p>A solução de Automação e Gestão Predial oferece a
 				flexibilidade e conectividade que você precisa para planejar e
 				manter sua infraestrutura.</p>
