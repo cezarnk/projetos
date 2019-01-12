@@ -45,6 +45,11 @@ public class DemandaController {
 		return "redirect:/demanda"; 
 	}
 	
+	@RequestMapping("demanda/removeDemanda/")
+	public String remover(int id) {
+		demandaDao.remove(demandaDao.find(id));
+		return "redirect:listaDemanda";
+	}
 
 	@RequestMapping(value = "/demanda/form", method = RequestMethod.GET)
 	public String form(ModelMap modelMap) {

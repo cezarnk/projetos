@@ -51,6 +51,11 @@ public class PagamentoController {
 		return "redirect:/pagamento"; 
 	}
 	
+	@RequestMapping("pagamento/removeConta/")
+	public String remove(int id) {
+		pagamentoDao.remove(pagamentoDao.find(id));
+		return "redirect:listaContas";
+	}
 
 	@RequestMapping(value = "/pagamento/form", method = RequestMethod.GET)
 	public String form(ModelMap modelMap) {

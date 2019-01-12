@@ -81,13 +81,11 @@ function linhaTabela(id,nome,cpf,data_vencimento,data_pagamento,valor_total) {
 	
 	var id_num = parseInt(id)
 	
-	var botao = "<form action='<c:url value='/pagamento/"+id_num+"'/>' method='DELETE'><button type='submit' class='btn btn-default btn-xs'"
-	botao += "onclick=location.href='<c:url value='/resources/img/delete.png'/>' >"
+	var botao = "<button type='submit' class='btn btn-default btn-xs'"
+	botao += "onclick=excluir("+id_num+") >"
 	botao += "<span class='glyphicon glyphicon-remove' aria-hidden='true' style='color: #d9534f'></span> &nbsp"	
-	botao += "</button></form>"
+	botao += "</button>"		
 	
-	
-	botao1 = "<button>delete</button>"
 	t.row.add([id,nome,cpf,data_vencimento,data_pagamento,valor_total,botao]).draw(false);
 }
 
@@ -130,6 +128,14 @@ var urlListaJson = "<c:url value='/pagamento/listajson'/>"
 	    	$("#aguarde").hide();
 	    }
 	    })
+}
+
+function excluir(id) {		
+	$.post("pagamento/removeConta", {'id' : id}, function() {
+		 console.log("ola");
+	}).always(function() {
+		location.reload();
+	});;
 }
 
 </script>
