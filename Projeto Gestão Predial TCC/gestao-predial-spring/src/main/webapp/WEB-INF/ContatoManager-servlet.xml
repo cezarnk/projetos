@@ -15,6 +15,10 @@
 	 
 	</bean>
 
+	<mvc:interceptors>
+	  <bean class="gestao.predial.spring.interceptor.AutorizadorInterceptor" />
+	</mvc:interceptors>
+
 	<mvc:resources mapping="/resources/**" location="/resources/" cache-period="31556926"/>
   
 </beans>

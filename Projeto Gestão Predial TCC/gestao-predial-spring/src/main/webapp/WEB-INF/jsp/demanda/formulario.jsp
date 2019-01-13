@@ -47,12 +47,12 @@ background-color: #f2f2f2;
 		
 
 
-	 	<input type="hidden" id="id-perfil" name="perfilId" value="${usuarioLogado.usuario.chave_estrangeira}"/> 
+	 	<input type="hidden" id="id-perfil" name="perfilId" value="${usuarioLogado.perfilId}"/> 
 			<div class="row">
 				<div class="col-md-7">
 					<div class="form-group">
 						<label for="nome">Nome:</label> <input type="text" name="nome"
-							id="nome" class="form-control caixa" readonly="readonly" value="${usuarioLogado.usuario.nome}" />						
+							id="nome" class="form-control caixa" readonly="readonly" value="${usuarioLogado.nome}" />						
 					</div>
 				</div>
 
@@ -131,7 +131,6 @@ background-color: #f2f2f2;
 <script>
 
 $(document).ready(function(){
-	$("#id-perfil").val(2)
 	var id = $("#id-perfil").val()
 	var urlConsultaJson = "<c:url value='/perfil/consulta/"+id+"'/>"
 	console.log(urlConsultaJson);

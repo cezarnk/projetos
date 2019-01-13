@@ -20,7 +20,7 @@
 			</div>
 			</div>
 
-			<c:url var="url" value="/login/efetuaLogin" />
+			<c:url var="url" value="/login/loginEfetua" />
 			<form:form action="${url}" method="POST" modelAttribute="Usuario">
 				
 				<div class="form-group">
@@ -34,7 +34,8 @@
 						name="senha" id="senha" class="form-control"
 						placeholder="Digite sua senha *" />
 				</div>
-
+				
+			<span style="color:red">${mensagem}</span><br/><br>
 				<c:forEach var="error" items="${errors}">
     				<span style="color:red">${error.category} - ${error.message}</span><br/><br>
 				</c:forEach>

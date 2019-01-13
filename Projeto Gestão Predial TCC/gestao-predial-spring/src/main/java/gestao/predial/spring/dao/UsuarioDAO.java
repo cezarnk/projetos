@@ -84,5 +84,22 @@ protected EntityManager entityManager;
 		}
 		return isValidUser;
 	}
+	
+	@Transactional
+	public Usuario procura(Usuario usuario) {
+		try {
+			String login = usuario.getLogin();
+			String senha = usuario.getSenha();
+			
+			TypedQuery<Usuario> query = entityManager.createQuery("select u from Usuario u where u.login = :login AND u.senha = :senha ",Usuario.class);
+			query.setParameter("login",login);
+			query.setParameter("senha",senha);
+			
+			return query.getSingleResult();
+		}catch (NoResultException e) {
+			return null;
+		}
+		
+	}
 
 }

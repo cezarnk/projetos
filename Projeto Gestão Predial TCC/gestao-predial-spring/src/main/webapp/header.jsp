@@ -44,7 +44,7 @@
 							<div class="col-md-1">
 								<button class="btn btn-danger btn-xs"
 									style="margin-top: 6px;margin-left: 40px;"
-									onclick="location.href='${linkTo[LoginController].desloga()}'">
+									onclick="location.href='<c:url value='/login/logout'/>'">
 									<span class="glyphicon glyphicon-off" aria-hidden="true"></span>
 								</button>
 							</div>
