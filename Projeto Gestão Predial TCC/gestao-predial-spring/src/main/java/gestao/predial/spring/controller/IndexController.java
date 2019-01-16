@@ -10,5 +10,9 @@ public class IndexController {
 	public String portfolio() {
 		return "index/portfolio";
 	}
-
+	
+	@RequestMapping(value = "/index")
+	public String index() {
+		return "index/index";
+	}
 }

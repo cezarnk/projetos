@@ -11,14 +11,14 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 	throws Exception {
 		
 		String uri = request.getRequestURI();
-		if(uri.endsWith("loginForm") || uri.endsWith("loginEfetua") || uri.contains("resources")) {
+		if(uri.endsWith("/") || uri.endsWith("loginEfetua") || uri.contains("resources")) {
 			return true;
 		}
 		
 		if(request.getSession().getAttribute("usuarioLogado")!=null) {
 			return true;
 		} else {
-			response.sendRedirect("login/form");
+			response.sendRedirect("redirect:/");
 			return false;
 		}
 		

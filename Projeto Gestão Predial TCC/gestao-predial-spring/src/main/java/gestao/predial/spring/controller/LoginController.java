@@ -22,7 +22,7 @@ public class LoginController {
 	@Autowired
 	public UsuarioDAO usuarioDao;
 
-	@RequestMapping("/loginForm")
+	@RequestMapping("/")
 	public String loginForm() {
 		return "login/form";
 	}
@@ -35,10 +35,10 @@ public class LoginController {
 	      // usuario existe, guardaremos ele na session
 	      session.setAttribute("usuarioLogado", usuario);
 	      session.setAttribute("usuarioNome",usuario.getNome_guerra());
-	      return "redirect:/";
+	      return "redirect:/index";
 	    }
 	    // ele errou a senha, voltou para o formulario
-	    return "login/form";
+	    return "redirect:/";
 	  }
 	
 	
@@ -48,7 +48,7 @@ public class LoginController {
     	
     	if(us != null){
     		session.setAttribute("usuarioLogado", us);
-    		return "redirect:/";
+    		return "redirect:/index";
     	} else {
     		System.out.println("não encontrado");
     		model.addAttribute("mensagem","Login ou senha invalido!");
@@ -59,7 +59,7 @@ public class LoginController {
 	@RequestMapping("/login/logout")
 	public String logout(HttpSession session) {
 	    session.invalidate();
-	    return "login/form";
+	    return "redirect:/";
 	}
 
 }

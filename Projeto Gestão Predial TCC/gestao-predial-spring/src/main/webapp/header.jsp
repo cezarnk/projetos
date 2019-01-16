@@ -22,7 +22,7 @@
 			<div class="collapse navbar-collapse navbar-left" id="espremível">
 
 				<div class="navbar-header menu-superior">
-					<a href="<c:url value="/"/>"><span class="link">SISTEMA GP</span></a> 	
+					<a href="<c:url value="/index"/>"><span class="link">SISTEMA GP</span></a> 	
 			  	    <a href="<c:url value="/portfolio"/>"><span class="link" style="margin-left: 40px">Especificação do Sistema</span></a> 				     							
 				</div>
 				
@@ -103,7 +103,7 @@
 					<div class="menu-list">
 
 						<ul id="menu-content" class="menu-content collapse in">
-							<li><a href="<c:url value="/"/>"> <i><span
+							<li><a href="<c:url value="/index"/>"> <i><span
 										class="glyphicon glyphicon-home" aria-hidden="true"></span></i>
 									Ínicio
 							</a></li>
