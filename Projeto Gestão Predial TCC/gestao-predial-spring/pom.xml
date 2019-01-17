@@ -24,7 +24,12 @@
 
 	<dependencies>
 
-
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-webmvc</artifactId>
+		    <version>4.0.3.RELEASE</version>
+		</dependency>
 		<dependency>
 			<groupId>org.hibernate.java-persistence</groupId>
 			<artifactId>jpa-api</artifactId>

@@ -84,7 +84,7 @@
   <div class="panel-body">
     <img src="<c:url value='/resources/img/spring-mvc.png'/>" width="100%" height="110px" alt="VRaptor">
   </div>
-   <div class="panel-footer">Spring MVC 3.5</div>
+   <div class="panel-footer">Spring MVC 4.0.3</div>
 </div>
 </div>
 

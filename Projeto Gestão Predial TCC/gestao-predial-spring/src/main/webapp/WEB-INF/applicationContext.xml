@@ -20,9 +20,7 @@
     </bean>
   	
   	<mvc:annotation-driven/>
-  	<mvc:interceptors>
-	  <bean class="gestao.predial.spring.interceptor.AutorizadorInterceptor"/>
-	</mvc:interceptors>
+  	
 	<tx:annotation-driven />
 
 	<context:annotation-config />
