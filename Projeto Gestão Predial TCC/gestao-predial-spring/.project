@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>ProjSpringMvcComJpa</name>
+	<name>gestao-predial-spring</name>
 	<comment></comment>
 	<projects>
 		<project>Servers</project>
