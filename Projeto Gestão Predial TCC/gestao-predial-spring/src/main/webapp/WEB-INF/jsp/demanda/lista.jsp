@@ -104,8 +104,9 @@ function linhaTabela(id_demanda,nome,local,assunto,cadastrado_em,telefone) {
 	
 	var id_num = parseInt(id_demanda)
 	
-	var botao = "<button type='submit' class='btn btn-default btn-xs'"
-		botao += "onclick=excluirDemanda("+id_num+") >"
+	var botao = "<form action=<c:url value='/demanda/"+id_num+"' /> method='POST'>"
+		botao += "<input type='hidden' name='_method' value='DELETE'/>"
+		botao += "<button type='submit' class='btn btn-default btn-xs'>"
 		botao += "<span class='glyphicon glyphicon-remove' aria-hidden='true' style='color: #d9534f'></span> &nbsp"	
 		botao += "</button>"
 	
@@ -154,19 +155,7 @@ var urlListaJson = "<c:url value='/demanda/listaDemandas/'/>"
 	    })
 }
 
-function excluirDemanda(id) {		
-	$.post("demanda/removeDemanda", {'id' : id}, function() {
-		 console.log("ola");
-	})
-	.fail(function(response) {
-		console.log("Erro:");
-		console.log(response);
-	})
-	.always(function() {
-		location.reload();
-	});
-	
-}
+
 
 
 </script>

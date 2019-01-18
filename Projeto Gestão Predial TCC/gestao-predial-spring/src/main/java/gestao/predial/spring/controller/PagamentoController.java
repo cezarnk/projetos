@@ -54,10 +54,10 @@ public class PagamentoController {
 		return "redirect:/pagamento"; 
 	}
 	
-	@RequestMapping("pagamento/removeConta/")
+	@RequestMapping(value="pagamento/removeConta",method = RequestMethod.DELETE)
 	public String remove(int id) {
 		pagamentoDao.remove(pagamentoDao.find(id));
-		return "redirect:listaContas";
+		return "redirect:/pagamento";
 	}
 
 	@RequestMapping(value = "/pagamento/form", method = RequestMethod.GET)
