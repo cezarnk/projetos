@@ -51,8 +51,7 @@ public class UsuarioController {
 	    // se tiver erro, redirecione para o formulário
 	    if(result.hasErrors()) {
 	      return "usuario/formulario";
-	    }
-		
+	    }		
 		usuarioDao.persist(usuario);
 		return "redirect:/usuario";
 	}

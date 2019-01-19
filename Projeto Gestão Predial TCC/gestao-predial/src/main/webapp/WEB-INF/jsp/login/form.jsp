@@ -34,7 +34,10 @@
 						name="senha" id="senha" class="form-control"
 						placeholder="Digite sua senha *" />
 				</div>
-
+				<c:if test="${not empty usuarioCriado}">
+				<span style="color:blue">${usuarioCriado}</span><br><br>
+				</c:if>
+				
 				<c:forEach var="error" items="${errors}">
     				<span style="color:red">${error.category} - ${error.message}</span><br/><br>
 				</c:forEach>
@@ -42,10 +45,11 @@
 				<div class="form-group">
 					<input type="submit" class="btnSubmit" value="Autenticar" />
 				</div>
+				<c:if test="${empty botao}">
 				<div class="form-group">
-					<a href="#" class="ForgetPwd">Esqueceu a senha?</a>
+					<a href="${linkTo[LoginController].criarUsuario()}" class="ForgetPwd">Criar usuário para acesso</a>
 				</div>
-
+				</c:if>
 			</form>
 
 		</div>

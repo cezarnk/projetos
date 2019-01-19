@@ -12,7 +12,9 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import gestao.predial.spring.dao.PerfilDAO;
 import gestao.predial.spring.dao.UsuarioDAO;
+import gestao.predial.spring.model.Perfil;
 import gestao.predial.spring.model.Usuario;
 
 @Controller
@@ -21,6 +23,9 @@ public class LoginController {
 	
 	@Autowired
 	public UsuarioDAO usuarioDao;
+	
+	@Autowired
+	public PerfilDAO perfilDao;
 
 	@RequestMapping("/")
 	public String loginForm() {
@@ -60,6 +65,33 @@ public class LoginController {
 	public String logout(HttpSession session) {
 	    session.invalidate();
 	    return "redirect:/";
+	}
+	
+	@RequestMapping("/cria-usuario")
+	public String criarUsuario(Model model) {
+		Perfil perfil = new Perfil();
+		perfil.setNome("Administrador");
+		perfil.setCpf("123.456.789-00");
+		perfil.setData_nascimento("01/01/2019");
+		perfil.setEstado_civil("Solteiro");
+		perfil.setQnt_filhos(0);
+		perfil.setEmail("adm@gpredial.com.br");
+		perfil.setTelefone("(11) 2242-0000");
+		perfil.setQnt_moradores(0);
+		perfil.setAndar_ocupado(0);
+		perfil.setAdministrador("true");
+		perfilDao.persist(perfil);
+		
+		Usuario usuario = new Usuario();
+		usuario.setLogin("admin");
+		usuario.setNome("Administrador Root");
+		usuario.setNome_guerra("Administrador");
+		usuario.setSenha("admin");
+		usuario.setPerfilId(1);
+		usuarioDao.persist(usuario);
+		model.addAttribute("usuarioCriado","Login: "+usuario.getLogin()+" - Senha: "+usuario.getSenha());
+		model.addAttribute("botao","btn");
+		return "login/form";
 	}
 
 }
