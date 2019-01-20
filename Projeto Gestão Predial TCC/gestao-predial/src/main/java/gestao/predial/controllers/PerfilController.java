@@ -6,9 +6,11 @@ import javax.inject.Inject;
 import javax.validation.Valid;
 
 import br.com.caelum.vraptor.Controller;
+import br.com.caelum.vraptor.Delete;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
+import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.interceptor.IncludeParameters;
 import br.com.caelum.vraptor.validator.Validator;
@@ -45,14 +47,14 @@ public class PerfilController {
 		result.redirectTo(this).lista();
 	}
 	
-	@Path("/perfil/remove")
+	@Delete("/perfil/remove")
 	public void remove(Perfil perfil) {
 		perfilDao.remove(perfil);
 		result.include("mensagem","Perfil removido com sucesso!");
 		result.redirectTo(this).lista();
 	}
 	
-	@Path("/perfil/edita")
+	@Put("/perfil/edita")
 	public void edita(Perfil perfil){
         result.include(perfilDao.busca(perfil));
         result.redirectTo(this).form();

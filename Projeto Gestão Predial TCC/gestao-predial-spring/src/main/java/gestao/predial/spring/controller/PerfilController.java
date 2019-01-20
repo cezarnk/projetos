@@ -30,11 +30,7 @@ public class PerfilController {
 		return "perfil/lista";
 	}
 	
-	@RequestMapping(value = "/perfil", method = RequestMethod.GET)
-	public String list(ModelMap modelMap) {
-		modelMap.addAttribute("Perfil", perfilDao.findAll());
-		return "perfil/lista";
-	}
+
 
 	@RequestMapping(value = "/perfil/listaPerfil", method = RequestMethod.GET)
 	@ResponseBody
@@ -69,6 +65,12 @@ public class PerfilController {
 	public String edita(@ModelAttribute("Perfil") Perfil perfil) {
 		perfilDao.merge(perfil);
 		return "redirect:/perfil";
+	}
+	
+	@RequestMapping(value = "/perfil", method = RequestMethod.GET)
+	public String lista(ModelMap modelMap) {
+		modelMap.addAttribute("Perfil", perfilDao.findAll());
+		return "perfil/lista";
 	}
 	
 	@RequestMapping(value = "/perfil/{id}/form", method = RequestMethod.GET)
