@@ -42,12 +42,6 @@ public class PerfilController {
 		return perfilDao.listaPerfil();
 	}
 	
-	@RequestMapping(value = "/perfil/{id}", method = RequestMethod.DELETE)
-	public String delete(@PathVariable("id") int id) {
-		perfilDao.remove(perfilDao.find(id));
-		return "redirect:/perfil"; 
-	}
-	
 
 	@RequestMapping(value = "/perfil/form", method = RequestMethod.GET)
 	public String form(ModelMap modelMap) {
@@ -56,7 +50,7 @@ public class PerfilController {
 	}
 
 	@RequestMapping(value = "/perfil", method = RequestMethod.POST)
-	public String create(@Valid @ModelAttribute("Perfil") Perfil perfil,BindingResult result) {
+	public String adiciona(@Valid @ModelAttribute("Perfil") Perfil perfil,BindingResult result) {
 		if(result.hasErrors()) {
 	      return "perfil/formulario";
 	    }
@@ -64,17 +58,25 @@ public class PerfilController {
 		perfilDao.persist(perfil);
 		return "redirect:/perfil";
 	}
+	
+	@RequestMapping(value = "/perfil/{id}", method = RequestMethod.DELETE)
+	public String remove(@PathVariable("id") int id) {
+		perfilDao.remove(perfilDao.find(id));
+		return "redirect:/perfil"; 
+	}
 
+	@RequestMapping(method = RequestMethod.PUT)
+	public String edita(@ModelAttribute("Perfil") Perfil perfil) {
+		perfilDao.merge(perfil);
+		return "redirect:/perfil";
+	}
+	
 	@RequestMapping(value = "/perfil/{id}/form", method = RequestMethod.GET)
-	public String updateForm(@PathVariable("id") int id, ModelMap modelMap) {
+	public String atualizaForms(@PathVariable("id") int id, ModelMap modelMap) {
 		modelMap.addAttribute("Perfil", perfilDao.find(id));
 		return "perfil/atualiza";
 	}
 
-	@RequestMapping(method = RequestMethod.PUT)
-	public String update(@ModelAttribute("Perfil") Perfil perfil) {
-		perfilDao.merge(perfil);
-		return "redirect:/perfil";
-	}	
+		
 
 }
