@@ -1,0 +1,24 @@
+Incluir no tcc - pagina 171.
+
+Procedimento para importar os projetos VRaptor e Spring MVC:
+
+Projeto Gestão Predial VRaptor
+ - Criar no MySql o Database com nome 'gestao_predial'
+ - Importar projeto gestao-predial.war no Eclipse.
+ - Acessar o arquivo do projeto: JavaResources > META-INF > persistence.xml
+e configurar o usuario e senha do banco de dados.
+ - Configurar servidor apache Tomcat 7.0.90 e adicionar ao BuildPath do projeto
+ - Iniciar o servidor e acessar o projeto: http://localhost:8080/gestao-predial/
+ - Na página de login, clicar no link [Criar usuário para acesso] para gerar 
+o login e senha para acessar o sistema.
+
+Projeto Gestão Predial Spring MVC
+ - Criar no MySql o Database com nome gestao_predial_spring
+ - Importar projeto gestao-predial-spring.war no Eclipse.
+ - Acessar o arquivo do projeto: JavaResources > META-INF > persistence.xml
+e configurar o usuario e senha do banco de dados.
+ - Configurar servidor apache Tomcat 7.0.90 e adicionar ao BuildPath do projeto
+ - Iniciar o servidor e acessar o projeto: http://localhost:8080/gestao-predial-spring/
+ - Na página de login, clicar no link [Criar usuário para acesso] para gerar 
+o login e senha para acessar o sistema.
+

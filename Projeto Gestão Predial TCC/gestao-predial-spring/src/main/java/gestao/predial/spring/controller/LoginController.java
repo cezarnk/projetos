@@ -81,7 +81,7 @@ public class LoginController {
 		perfil.setAndar_ocupado(0);
 		perfil.setAdministrador("true");
 		perfilDao.persist(perfil);
-		
+		System.out.println(perfil.getId());
 		Usuario usuario = new Usuario();
 		usuario.setLogin("admin");
 		usuario.setNome("Administrador Root");
