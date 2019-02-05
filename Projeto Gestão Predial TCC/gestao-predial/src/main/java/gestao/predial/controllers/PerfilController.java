@@ -47,14 +47,14 @@ public class PerfilController {
 		result.redirectTo(this).lista();
 	}
 	
-	@Delete("/perfil/remove")
+	@Path("/perfil/remove")
 	public void remove(Perfil perfil) {
 		perfilDao.remove(perfil);
 		result.include("mensagem","Perfil removido com sucesso!");
 		result.redirectTo(this).lista();
 	}
 	
-	@Put("/perfil/edita")
+	@Path("/perfil/edita")
 	public void edita(Perfil perfil){
         result.include(perfilDao.busca(perfil));
         result.redirectTo(this).form();
