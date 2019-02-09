@@ -536,7 +536,7 @@ footer.rodapé {
 	height: auto;
 }
 
-#cabeçalhoII {
+#cabecalhoII {
 	background-color: #012b5b;
 	min-height: 35px;
 	-webkit-transition: all 0.4s ease-out;
@@ -546,7 +546,7 @@ footer.rodapé {
 	transition: all 0.4s ease-out;
 }
 
-#cabeçalhoII .navbar-nav>li>a {
+#cabecalhoII .navbar-nav>li>a {
 	padding-top: 8px;
 	padding-bottom: 5px;
 	font-size: 16px;
