@@ -20,5 +20,5 @@ e configurar o usuario e senha do banco de dados.
  - Na página de login, clicar no link [Criar usuário para acesso] para gerar 
 um login e senha para acessar o sistema.
 
-Testes realizados no sistema operacional Linux Debian 9 e Linux MX 17.
-e nas IDE Eclipse Oxygen 4.7 e Eclipse Photon 4.8
+Testes realizados no sistema operacional Linux Debian 9, Linux MX 17 e Windows 10.
+e nas IDE Eclipse Oxygen 4.7 e Eclipse Photon 4.8 e Eclipse 09.2018
