@@ -5,8 +5,8 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'simplemoc.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
+    url(r'^$', 'simplemoc.core.views.home', name='home'),
     url(r'^admin/', include(admin.site.urls)),
 )
