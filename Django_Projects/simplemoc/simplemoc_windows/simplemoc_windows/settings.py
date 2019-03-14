@@ -37,7 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'simplemooc.core',
+    'simplemoc_windows.core',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -49,9 +49,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'simplemooc.urls'
+ROOT_URLCONF = 'simplemoc_windows.urls'
 
-WSGI_APPLICATION = 'simplemooc.wsgi.application'
+WSGI_APPLICATION = 'simplemoc_windows.wsgi.application'
 
 
 # Database
