@@ -1,0 +1,41 @@
+Equipe Desenvolvimento
+
+- Equipe formado por eu, Marco e Maysa
+
+- Desenvolvimento / 'Criação' - criar ferramentas automatizado para melhorar o dia dia das pessoas
+
+- Não segue scripts ou fica amarrado a normativos
+
+- Equipe Responsável pelo desenvolvimento de 2 projetos 'Site' e do 'SCAP'
+
+- Site: disseminar informação - quadro de noticias, elaboração de enquetes e Inspira
+
+- SCAP: Sistema mais complexo - para gerenciamento de demandas
+	Ganhos: 
+		- Demandante cadastrar e acompanhar suas demandas
+		- Equipe Condutora visualizar de forma rapida as demandas
+		- Facil acompanhamento gerencial atraves do Dashboard e Relatorios
+		- Sem triagem / Cair na equipe certa / Diminuir canais de atendimento
+		- Economizar impressão de papéis
+		- Qse 40.000 demandas cadastradas
+		- Atende as 5 plataformas: SP, RJ, Curitiba, RJ e Porto Alegre
+
+- Tendência q o BB espera: Tecnologia
+
+- Pontos fortes equipe:
+	- Decisão sempre em conjunto
+	- Idéia do SCRUM
+
+- Pontos a melhorar:
+	- Criar documentação
+	- Analise das demandas / entender os processos
+	- Tempo para melhorar o próprio currículo/
+
+- Resumo:
+	Membros da equipe
+	O que a equipe faz
+	No que ajudou no banco
+	Como a equipe trabalha
+
+
+Teste de mudança GitHub
