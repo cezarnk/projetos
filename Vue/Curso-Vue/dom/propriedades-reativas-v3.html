@@ -1,4 +1,4 @@
-<script src="https://unpkg/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
 
 <div id="app">
   <button v-on:click="aumentar">Aumentar</button>
@@ -16,7 +16,7 @@
       contador2: 0
     },
     computed: {
-      resultador() {
+      resultado() {
         console.log('método computed resultado chamado...')
         return this.contador >= 5 ?
           'Maior ou igual a 5' : 'Menor que 5'
