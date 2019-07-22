@@ -1,0 +1,41 @@
+Manual de Instalação - Postgres 
+Distribuição Linux MX 18.3 / Debian 9 Strech
+
+1 - Adicionar repositorio:
+
+	wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
+
+	sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
+
+2 - Atualizar repositorio e instalar:
+
+	sudo apt-get update
+	sudo apt-get install postgresql postgresql-contrib
+
+3 - Conectando ao Postgres:
+
+	sudo su - postgres
+	psql
+	postgres-# \conninfo
+	postgres-# \q
+
+4 - Alterando senha do usuário 'postgres':
+
+	sudo passwd postgres
+	su postgres
+	psql -c "ALTER USER postgres WITH PASSWORD 'nova_senha'" -d template1
+	
+5 - Configurando acesso para senha não cryptografado:
+
+	sudo vim /etc/postgresql/11/main/pg_hba.conf
+
+	Alterar
+	IPv4 local connections: para -> "password"
+
+	Métodos arquivo pg_hba.conf
+	METHOD:
+	"trust", "reject", "md5", "crypt", "password", "krb5", "ident", ou "pam"
+
+6 - Comando conectar banco de dados postgres:
+	
+	psql -h HOST -U USUARIODOBANCO -W
