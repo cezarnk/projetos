@@ -1,0 +1,11 @@
+npm install sqlite3
+npm install md5
+npm install node-pre-gyp --fallback-to-build
+npm install express
+
+npm install
+
+git init
+echo node_modules > .gitignore
+
+npm run start
