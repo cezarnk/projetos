@@ -1,0 +1,61 @@
+Projeto 1: 
+Registro de Contato com Cliente (Ligado a Avaliação)
+Feedback Avaliação e Resumo 
+[Playbook de Vendas]
+
+Introdução:
+Se vamos continuar na idéia de melhoria do atendimento através de avaliações e feedbacks, eu vejo a necessidade dessa funcionalidade.
+Avaliação NPS e da demanda mostra a experiencia que nosso cliente teve com o Cesup e a Ferramenta Scap, o Dashboard para parte Gerencial saber como anda o atendimento de sua equipe, as notas, quantidade de avaliação.
+
+E o 'Registro de contato' serve para quem atua no atendimento, guardar os feedbacks com os clientes e a equipe estar ciente de que o cliente já foi contatado.
+
+Adote ferramentas para cultivar o melhor atendimento
+Esteja atento ao feedback do cliente
+
+Melhoria contínua do atendimento
+
+Dor:
+Recebi do meu gerente uma lista de prefixo para entrar em contato sobre a avaliação NPS, onde guardo as informações que eu tive com o cliente? Como essa informação pode me ajudar? Como outros da equipe vão saber que já ligaram para determinado cliente falando sobre a avaliação?
+
+
+Solução:
+- Ter um formulário de 'Registro de Contato' vinculado ao atributo 'Avaliação' ou 'Prefixo'
+- Condutor da demanda ter acesso fácil a informação sobre avaliação e feedbacks para uma tomada de decisão mais acertiva, visando um melhor atendimento.
+
+Apresentação das telas:
+- (formulário)
+- (detalhe) É onde junta as informações de onde o cliente avaliou e alguem da equipe registrou um feedback. Pra mim a parte mais importante do ciclo do NPS, pois acredito quem vai fazer a diferença da nota sobre atendimento é quem está atendendo. Não adianta só eu pedir para o cliente avaliar ou só os gerentes saber quem avaliou e que notas que estamos recebendo. Precisamos dar informações para quem vai atender, dizer para ele se é um cliente é novo ou se ele já teve alguma experiência com scap ou atendimento, acho que é o mínimo para que eu possa avaliar o cliente.
+
+Modelo:
+
+- contato seria vinculado ao prefixo ou a uma avaliação
+- Prefixo, Texto, Matricula_de_contato, Tipo de feedback/contato (avaliação nps, avaliação demanda), Canal (teams, telefone, email, pessoalmente), Registrado_em, Registrada_por
+
+Interface:
+- Tela de cadastro do registro de contato
+- Ícone de acesso a tela na barra superior 
+- Popup proxy (popover) com resumo das avaliações e feedbacks no detalhe da demanda
+- Informação no extrato da dependência
+
+Ganhos:
+ - Com a avaliação e o registro de contato, teriamos um mini playbook do relacionamento com o cliente, para fazer uma análise e entender o perfil e sua experiencia com o Cesup
+
+- Possibilidade dos integrantes da equipe saber que aquele cliente, já teve um feedback da sua avaliação.
+
+- Com o Histórico de Contato e Avaliação do Demandante no 'Detalhe da Demanda', teria a informação de forma rápida para quem for tratar a demanda, sobre como foi a experiência do cliente e melhor atendê-lo.
+
+Objetivo:
+- Precisamos conhecer melhor nosso cliente para um melhor atendimento.
+
+
+Exemplo:
+
+- Galão da água: nota baixa, não saber o porque? com a implantação entender o que houve. (entregador não limpa o galão)
+
+- msg banner: Fique sempre atento à necessidades dos nossos clientes, ajudá-los a resolverem problemas é a nossa prioridade.
+
+Projeto 2:
+Extrato da Dependência
+
+Projeto 3:
+Interface renovada do portal Cesup

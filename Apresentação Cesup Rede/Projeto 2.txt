@@ -1,0 +1,17 @@
+Extrato da Dependencia
+
+Ter informações da dependencia em uma interface
+trazer dados de assuntos mais solicitados
+histórico de avaliações e contatos
+visualizar os arquivos que aquela dependencia gerou
+quais visitas já foram realizadas na dependencia 
+
+
+Problemas detectados:
+Onde posso obter mais informações sobre aquela dependência
+Gostaria de saber o que aquela dependencia já requisitou do Cesup
+Onde posso visualizar as avaliações e feedbacks daquela dependencia
+
+
+Ganhos:
+Local com informações da dependência
