@@ -2,16 +2,16 @@ Projeto 2 - Apresentação
 
 slide 1: (indrodução)
 
-Essa proposta de funcionalidade, está relacionado a idéia de poder vincular todos os serviços que uma dependência já solicitou ao Cesup. 
+Essa proposta de funcionalidade, está relacionado a idéia de poder vincular todos os serviços que uma dependência já demandou ao Cesup. 
 
 slide 2: (organizando informações)
 
+Então vamos ver um pouco do conceito de organização da informação e como seria no extrato da dependencia.
 
 (strof 1)
-
-Então a idéia do extrato da dependência é
+Então no extrato da dependencia seria
 Poder relacionar as informações das ferramantas do Scap em uma interface. 
-E que faça sentido, transformar esses dados em uma informação útil, podendo traçar um perfil da dependencia, criar uma classificação de acordo com as avaliações ou através de históricos das demandas prever futuros problemas.
+E que faça sentido, transformar esses dados em uma informação útil, podendo traçar um perfil da dependencia, talvez criar uma classificação de acordo com as avaliações ou através de históricos das demandas prever futuros problemas e fazer um atendimento próativo.
 
 (strof 2)
 Isso tem a ver com
@@ -20,24 +20,21 @@ Isso que é o objetivo do extrato da dependencia.
 
 (strof 3)
 Possibilidade da dependencia ver o quanto de esforço ele requisitou ao Cesup. 
-E disonibilizar essa informação, é uma forma de motrar transparência.
+E disponibilizar essa informação, é uma forma de motrar transparência.
 
 para o Cesup: seria como a Página Meu Cliente,
-para o Cliente: seria uma visão  Minha Página, Meus Dados, Minha Conta
+para o Cliente: seria uma visão como Minha Página, Meus Dados, Minha Conta
 
-slide 3: (problema identificado)
+slide 3: (problema identificado) ou uma necessidade, talvez
 slide 4: (proposta de solução)
 
 slide 5 e 6: (tela do extrato da dependencia) [Visão Cliente]
 
-- Área de Notificações, onde poderia informar pendências que ele precisa fazer alguma 
-ação, avisos de campanhas e dicas de preservação do local.
+- Área de Notificações, onde poderia informar pendências que ele precisa fazer alguma ação, avisos de campanhas e dicas de preservação do local.
 
-- Área de Histórico das Demandas, com a possibilidade de visualizar os serviços que
-ele já demandou ao Cesup.
+- Área de Histórico das Demandas, com a possibilidade de visualizar os serviços que ele já demandou ao Cesup.
 
-- Área de Visitas, poderia trazer as visitas já realizadas e visitas agendadas para aquela
-dependência.
+- Área de Visitas, poderia trazer as visitas já realizadas e visitas agendadas para aquela dependência.
 
 - Área de Arquivos, onde estaria os anexos que aquela dependência gerou.
 
@@ -46,18 +43,15 @@ dependência.
 
 slide 7 e 8: (tela do extrato da dependencia) [Visão Rede]
 
-- Demandas - (Dashboard, Gráficos) com informações que possa indicar ações preventivas 
-para realizar naquela dependência. 
+- Demandas - (Gráficos, indicadores) com informações que possa indicar ações preventivas para realizar naquela dependência. 
 
-- Visitas - Além das informações das visitas, poderia ter a informação de qual Reserva 
-de  veículo foi utilizado naquela visita.
+- Visitas - Além das informações das visitas, poderia ter a informação de qual Reserva de  veículo foi ou será utilizado na visita.
 
-- Relacionamento - Além da avaliação, teria os registros de contatos já realizados e 
-poderia ter uma sinalização no cliente (detrator, neutro e promotor).
+- Arquivos – poder visualizar arquivos não só gerado pela dependencia como as que foram gerados pela rede.
 
-- Arquivos – ter regra de visualização para qualquer arquivo quando o usuário for da Rede.
+- Relacionamento - Além da avaliação, teria os registros de contatos já realizados e poderia ter uma sinalização no cliente (detrator, neutro ou promotor).
 
 
-
+slide 9: (ganhos) 
 
 
