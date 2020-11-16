@@ -1,0 +1,51 @@
+1 - slide (introdução)
+Essa funcionalidade segue a linha da melhoria do atendimento. Hoje, não só o Cesup, mas como outros dptos. estão começando a utilizar o sistema de avaliação para ouvir os clientes para saber o que pode ou deve ser melhorado. 
+
+2 - slide (ciclo de avaliação)
+Quando mandamos uma avaliação, o ideal, é sempre que possível, dar um feedback para o cliente sobre a avaliação recebida, para ele saber que sua avaliação é importante e entender o que motivou sua avaliação e criar um relacionamento com cliente.
+Tanto que esse feedback com cliente após avaliação, é uma etapa na métrica da Avaliação NPS (que se chama: Ciclo de feedbacks ou Fechamento do Loop Externo)
+São selecionados os clientes após analise de dados pare quem vai receber os feedbacks.
+Seja para solucionar o problema constatado pelos Detratores e Neutros, ou incentivar os promotores.
+
+3 - slide (ciclo de avaliação no scap)
+E no Scap, como funciona este esse ciclo de avaliação? 
+Hoje o Scap é a interface onde o cliente e o pessoal do atendimento interagem com as informações da solicitação da demanda até a sua conclusão, é onde acontece o Serviço.
+
+Agora começamos a utilizar o sistema de avaliação com intuito da melhoraria contínua
+- Foi criado o envio do email e uma interface para o Cliente poder fazer a avaliação.
+
+- Foi criado para Gerência os Dashboards para fazer as análises e acompanhamento das avaliações.
+
+- E para o Feedback com o cliente? O que foi criado? para registrar os contatos e as informações obtidas com o cliente?
+
+4 - slide: leitura (problema identificado)
+
+5 - slide: leitura (proposta de solução)
+
+6 - slide: (tela de cadastro)
+Modelo:
+- Registro de Contato poderia ser vinculado ao prefixo ou a uma avaliação
+- Prefixo, 
+- Texto, 
+- Matricula_de_contato, 
+- Tipo de feedback/contato (avaliação do scap, avaliação demanda), 
+- Canal (teams, telefone, email, pessoalmente)
+
+7,8 e 9 slide: (tela detalhe da demanda)
+a parte mais interessante talvez, começar a trazer informações das avaliações e registro de contato com o cliente para o condutor, para começar ter a cultura de ações com base no feedback do cliente.
+
+Vamos ver como isso podefuncionar, vejamos um exemplo:
+- Sou da equipe da predial, 
+- Passou 1 semestre estavamos com uma nota boa, agora estamos no segundo semestre e precisamos melhorar a nota de avaliação, 
+- Como eu do atendimento posso ajudar a melhorar a nota, alguém pede o galão da água, e eu sou o condutor, a idéia é ter o ícone e quando clicar nele, trazer informações das avaliações e feedbacks do beneficiário, assim de repente, poder identificar se ele é  um detrator, neutro ou promotor. 
+- Eu olho e vejo que ele já avaliou uma demanda de galão de água e deu nota ruim porque o rapaz não higienizou o galão e o bebedouro.
+- E com base nessa informação, eu posso melhorar o atendimento tradicional com esse cliente, de repente orientar o entregador a fazer a higienização do galão e quando pegar a assinatura informar o que ele fez, 
+- E com esse atendimenteo, quem sabe reverter essa nota desse cliente para uma nota positiva.
+
+10 slide: leitura (ganhos)
+
+
+
+
+
+

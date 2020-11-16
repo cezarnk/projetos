@@ -1,0 +1,63 @@
+Projeto 2 - Apresentação
+
+slide 1: (indrodução)
+
+Essa proposta de funcionalidade, está relacionado a idéia de poder vincular todos os serviços que uma dependência já solicitou ao Cesup. 
+
+slide 2: (organizando informações)
+
+
+(strof 1)
+
+Então a idéia do extrato da dependência é
+Poder relacionar as informações das ferramantas do Scap em uma interface. 
+E que faça sentido, transformar esses dados em uma informação útil, podendo traçar um perfil da dependencia, criar uma classificação de acordo com as avaliações ou através de históricos das demandas prever futuros problemas.
+
+(strof 2)
+Isso tem a ver com
+Disponibilidade de informação organizado e de fácil interpretação.
+Isso que é o objetivo do extrato da dependencia.
+
+(strof 3)
+Possibilidade da dependencia ver o quanto de esforço ele requisitou ao Cesup. 
+E disonibilizar essa informação, é uma forma de motrar transparência.
+
+para o Cesup: seria como a Página Meu Cliente,
+para o Cliente: seria uma visão  Minha Página, Meus Dados, Minha Conta
+
+slide 3: (problema identificado)
+slide 4: (proposta de solução)
+
+slide 5 e 6: (tela do extrato da dependencia) [Visão Cliente]
+
+- Área de Notificações, onde poderia informar pendências que ele precisa fazer alguma 
+ação, avisos de campanhas e dicas de preservação do local.
+
+- Área de Histórico das Demandas, com a possibilidade de visualizar os serviços que
+ele já demandou ao Cesup.
+
+- Área de Visitas, poderia trazer as visitas já realizadas e visitas agendadas para aquela
+dependência.
+
+- Área de Arquivos, onde estaria os anexos que aquela dependência gerou.
+
+- Área de Relacionamento, onde teria informações das avaliações realizadas.
+
+
+slide 7 e 8: (tela do extrato da dependencia) [Visão Rede]
+
+- Demandas - (Dashboard, Gráficos) com informações que possa indicar ações preventivas 
+para realizar naquela dependência. 
+
+- Visitas - Além das informações das visitas, poderia ter a informação de qual Reserva 
+de  veículo foi utilizado naquela visita.
+
+- Relacionamento - Além da avaliação, teria os registros de contatos já realizados e 
+poderia ter uma sinalização no cliente (detrator, neutro e promotor).
+
+- Arquivos – ter regra de visualização para qualquer arquivo quando o usuário for da Rede.
+
+
+
+
+
