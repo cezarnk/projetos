@@ -14,17 +14,21 @@ let smartphone = new Smartphone(
  );
  console.log(smartphone);
  smartphone.save(function (err) {
-if (err) {
-return next(err);
- }
-  res.send('Registo de Smartphone criado com sucesso')
- })
+  if (err) {
+    console.log(err);
+    return next(err);
+//    return callback(err);
+   }
+    res.send('Registo de Smartphone criado com sucesso')
+   })
 };
 
 //Consultar smartphone ao BD
 exports.details = function (req, res) {
+    console.log(req.params.id);
     Smartphone.findById(req.params.id, function (err, product) {
 if (err) return next(err);
+        console.log(err);
         res.send(smartphone);
     })
 };

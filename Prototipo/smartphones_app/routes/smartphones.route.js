@@ -9,6 +9,6 @@ router.get('/testar', smartphone_controller.test);
 
 router.post('/create', smartphone_controller.create);
 
-router.get('/:id', smartphone_controller.details);
+router.get('/consultar/:id', smartphone_controller.details);
 
 module.exports = router;
