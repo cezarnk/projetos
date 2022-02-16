@@ -7,7 +7,7 @@ exports.test = function (req, res) {
 //Adicionar smartphone à BD
 exports.create = function (req, res) {
 let smartphone = new Smartphone(
- {
+  {
    nome: req.body.nome,
    marca: req.body.marca
  }
