@@ -1,0 +1,12 @@
+2 - Yamada-san wa Nihon-jin desu.
+3 - Watto-san wa Igirisu-jin desu.
+4 - Tawapon-san wa Tai-jin desu.
+5 - Shumitto-san wa Doitsu-jin desu.
+
+2 - Yamada-san wa ginkoin desu.
+3 - Watto-san wa sensei desu.
+4 - Tawapon-san wa gakusei desu.
+5 - Shumitto-san wa enjinia desu.
+
+
+
