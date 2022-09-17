@@ -1,0 +1,25 @@
+Reserva de Lugar
+
+- local_reserva/espaco_de_ocupacao
+	predio
+	andar
+	dependencia/bem_utilizado
+	lugares
+	prefixos_ocupantes: []
+
+- prefixo_ocupante
+	id_local_reserva (FK)
+	lugares_do_prefixo
+	equipe
+
+- lugar_reservado
+	lugar/posição_utilizado
+	data_reservado
+	horario_inicio
+	horario_fim
+	funcionário
+	registrado_por
+	registrado_em
+
+Percentual de ocupação
+
