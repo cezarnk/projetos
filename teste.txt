@@ -1,0 +1,511 @@
+<template>
+  <div class="q-pa-md">
+    <q-layout view="hHh Lpr lff" container style="height: 850px" class="shadow-2 rounded-borders">
+      <q-header elevated class="bg-secondary">
+        <q-toolbar>
+          <q-btn color="white" flat @click="drawerLeft = !drawerLeft" round dense icon="search" />
+          <q-toolbar-title>Consulta Demandas</q-toolbar-title>
+          <!-- <q-btn
+          color="white"
+          flat
+          @click="drawerRight = !drawerRight"
+          round
+          dense
+          icon="menu"
+          /> -->
+        </q-toolbar>
+      </q-header>
+      <q-drawer
+        v-model="drawerLeft"
+        show-if-above
+        :width="250"
+        :breakpoint="700"
+        elevated
+        content-class="bg-primary text-white"
+      >
+        <q-scroll-area class="fit bg-grey-3">
+          <div class="q-pa-sm">
+            <div>
+              <q-input
+              mask="############"
+              dense
+              bg-color="white"
+              maxlength="12"
+              standout="text-secondary"
+              class="q-pa-sm"
+              outlined
+              v-model="filtroprotocolo"
+              label="Protocolo"
+              />
+              <q-input
+              mask="####/##"
+              dense
+              bg-color="white"
+              maxlength="7"
+              standout="text-secondary"
+              class="q-pa-sm"
+              outlined
+              v-model="filtroprefixobeneficiario"
+              label="Prefixo/Sb Beneficiário"
+              />
+              <q-input
+              mask="####/##"
+              dense
+              bg-color="white"
+              maxlength="7"
+              standout="text-secondary"
+              class="q-pa-sm"
+              outlined
+              v-model="filtroprefixosolicitante"
+              label="Prefixo/Sb Solicitante"
+              />
+              <q-select class="q-pa-sm"
+              dense
+              bg-color="white"
+              color="secondary"
+              outlined
+              v-model="filtrostatusdemanda"
+              :options="opcoesstatusdemanda"
+              label="Status da Demanda"
+              multiple
+              emit-value
+              map-options
+              >
+                <template v-slot:option="scope">
+                  <q-item
+                    v-bind="scope.itemProps"
+                    v-on="scope.itemEvents"
+                  >
+                    <q-item-section>
+                      <q-item-label v-html="scope.opt.label" ></q-item-label>
+                    </q-item-section>
+                    <q-item-section side>
+                      <q-toggle v-model="filtrostatusdemanda" :val="scope.opt.value" />
+                    </q-item-section>
+                  </q-item>
+                </template>
+              </q-select>
+              <q-input
+              mask="##/##/####"
+              dense
+              bg-color="white"
+              standout="text-secondary"
+              class="q-pa-sm"
+              outlined
+              v-model="filtrodataaberturainicial"
+              label="Data de abertura (Início)"
+              />
+              <q-input
+              mask="##/##/####"
+              dense
+              bg-color="white"
+              standout="text-secondary"
+              class="q-pa-sm"
+              outlined
+              v-model="filtrodataaberturafinal"
+              label="Data de abertura (Fim)"
+              />
+              <q-input
+              mask="##/##/####"
+              dense
+              bg-color="white"
+              standout="text-secondary"
+              class="q-pa-sm"
+              outlined
+              v-model="filtrodataencerramentoinicial"
+              label="Data de encerramento (Início)"
+              />
+              <q-input
+              mask="##/##/####"
+              dense
+              bg-color="white"
+              standout="text-secondary"
+              class="q-pa-sm"
+              outlined
+              v-model="filtrodataencerramentofinal"
+              label="Data de encerramento (Fim)"
+              />
+              <q-toggle
+              v-if="podeConsultarDemandasMassificadas"
+              label="Modo Demandas massificadas?"
+              style="color: black;"
+              v-model="filtroverdemandasmassificadas"
+              />
+
+
+            <q-select outlined
+            v-model="seletorObjetivo"
+            :options="objetivos"
+            label="Outlined">
+              <template v-slot:option="scope">
+                <!-- <q-item v-bind="scope.itemProps">
+                  <q-item-section avatar>
+                    {{ scope.opt.id }}
+                  </q-item-section>
+                  <q-item-section>
+                    <q-item-label v-html="scope.opt.label" />
+                    <q-item-label caption>
+                      {{ scope.opt.perspectiva }}
+                    </q-item-label>
+                  </q-item-section>
+                </q-item> -->
+                <q-tree
+                  :nodes="simple"
+                  node-key="label"
+                  no-connectors
+                  v-model:expanded="expanded"
+                />
+              </template>
+            </q-select>
+
+              <div class="q-pa-md" align="center">
+                <q-btn size="sm" text-color="secondary"
+                  label="Buscar"
+                  icon="search"
+                  @click="listarDemandas(1);"
+                />
+                <q-btn size="sm" text-color="secondary"
+                  label="Limpar"
+                  icon="brush"
+                  @click="limparFiltros()"
+                />
+              </div>
+            <q-inner-loading :showing="visible">
+              <q-spinner-gears size="100px" color="secondary" />
+            </q-inner-loading>
+
+            </div>
+          </div>
+        </q-scroll-area>
+      </q-drawer>
+      <!-- <q-drawer
+        side="right"
+        v-model="drawerRight"
+        show-if-above
+        bordered
+        :width="200"
+        :breakpoint="500"
+        content-class="bg-grey-3"
+      >
+        <q-scroll-area class="fit">
+          <div class="q-pa-sm">
+            <div v-for="n in 50" :key="n">Drawer {{ n }} / 50</div>
+          </div>
+        </q-scroll-area>
+      </q-drawer> -->
+      <q-page-container>
+        <q-page padding>
+          <ListaDemandasClienteExterno
+          v-on:abrePagina="abrirPagina"
+          :demandas="demandas"
+          :quantidadeRegistros="quantidadeRegistros"
+          :paginaAtual="paginaAtual"
+          :loading="loading"
+          :filtroverdemandasmassificadas="filtroverdemandasmassificadas"
+          />
+        </q-page>
+      </q-page-container>
+    </q-layout>
+    <q-dialog v-model="alert">
+      <q-card class="bg-grey-3">
+        <q-card-section>
+          <div class="text-h6" style="color: #005aa5;"></div>
+        </q-card-section>
+          <q-card-section class="q-pt-none">
+            <span
+            style="color: #005aa5;"
+            >
+              A pesquisa não retornou dado(s).
+            </span>
+          </q-card-section>
+        <q-card-actions align="right">
+          <q-btn
+          @click="this.alert = false;"
+          label="OK"
+          style="background-color: #005aa5; color: #ffffff;"
+          v-close-popup
+          />
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
+    <q-dialog v-model="alertErro">
+      <q-card class="bg-grey-3">
+        <q-card-section>
+          <div class="text-h6" style="color: #005aa5;"></div>
+        </q-card-section>
+          <q-card-section class="q-pt-none">
+            <span
+            style="color: #005aa5;"
+            >
+              A pesquisa está indisponível no momento.
+              Tente novamente mais tarde.
+              Caso a indisponibilidade continue, contate nossa equipe de desenvolvimento.
+            </span>
+          </q-card-section>
+        <q-card-actions align="right">
+          <q-btn
+          @click="this.alertErro = false;"
+          label="OK"
+          style="background-color: #005aa5; color: #ffffff;"
+          v-close-popup
+          />
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
+  </div>
+</template>
+
+<script>
+import { mapGetters } from 'vuex';
+import { date } from 'quasar';
+import ListaDemandasClienteExterno from '../../components/Demandas/ListaDemandasClienteExterno.vue';
+
+export default {
+  components: {
+    ListaDemandasClienteExterno,
+  },
+  filters: {
+    formataData(value) {
+      const dataFormatada = date.formatDate(value, 'DD/MM/YY - HH:mm');
+      return dataFormatada;
+    },
+    formataDataSemHora(value) {
+      const dataFormatada = date.formatDate(value, 'DD/MM/YYYY');
+      return dataFormatada;
+    },
+    upperCase(value) {
+      const dados = value.toUpperCase();
+      return dados;
+    },
+  },
+  data() {
+    return {
+      quantidadeRegistros: 0,
+      paginaAtual: 1,
+      loading: false,
+      alert: false,
+      alertErro: false,
+      demandas: [],
+      drawerLeft: false,
+      // drawerRight: false,
+      visible: false,
+      filtroprotocolo: '',
+      filtroprefixobeneficiario: '',
+      filtroprefixosolicitante: '',
+      filtrodataaberturainicial: '',
+      filtrodataaberturafinal: '',
+      filtrodataencerramentoinicial: '',
+      filtrodataencerramentofinal: '',
+      filtrostatusdemanda: [],
+      opcoesstatusdemanda: [
+        {
+          label: 'Registrada',
+          value: 'R',
+        },
+        {
+          label: 'Em Análise',
+          value: 'E',
+        },
+        {
+          label: 'Pendente Demandante',
+          value: 'P',
+        },
+        {
+          label: 'Em Andamento',
+          value: 'A',
+        },
+        {
+          label: 'Suspensa',
+          value: 'S',
+        },
+        {
+          label: 'Concluída',
+          value: 'C',
+        },
+        {
+          label: 'Cancelada',
+          value: 'X',
+        },
+      ],
+      filtroverdemandasmassificadas: false,
+      seletorObjetivo: '',
+      objetivos: [
+        {
+          objetivo: 'Plano Diretor - 2022 -2026',
+          vigente_desde: '2022-04-26',
+          vigente_ate: '2024-04-26',
+          objetivo_pai_id: null,
+          perspectiva: 'Processos',
+          id: 1,
+          nivel: 1,
+        },
+        {
+          objetivo: 'Plano Diretor 2021 - 2025',
+          vigente_desde: '2022-04-26',
+          vigente_ate: '2025-01-01',
+          objetivo_pai_id: null,
+          perspectiva: 'Clientes',
+          id: 2,
+          nivel: 1,
+        },
+        {
+          objetivo: 'Plano Diretor 2021 - 2025',
+          vigente_desde: '2022-04-26',
+          vigente_ate: '2025-01-01',
+          objetivo_pai_id: null,
+          perspectiva: 'Financeira',
+          id: 3,
+          nivel: 1,
+        },
+        {
+          objetivo: 'Plano Diretor 2021 - 2025',
+          vigente_desde: '2022-04-26',
+          vigente_ate: '2025-01-01',
+          objetivo_pai_id: null,
+          perspectiva: 'Sustentabilidade',
+          id: 5,
+          nivel: 1,
+        },
+        {
+          objetivo: 'Plano Diretor 2021 - 2025',
+          vigente_desde: '2022-04-26',
+          vigente_ate: '2025-01-01',
+          objetivo_pai_id: null,
+          perspectiva: 'Processos',
+          id: 6,
+          nivel: 1,
+        },
+        {
+          objetivo: 'Plano Diretor 2021 - 2025',
+          vigente_desde: '2022-04-26',
+          vigente_ate: '2025-01-01',
+          objetivo_pai_id: null,
+          perspectiva: 'Pessoas',
+          id: 7,
+          nivel: 1,
+        },
+        {
+          objetivo: 'Plano Diretor 2021 - 2025',
+          vigente_desde: '2022-04-26',
+          vigente_ate: '2025-01-01',
+          objetivo_pai_id: 3,
+          perspectiva: 'Financeira',
+          id: 8,
+          nivel: 2,
+        },
+        {
+          objetivo: 'Plano Diretor 2021 - 2025',
+          vigente_desde: '2022-04-26',
+          vigente_ate: '2025-01-01',
+          objetivo_pai_id: 7,
+          perspectiva: 'Pessoas',
+          id: 9,
+          nivel: 1,
+        },
+      ],
+      arvore: [],
+      expandido: 'Processos',
+    };
+  },
+  computed: {
+    ...mapGetters('UsuarioLogado', [
+      'perfilUsuarioLogado',
+    ]),
+    podeConsultarDemandasMassificadas() {
+      const permissoesDoUsuario = this.perfilUsuarioLogado.perms;
+      const idx = permissoesDoUsuario.indexOf('demandas.pode_consultar_demandas_massificadas');
+      return idx > -1;
+    },
+  },
+  methods: {
+    formataDataParaAnoMesDia(data) {
+      const dia = data.substr(0, 2);
+      const mes = data.substr(3, 2);
+      const ano = data.substr(6, 4);
+      const dataFormatada = `${ano}-${mes}-${dia}`;
+      return dataFormatada;
+    },
+    limparFiltros() {
+      this.alert = false;
+      this.filtroprotocolo = '';
+      this.filtroprefixobeneficiario = '';
+      this.filtroprefixosolicitante = '';
+      this.filtrostatusdemanda = [];
+      this.filtroverdemandasmassificadas = false;
+      this.filtrodataaberturainicial = '';
+      this.filtrodataaberturafinal = '';
+      this.filtrodataencerramentoinicial = '';
+      this.filtrodataencerramentofinal = '';
+      this.demandas = [];
+    },
+    abrirPagina(pagina) {
+      if (typeof pagina === 'number') {
+        this.paginaAtual = pagina;
+      } else if (pagina === 'proxima') {
+        this.paginaAtual += 1;
+        pagina = this.paginaAtual;
+      } else {
+        this.paginaAtual -= 1;
+        pagina = this.paginaAtual;
+      }
+      this.listarDemandas(pagina);
+    },
+    async listarDemandas(pagina) {
+      this.paginaAtual = pagina;
+      this.loading = true;
+      const protocolo = this.filtroprotocolo;
+      const prefixoBeneficiario = this.filtroprefixobeneficiario.substr(0, 4);
+      const subBeneficiario = this.filtroprefixobeneficiario.substr(5, 2);
+      const prefixoSolicitante = this.filtroprefixosolicitante.substr(0, 4);
+      const subSolicitante = this.filtroprefixosolicitante.substr(5, 2);
+      const statusdemanda = this.filtrostatusdemanda;
+      const dataAberturaInicial = this.filtrodataaberturainicial ? this.formataDataParaAnoMesDia(this.filtrodataaberturainicial) : '';
+      const dataAberturaFinal = this.filtrodataaberturafinal ? this.formataDataParaAnoMesDia(this.filtrodataaberturafinal) : '';
+      const dataEncerramentoInicial = this.filtrodataencerramentoinicial ? this
+        .formataDataParaAnoMesDia(this.filtrodataencerramentoinicial) : '';
+      const dataEncerramentoFinal = this.filtrodataencerramentofinal ? this.formataDataParaAnoMesDia(this.filtrodataencerramentofinal) : '';
+      const verdemandasmassificadas = this.filtroverdemandasmassificadas;
+      const a = `/api/lista-demandas/?page=${pagina}`;
+      const b = `&protocolo=${protocolo}`;
+      const c = `&prefixobeneficiario=${prefixoBeneficiario}`;
+      const d = `&subbeneficiario=${subBeneficiario}`;
+      const e = `&prefixosolicitante=${prefixoSolicitante}`;
+      const f = `&subsolicitante=${subSolicitante}`;
+      const g = `&statusdemanda=${statusdemanda}`;
+      const h = `&dataaberturainicial=${dataAberturaInicial}`;
+      const i = `&dataaberturafinal=${dataAberturaFinal}`;
+      const j = `&dataencerramentoinicial=${dataEncerramentoInicial}`;
+      const k = `&dataencerramentofinal=${dataEncerramentoFinal}`;
+      const l = `&verdemandasmassificadas=${verdemandasmassificadas}`;
+      return new Promise((resolve, reject) => {
+        this.$axios.get(`${a}${b}${c}${d}${e}${f}${g}${h}${i}${j}${k}${l}`)
+          .then((response) => {
+            resolve(response);
+            this.demandas = response.data.results;
+            this.quantidadeRegistros = response.data.count;
+            if (response.data.count === 0) {
+              this.alert = true;
+            }
+            this.loading = false;
+          })
+          .catch((error) => {
+            reject(error);
+            this.alertErro = true;
+          });
+      });
+    },
+  },
+  mounted() {
+    const per = [
+      'Financeira', 'Clientes', 'Processos', 'Sustentabilidade', 'Pessoas',
+    ];
+    per.forEach((e) => {
+      console.log(e);
+      this.arvore.push({
+        label: e,
+        children: [],
+      });
+    });
+  },
+};
+</script>
