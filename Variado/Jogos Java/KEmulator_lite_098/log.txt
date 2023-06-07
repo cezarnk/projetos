@@ -1,0 +1,65 @@
+KEmulator Lite v0.9.8 Running...
+Get classes from C:\Users\cezar\Downloads\zombieinfe_mftjjpte.jar
+Get class g
+Get class b
+Get class f
+Get class a
+Get class e
+Get class d
+Get class GloftMASS
+Get class c
+Custom.jar.getResourceStream: /icon.png (976)
+Launch MIDlet class: GloftMASS
+Custom.jar.getResourceStream: /dpad.png (2342)
+openRecordStore a
+getRecord a_1
+openRecordStore a
+addRecord a_1
+addRecord a_2
+Custom.jar.getResourceStream: dataIGP (36785)
+openRecordStore a
+openRecordStore a
+Custom.jar.getResourceStream: dataIGP (36785)
+Custom.jar.getResourceStream: palettesAmount.bin (311)
+Custom.jar.getResourceStream: m0 (990)
+Custom.jar.getResourceStream: t0 (42088)
+Custom.jar.getResourceStream: t0 (42088)
+Custom.jar.getResourceStream: m1 (1977)
+Custom.jar.getResourceStream: m1 (1977)
+Custom.jar.getResourceStream: m0 (990)
+Custom.jar.getResourceStream: t0 (42088)
+Custom.jar.getResourceStream: m2 (22579)
+Custom.jar.getResourceStream: m2 (22579)
+Custom.jar.getResourceStream: m7 (40802)
+Custom.jar.getResourceStream: m2 (22579)
+Custom.jar.getResourceStream: m11_0 (14559)
+Custom.jar.getResourceStream: m11_1 (15084)
+Custom.jar.getResourceStream: m12 (379)
+Custom.jar.getResourceStream: m13_1 (8618)
+Custom.jar.getResourceStream: m13_2 (87083)
+Custom.jar.getResourceStream: m13_2 (87083)
+Custom.jar.getResourceStream: m13_2 (87083)
+openRecordStore a
+getRecord a_1
+openRecordStore a
+Custom.jar.getResourceStream: m9 (18188)
+Custom.jar.getResourceStream: m8 (4870)
+Custom.jar.getResourceStream: m10 (2825)
+Custom.jar.getResourceStream: t0 (42088)
+Custom.jar.getResourceStream: m6_2 (4867)
+Custom.jar.getResourceStream: m7 (40802)
+Custom.jar.getResourceStream: m3_0 (133420)
+Custom.jar.getResourceStream: m5_0 (9)
+Custom.jar.getResourceStream: m5_1 (5125)
+Custom.jar.getResourceStream: m5_2 (105)
+Custom.jar.getResourceStream: m5_4 (9)
+Custom.jar.getResourceStream: m5_6 (2517)
+Custom.jar.getResourceStream: m5_9 (9)
+Custom.jar.getResourceStream: m4_0 (49410)
+Custom.jar.getResourceStream: m7 (40802)
+>>Exception in thread "Thread-54" >>java.lang.IllegalStateException: sequencer not open
+>>	at com.sun.media.sound.RealTimeSequencer.start(Unknown Source)
+>>	at javax.microedition.media.PlayerImpl.run(Unknown Source)
+>>	at java.lang.Thread.run(Unknown Source)
+Notify Destroyed
+Exiting Emulator
